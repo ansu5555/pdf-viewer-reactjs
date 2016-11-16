@@ -1,0 +1,37 @@
+{
+  "name": "temp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "webpack-watch": "node_modules/webpack/bin/webpack.js -w",
+    "express-server": "node_modules/nodemon/bin/nodemon.js --config nodemon.json server.js",
+    "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgrin/node-app-bootstrap.git"
+  },
+  "author": "MGrin",
+  "license": "ISC",
+  "dependencies": {
+    "babel-loader": "latest",
+    "babel-plugin-transform-class-properties": "latest",
+    "babel-plugin-transform-runtime": "latest",
+    "babel-polyfill": "latest",
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "latest",
+    "babel-preset-stage-0": "latest",
+    "babel-register": "latest",
+    "express": "latest",
+    "nodemon": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-highlight": "^0.9.0",
+    "webpack": "latest"
+  },
+  "devDependencies": {
+    "concurrently": "latest"
+  }
+}
