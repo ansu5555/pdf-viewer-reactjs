@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactPdfJs = require('react-pdf-js');
+
+var _reactPdfJs2 = _interopRequireDefault(_reactPdfJs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30,15 +34,37 @@ var PDFViewer = function (_React$Component) {
   _createClass(PDFViewer, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'h1',
-        null,
-        'To be implemented'
-      );
+      var source = this.props.document;
+      var loader = this.props.loader;
+
+
+      return _react2.default.createElement(_reactPdfJs2.default, {
+        file: source.file || source.url,
+        content: source.base64,
+        binaryContent: source.binary,
+        documentInitParameters: source.connection,
+        loading: loader });
     }
   }]);
 
   return PDFViewer;
 }(_react2.default.Component);
 
-exports.default = Tooltip;
+PDFViewer.propTypes = {
+  document: _react.PropTypes.shape({
+    file: _react.PropTypes.any, // File object,
+    url: _react.PropTypes.string,
+    connection: _react.PropTypes.shape({
+      url: _react.PropTypes.string.isRequired }),
+    base64: _react.PropTypes.string, // PDF file encoded in base64
+    binary: _react.PropTypes.shape({ // UInt8Array
+      data: _react.PropTypes.any
+    })
+  }),
+
+  loader: _react.PropTypes.node,
+  page: _react.PropTypes.number,
+  scale: _react.PropTypes.number
+};
+
+exports.default = PDFViewer;
