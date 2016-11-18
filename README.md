@@ -1,6 +1,8 @@
 # mgr-pdf-viewer-react
 Simple react PDF Viewer component with controls. Every element can be styled upon your preferences using default classes our your own.
 
+## Example: https://mgrin.github.io/mgr-pdf-viewer-react/index.html
+
 # How to install
 ```
 npm install mgr-pdf-viewer-react --save
