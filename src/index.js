@@ -230,6 +230,8 @@ class PDFViewer extends React.Component {
       pages
     } = this.state;
 
+    const NavigationElement = navigation;
+
     const pdf = (<PDF
                   file={source.file || source.url}
                   content={source.base64}
@@ -250,7 +252,7 @@ class PDFViewer extends React.Component {
             elements={navigation ? navigation.elements : undefined}
             handleNextClick={this.handleNextClick}
             handlePrevClick={this.handlePrevClick} />
-        : <navigation
+        : <NavigationElement
             page={page}
             pages={pages}
             handleNextClick={this.handleNextClick}
@@ -275,7 +277,7 @@ PDFViewer.propTypes = {
     binary: PropTypes.shape({ // UInt8Array
       data: PropTypes.any,
     })
-  }),
+  }).isRequired,
 
   loader: PropTypes.node,
   page: PropTypes.number,

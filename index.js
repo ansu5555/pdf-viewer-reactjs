@@ -263,6 +263,8 @@ var PDFViewer = function (_React$Component) {
           pages = _state.pages;
 
 
+      var NavigationElement = navigation;
+
       var pdf = _react2.default.createElement(_reactPdfJs2.default, {
         file: source.file || source.url,
         content: source.base64,
@@ -275,14 +277,13 @@ var PDFViewer = function (_React$Component) {
 
       var nav = null;
       if (pages > 0) {
-        console.log(navigation.propTypes);
         nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? _react2.default.createElement(Navigation, {
           page: page,
           pages: pages,
           css: navigation ? navigation.css : undefined,
           elements: navigation ? navigation.elements : undefined,
           handleNextClick: this.handleNextClick,
-          handlePrevClick: this.handlePrevClick }) : _react2.default.createElement('navigation', {
+          handlePrevClick: this.handlePrevClick }) : _react2.default.createElement(NavigationElement, {
           page: page,
           pages: pages,
           handleNextClick: this.handleNextClick,

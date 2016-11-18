@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import PDFViewer from '../../../index.js'
 import sources from './sources.js';
+import CustomNavigation, {CustomPrevButton, CustomNextButton, CustomPages} from './Navigation.js';
 
 const FromUrl = () => (<div>
   <h1>Fetch PDF by URL</h1>
@@ -54,48 +55,6 @@ const WithCustomNavigationStyles = () => (<div>
   }} />
 </div>);
 
-const CustomPrevButton = (props) => {
-  const {
-    page,
-    pages,
-    handlePrevClick
-  } = props;
-  if (page === 1) return <div></div>;
-
-  return <h3 style={{cursor: 'pointer', display: 'inline-block', marginRight: 24}} onClick={handlePrevClick}>Previous page</h3>;
-};
-CustomPrevButton.propTypes = {
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired,
-  handlePrevClick: PropTypes.func.isRequired
-};
-const CustomNextButton = (props) => {
-  const {
-    page,
-    pages,
-    handleNextClick
-  } = props;
-  if (page === pages) return <div></div>;
-
-  return <h3 style={{cursor: 'pointer', display: 'inline-block', marginLeft: 24}} onClick={handleNextClick}>Next page</h3>;
-};
-CustomNextButton.propTypes = {
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired,
-  handleNextClick: PropTypes.func.isRequired
-};
-const CustomPages = (props) => {
-  const {
-    page,
-    pages
-  } = props;
-  return <h3 style={{display: 'inline-block'}}>Page {page} from {pages}</h3>;
-};
-CustomPages.propTypes = {
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired
-};
-
 const WithCustomNavigationElements = () => (<div>
   <h1>Custom navigation elements</h1>
   <PDFViewer document={{
@@ -111,30 +70,6 @@ const WithCustomNavigationElements = () => (<div>
   }} />
 </div>);
 
-const CustomNavigation = (props) => {
-  const {
-    page,
-    pages
-  } = props;
-
-  const {
-    handlePrevClick,
-    handleNextClick
-  } = props;
-
-  return (<div className="customWrapper">
-    <CustomPrevButton page={page} pages={pages} handlePrevClick={handlePrevClick} />
-    <CustomPages page={page} pages={pages} />
-    <CustomNextButton page={page} pages={pages} handleNextClick={handleNextClick} />
-  </div>);
-};
-CustomNavigation.propTypes = {
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired,
-  handlePrevClick: PropTypes.func.isRequired,
-  handleNextClick: PropTypes.func.isRequired
-};
-
 const WithCustomNavigation = () => (<div>
   <h1>Custom navigation</h1>
   <PDFViewer document={{
@@ -147,15 +82,15 @@ const WithCustomNavigation = () => (<div>
 class Example extends React.Component {
   render() {
     return <div>
-      <WithCustomNavigation />
-      <WithCustomNavigationElements />
-      <WithCustomNavigationStyles />
-      <WithCustomScale />
-      <WithCustomStartingPage />
-      <WithCustomLoader />
       <FromUrl />
       <FromBase64 />
-    </div>
+      <WithCustomLoader />
+      <WithCustomStartingPage />
+      <WithCustomScale />
+      <WithCustomNavigationStyles />
+      <WithCustomNavigationElements />
+      <WithCustomNavigation />
+    </div>;
   }
 }
 
