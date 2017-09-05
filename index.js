@@ -8,15 +8,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactPdfJs = require('react-pdf-js');
 
 var _reactPdfJs2 = _interopRequireDefault(_reactPdfJs);
+
+var _Navigation = require('./Navigation');
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,171 +31,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var styles = {};
-styles.navigation = {
-  display: 'inline-block'
-};
-
-styles.controls = _extends({}, styles.navigation, {
-  textAlign: 'center'
-});
-
-styles.wrapper = _extends({}, styles.controls, {
-  width: '100%',
-  heigth: 24,
-  backgroundColor: '#323232',
-  color: '#fff'
-});
-
-styles.previous = _extends({}, styles.controls, {
-  marginRight: 12,
-  cursor: 'pointer'
-});
-
-styles.next = _extends({}, styles.controls, {
-  marginLeft: 12,
-  cursor: 'pointer'
-});
-
-styles.pages = _extends({}, styles.controls);
-
-var PreviousPageButton = function PreviousPageButton(props) {
-  var css = props.css,
-      page = props.page,
-      handlePrevClick = props.handlePrevClick;
-
-
-  var prevClass = '\n    ' + (css ? css : "mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--previous") + '\n    ' + (page === 1 ? ' mgrpdf-navigation__controls--disabled' : '') + '\n  ';
-
-  return _react2.default.createElement(
-    'div',
-    { className: prevClass, style: css ? {} : styles.previous, onClick: handlePrevClick },
-    _react2.default.createElement(
-      'a',
-      null,
-      "<"
-    )
-  );
-};
-PreviousPageButton.propTypes = {
-  css: _react.PropTypes.string,
-  page: _react.PropTypes.number.isRequired,
-  handlePrevClick: _react.PropTypes.func.isRequired
-};
-
-var NextPageButton = function NextPageButton(props) {
-  var css = props.css,
-      page = props.page,
-      pages = props.pages,
-      handleNextClick = props.handleNextClick;
-
-
-  var nextClass = '\n    ' + (css ? css : "mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--next") + '\n    ' + (page === pages ? ' mgrpdf-navigation__controls--disabled' : '') + '\n  ';
-
-  return _react2.default.createElement(
-    'div',
-    { className: nextClass, style: css ? {} : styles.next, onClick: handleNextClick },
-    _react2.default.createElement(
-      'a',
-      null,
-      ">"
-    )
-  );
-};
-NextPageButton.propTypes = {
-  css: _react.PropTypes.string,
-  page: _react.PropTypes.number.isRequired,
-  pages: _react.PropTypes.number.isRequired,
-  handleNextClick: _react.PropTypes.func.isRequired
-};
-
-var PagesIndicator = function PagesIndicator(props) {
-  var css = props.css,
-      page = props.page,
-      pages = props.pages;
-
-
-  var pagesClass = css ? css : "mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--pages";
-
-  return _react2.default.createElement(
-    'div',
-    { className: pagesClass, style: css ? {} : styles.pages },
-    page,
-    '/',
-    pages
-  );
-};
-PagesIndicator.propTypes = {
-  css: _react.PropTypes.string,
-  page: _react.PropTypes.number.isRequired,
-  pages: _react.PropTypes.number.isRequired
-};
-
-var Navigation = function Navigation(props) {
-  var page = props.page,
-      pages = props.pages,
-      css = props.css,
-      elements = props.elements;
-  var handlePrevClick = props.handlePrevClick,
-      handleNextClick = props.handleNextClick;
-
-
-  var prevEl = void 0,
-      nextEl = void 0,
-      pagesEl = void 0;
-  if (elements.previousPageBtn) {
-    prevEl = _react2.default.createElement(elements.previousPageBtn, { page: page, pages: pages, handlePrevClick: handlePrevClick });
-  } else {
-    prevEl = _react2.default.createElement(PreviousPageButton, { css: css.previousPageBtn, page: page, pages: pages, handlePrevClick: handlePrevClick });
-  }
-
-  if (elements.nextPageBtn) {
-    nextEl = _react2.default.createElement(elements.nextPageBtn, { page: page, pages: pages, handleNextClick: handleNextClick });
-  } else {
-    nextEl = _react2.default.createElement(NextPageButton, { css: css.nextPageBtn, page: page, pages: pages, handleNextClick: handleNextClick });
-  }
-
-  if (elements.pages) {
-    pagesEl = _react2.default.createElement(elements.pages, { page: page, pages: pages });
-  } else {
-    pagesEl = _react2.default.createElement(PagesIndicator, { css: css.pages, page: page, pages: pages });
-  }
-
-  var wrapperClass = css.wrapper ? css.wrapper : "mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--wrapper";
-
-  return _react2.default.createElement(
-    'div',
-    { className: wrapperClass, style: css.wrapper ? {} : styles.wrapper },
-    prevEl,
-    pagesEl,
-    nextEl
-  );
-};
-
-Navigation.propTypes = {
-  page: _react.PropTypes.number.isRequired,
-  pages: _react.PropTypes.number.isRequired,
-
-  css: _react.PropTypes.shape({
-    previousPageBtn: _react.PropTypes.string,
-    nextPageBtn: _react.PropTypes.string,
-    pages: _react.PropTypes.string,
-    wrapper: _react.PropTypes.string
-  }),
-  elements: _react.PropTypes.shape({
-    previousPageBtn: _react.PropTypes.any,
-    nextPageBtn: _react.PropTypes.any,
-    pages: _react.PropTypes.any
-  }),
-
-  handlePrevClick: _react.PropTypes.func.isRequired,
-  handleNextClick: _react.PropTypes.func.isRequired
-};
-Navigation.defaultProps = {
-  css: {},
-  elements: {}
-};
 
 var mgrpdfStyles = {};
 mgrpdfStyles.wrapper = {
@@ -217,12 +58,10 @@ var PDFViewer = function (_React$Component) {
 
   _createClass(PDFViewer, [{
     key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.page) {
-        this.setState({
-          page: nextProps.page
-        });
-      }
+    value: function componentWillReceiveProps(_ref) {
+      var page = _ref.page;
+
+      if (page) this.setState({ page: page });
     }
   }, {
     key: 'onDocumentComplete',
@@ -277,7 +116,7 @@ var PDFViewer = function (_React$Component) {
 
       var nav = null;
       if (pages > 0) {
-        nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? _react2.default.createElement(Navigation, {
+        nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? _react2.default.createElement(_Navigation2.default, {
           page: page,
           pages: pages,
           css: navigation ? navigation.css : undefined,
@@ -292,7 +131,7 @@ var PDFViewer = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: css ? css : "mgrpdf__wrapper", style: mgrpdfStyles.wrapper },
+        { className: css ? css : 'mgrpdf__wrapper', style: mgrpdfStyles.wrapper },
         pdf,
         nav
       );
@@ -303,39 +142,40 @@ var PDFViewer = function (_React$Component) {
 }(_react2.default.Component);
 
 PDFViewer.propTypes = {
-  document: _react.PropTypes.shape({
-    file: _react.PropTypes.any, // File object,
-    url: _react.PropTypes.string,
-    connection: _react.PropTypes.shape({
-      url: _react.PropTypes.string.isRequired }),
-    base64: _react.PropTypes.string, // PDF file encoded in base64
-    binary: _react.PropTypes.shape({ // UInt8Array
-      data: _react.PropTypes.any
-    })
-  }),
-
-  loader: _react.PropTypes.node,
-  page: _react.PropTypes.number,
-  scale: _react.PropTypes.number,
-  css: _react.PropTypes.string,
-
-  navigation: _react.PropTypes.oneOfType([
-  // Can be an object with css classes or react elements to be rendered
-  _react.PropTypes.shape({
-    css: _react.PropTypes.shape({
-      previousPageBtn: _react.PropTypes.string,
-      nextPageBtn: _react.PropTypes.string,
-      pages: _react.PropTypes.string,
-      wrapper: _react.PropTypes.string
+  document: _propTypes2.default.shape({
+    file: _propTypes2.default.any, // File object,
+    url: _propTypes2.default.string,
+    connection: _propTypes2.default.shape({
+      url: _propTypes2.default.string.isRequired // URL to fetch the pdf
     }),
-    elements: _react.PropTypes.shape({
-      previousPageBtn: _react.PropTypes.any,
-      nextPageBtn: _react.PropTypes.any,
-      pages: _react.PropTypes.any
+    base64: _propTypes2.default.string, // PDF file encoded in base64
+    binary: _propTypes2.default.shape({ // UInt8Array
+      data: _propTypes2.default.any
+    })
+  }).isRequired,
+
+  loader: _propTypes2.default.node,
+  page: _propTypes2.default.number,
+  scale: _propTypes2.default.number,
+  css: _propTypes2.default.string,
+
+  navigation: _propTypes2.default.oneOfType([
+  // Can be an object with css classes or react elements to be rendered
+  _propTypes2.default.shape({
+    css: _propTypes2.default.shape({
+      previousPageBtn: _propTypes2.default.string,
+      nextPageBtn: _propTypes2.default.string,
+      pages: _propTypes2.default.string,
+      wrapper: _propTypes2.default.string
+    }),
+    elements: _propTypes2.default.shape({
+      previousPageBtn: _propTypes2.default.any,
+      nextPageBtn: _propTypes2.default.any,
+      pages: _propTypes2.default.any
     })
   }),
   // Or a full navigation component
-  _react.PropTypes.any])
+  _propTypes2.default.any])
 };
 
 PDFViewer.defaultProps = {
