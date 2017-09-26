@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NextPageButton from './NextPageButton';
-import PagesIndicator from './PagesIndicaator';
+import PagesIndicator from './PagesIndicator';
 import PreviousPageButton from './PreviousPageButton';
 import styles from '../styles';
 
