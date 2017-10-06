@@ -1,6 +1,6 @@
 {
   "name": "mgr-pdf-viewer-react",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Simple react PDF viewer component. Based on PDF.js.",
   "main": "index.js",
   "repository": {
