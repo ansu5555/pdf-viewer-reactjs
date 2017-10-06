@@ -20,13 +20,18 @@
     "rollup-babel-lib-bundler": "^3.1.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.3.2 || ~0.14.0",
-    "react-pdf-js": "^1.0.31"
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-pdf-js": "^2.0.5"
+  },
+  "peerDependencies": {
+    "react": ">=15.3.2"
   },
   "rollupBabelLibBundler": {
-     "moduleName": "mgr-pdf-viewer-react",
-     "dest": "dist",
-     "format": ["cjs"]
+    "moduleName": "mgr-pdf-viewer-react",
+    "dest": "dist",
+    "format": [
+      "cjs"
+    ]
   }
 }
