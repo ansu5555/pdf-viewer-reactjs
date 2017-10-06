@@ -16,23 +16,19 @@ class PDFViewer extends React.Component {
       pages: 0,
       page: props.page || 1
     };
-
-    this.onDocumentComplete = this.onDocumentComplete.bind(this);
-    this.handlePrevClick = this.handlePrevClick.bind(this);
-    this.handleNextClick = this.handleNextClick.bind(this);
   }
 
   componentWillReceiveProps({ page }) {
     if (page) this.setState({ page });
   }
 
-  onDocumentComplete(pages) {
+  onDocumentComplete = (pages) => {
     this.setState({
       pages
     });
   }
 
-  handlePrevClick() {
+  handlePrevClick = () => {
     if (this.state.page === 1) return;
 
     this.setState({
@@ -40,7 +36,7 @@ class PDFViewer extends React.Component {
     });
   }
 
-  handleNextClick() {
+  handleNextClick = () => {
     if (this.state.page === this.state.pages) return;
 
     this.setState({
