@@ -5,7 +5,7 @@ import CustomNavigation, {
   CustomPages,
 } from './Navigation';
 
-import PDFViewer from './mgr-pdf-viewer-react';
+import PDFViewer from 'mgr-pdf-viewer-react';
 import sources from './source';
 
 import './App.css';
