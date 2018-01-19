@@ -10,7 +10,7 @@ npm install mgr-pdf-viewer-react --save
 
 # How to use
 
-Since it is a React module, I suppose you have the webpack and bable configured.
+Since it is a React module, I suppose you have the webpack and babel configured.
 
 ```js
 import React from 'react';
