@@ -319,46 +319,53 @@ mgrpdfStyles.wrapper = {
 var PDFViewer = function (_React$Component) {
   inherits(PDFViewer, _React$Component);
 
-  function PDFViewer(props) {
+  function PDFViewer() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     classCallCheck(this, PDFViewer);
 
-    var _this = possibleConstructorReturn(this, (PDFViewer.__proto__ || Object.getPrototypeOf(PDFViewer)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.onDocumentComplete = function (pages) {
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = PDFViewer.__proto__ || Object.getPrototypeOf(PDFViewer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      pages: 0,
+      page: 1
+    }, _this.onDocumentComplete = function (pages) {
       _this.setState({
         pages: pages
       });
-    };
-
-    _this.handlePrevClick = function () {
+    }, _this.handlePrevClick = function () {
       if (_this.state.page === 1) return;
 
       _this.setState({
         page: _this.state.page - 1
       });
-    };
-
-    _this.handleNextClick = function () {
+    }, _this.handleNextClick = function () {
       if (_this.state.page === _this.state.pages) return;
 
       _this.setState({
         page: _this.state.page + 1
       });
-    };
-
-    _this.state = {
-      pages: 0,
-      page: props.page || 1
-    };
-    return _this;
+    }, _temp), possibleConstructorReturn(_this, _ret);
   }
 
   createClass(PDFViewer, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState({
+        pages: null,
+        page: this.props.page || 1
+      });
+    }
+  }, {
     key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref) {
-      var page = _ref.page;
+    value: function componentWillReceiveProps(_ref2) {
+      var page = _ref2.page;
 
-      if (page) this.setState({ page: page });
+      this.setState({ page: page || this.state.page });
     }
   }, {
     key: 'render',
@@ -450,7 +457,6 @@ PDFViewer.propTypes = {
 };
 
 PDFViewer.defaultProps = {
-  page: 1,
   scale: 1
 };
 

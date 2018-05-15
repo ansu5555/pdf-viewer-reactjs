@@ -5,7 +5,7 @@ import CustomNavigation, {
   CustomPages,
 } from './Navigation';
 
-import PDFViewer from 'mgr-pdf-viewer-react';
+import PDFViewer from './mgr-pdf-viewer-react';
 import sources from './source';
 
 import './App.css';
@@ -96,6 +96,31 @@ const WithCustomNavigation = () => (<div>
     navigation={CustomNavigation} />
 </div>);
 
+class WithDynamicScale extends React.Component {
+  state = {
+    scale: 1.0,
+  }
+
+  increaseScale = () => this.setState(({ scale }) => ({ scale: scale + 0.1 }))
+  decreaseScale = () => this.setState(({ scale }) => ({ scale: scale - 0.1 }))
+
+  render() {
+    return (
+      <div>
+        <h1>Dynamic scale</h1>
+        <button onClick={this.decreaseScale}>-</button>
+        <span>Scale: {this.state.scale}</span>
+        <button onClick={this.increaseScale}>+</button>
+        <PDFViewer
+          document={{
+            url: sources.url
+          }}
+          scale={this.state.scale} />
+      </div>
+    );
+  }
+}
+
 export default () => (
   <div>
     <FromUrl />
@@ -103,6 +128,7 @@ export default () => (
     <WithCustomLoader />
     <WithCustomStartingPage />
     <WithCustomScale />
+    <WithDynamicScale />
     <WithCustomNavigationStyles />
     <WithCustomNavigationElements />
     <WithCustomNavigation />

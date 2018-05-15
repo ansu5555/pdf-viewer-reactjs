@@ -10,17 +10,20 @@ mgrpdfStyles.wrapper = {
 };
 
 class PDFViewer extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    pages: 0,
+    page: 1,
+  }
 
-    this.state = {
-      pages: 0,
-      page: props.page || 1
-    };
+  componentWillMount() {
+    this.setState({
+      pages: null,
+      page: this.props.page || 1,
+    })
   }
 
   componentWillReceiveProps({ page }) {
-    if (page) this.setState({ page });
+    this.setState({ page: page || this.state.page });
   }
 
   onDocumentComplete = (pages) => {
@@ -138,7 +141,6 @@ PDFViewer.propTypes = {
 };
 
 PDFViewer.defaultProps = {
-  page: 1,
   scale: 1
 };
 
