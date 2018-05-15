@@ -5,6 +5,7 @@ import PDF from 'react-pdf-js';
 import Navigation from './Navigation';
 
 const mgrpdfStyles = {};
+
 mgrpdfStyles.wrapper = {
   textAlign: 'center'
 };
