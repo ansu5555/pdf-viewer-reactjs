@@ -21,8 +21,6 @@ class PDFViewer extends React.Component {
       pages: null,
       page: this.props.page || 1,
     })
-
-    console.log('mounted PDFViewer!')
   }
 
   componentWillReceiveProps({ page }) {

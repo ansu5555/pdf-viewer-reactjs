@@ -360,8 +360,6 @@ var PDFViewer = function (_React$Component) {
         pages: null,
         page: this.props.page || 1
       });
-
-      console.log('mounted PDFViewer!');
     }
   }, {
     key: 'componentWillReceiveProps',
