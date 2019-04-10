@@ -122,7 +122,7 @@ PDFViewer.propTypes = {
   page: PropTypes.number,
   scale: PropTypes.number,
   css: PropTypes.string,
-  onClickCallback: PropTypes.any,
+  onClickCallback: PropTypes.func,
 
   navigation: PropTypes.oneOfType([
     // Can be an object with css classes or react elements to be rendered
