@@ -312,6 +312,7 @@ Navigation.defaultProps = {
 };
 
 var mgrpdfStyles = {};
+
 mgrpdfStyles.wrapper = {
   textAlign: 'center'
 };
@@ -359,6 +360,8 @@ var PDFViewer = function (_React$Component) {
         pages: null,
         page: this.props.page || 1
       });
+
+      console.log('mounted PDFViewer!');
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -411,7 +414,11 @@ var PDFViewer = function (_React$Component) {
       return React.createElement(
         'div',
         { className: css ? css : 'mgrpdf__wrapper', style: mgrpdfStyles.wrapper },
-        pdf,
+        React.createElement(
+          'div',
+          { onClick: this.props.onClickCallback },
+          pdf
+        ),
         nav
       );
     }
@@ -436,6 +443,7 @@ PDFViewer.propTypes = {
   page: PropTypes.number,
   scale: PropTypes.number,
   css: PropTypes.string,
+  onClickCallback: PropTypes.any,
 
   navigation: PropTypes.oneOfType([
   // Can be an object with css classes or react elements to be rendered
