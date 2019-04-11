@@ -15,7 +15,7 @@ const FromUrl = () => (<div>
   <PDFViewer
     document={{
       url: sources.url
-    }} />
+    }}/>
 </div>);
 
 const FromBase64 = () => (<div>

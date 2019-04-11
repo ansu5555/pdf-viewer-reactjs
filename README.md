@@ -56,8 +56,8 @@ React component prop. types:
   * Required: **false**
   * Description: Scale factor relative to the component parent element
 
-* `onClickCallback`:
-  * Type: *Any*
+* `onDocumentClick`:
+  * Type: *Function*
   * Required: **false**
   * Description: A function that will be called only on clicking the PDF page itself, NOT on the navbar
 

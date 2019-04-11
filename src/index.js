@@ -55,7 +55,8 @@ class PDFViewer extends React.Component {
       loader,
       scale,
       navigation,
-      css
+      css,
+      onDocumentClick
     } = this.props;
 
     const {
@@ -96,7 +97,7 @@ class PDFViewer extends React.Component {
 
     return (
       <div className={css ? css : 'mgrpdf__wrapper'} style={mgrpdfStyles.wrapper}>
-        <div onClick={this.props.onClickCallback}>
+        <div onClick={onDocumentClick}>
           {pdf}
         </div>
         {nav}
@@ -122,7 +123,7 @@ PDFViewer.propTypes = {
   page: PropTypes.number,
   scale: PropTypes.number,
   css: PropTypes.string,
-  onClickCallback: PropTypes.func,
+  onDocumentClick: PropTypes.func,
 
   navigation: PropTypes.oneOfType([
     // Can be an object with css classes or react elements to be rendered

@@ -376,7 +376,8 @@ var PDFViewer = function (_React$Component) {
           loader = _props.loader,
           scale = _props.scale,
           navigation = _props.navigation,
-          css = _props.css;
+          css = _props.css,
+          onDocumentClick = _props.onDocumentClick;
       var _state = this.state,
           page = _state.page,
           pages = _state.pages;
@@ -412,7 +413,11 @@ var PDFViewer = function (_React$Component) {
       return React.createElement(
         'div',
         { className: css ? css : 'mgrpdf__wrapper', style: mgrpdfStyles.wrapper },
-        pdf,
+        React.createElement(
+          'div',
+          { onClick: onDocumentClick },
+          pdf
+        ),
         nav
       );
     }
@@ -437,6 +442,7 @@ PDFViewer.propTypes = {
   page: PropTypes.number,
   scale: PropTypes.number,
   css: PropTypes.string,
+  onDocumentClick: PropTypes.func,
 
   navigation: PropTypes.oneOfType([
   // Can be an object with css classes or react elements to be rendered
