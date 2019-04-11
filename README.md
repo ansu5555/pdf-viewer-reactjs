@@ -44,7 +44,7 @@ React component prop. types:
 * `loader`:
   * Type: *Node*
   * Required: **false**
-  * Description: A custom loader element that will be shown while the PDFis loading
+  * Description: A custom loader element that will be shown while the PDF is loading
 
 * `page`:
   * Type: *Number*
@@ -55,6 +55,11 @@ React component prop. types:
   * Type: *Number*
   * Required: **false**
   * Description: Scale factor relative to the component parent element
+
+* `onClickCallback`:
+  * Type: *Any*
+  * Required: **false**
+  * Description: A function that will be called only on clicking the PDF page itself, NOT on the navbar
 
 * `css`:
   * Type: *String*
