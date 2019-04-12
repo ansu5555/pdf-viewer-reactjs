@@ -54,7 +54,7 @@ class PDFViewer extends React.Component {
     const {
       loader,
       scale,
-      navigationEnabled,
+      hideNavbar,
       navigation,
       css,
       onDocumentClick
@@ -80,12 +80,7 @@ class PDFViewer extends React.Component {
     );
 
     let nav = null;
-
-    // navigation is active if navigationEnabled prop is true or undefined
-    // navigation only hidden if navigationEnabled prop is explicitly false
-    const navigationActive = navigationEnabled === false ? false : true;
-
-    if (navigationActive && pages > 0){
+    if (!hideNavbar && pages > 0){
       nav = !navigation || (navigation && typeof(navigation) === 'object')
         ? <Navigation
             page={page}
@@ -132,7 +127,7 @@ PDFViewer.propTypes = {
   css: PropTypes.string,
   onDocumentClick: PropTypes.func,
 
-  navigationEnabled: PropTypes.bool,
+  hideNavbar: PropTypes.bool,
   navigation: PropTypes.oneOfType([
     // Can be an object with css classes or react elements to be rendered
     PropTypes.shape({
