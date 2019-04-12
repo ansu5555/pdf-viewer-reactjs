@@ -66,6 +66,11 @@ React component prop. types:
   * Required: **false**
   * Description: CSS classes that will be setted for the component wrapper
 
+* `hideNavbar`:
+  * Type: *Boolean*
+  * Required: **false**
+  * Description: By default navbar is displayed, but can be hidden by passing this prop
+
 * `navigation`:
   * Type:
 

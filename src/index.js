@@ -54,6 +54,7 @@ class PDFViewer extends React.Component {
     const {
       loader,
       scale,
+      hideNavbar,
       navigation,
       css,
       onDocumentClick
@@ -79,7 +80,7 @@ class PDFViewer extends React.Component {
     );
 
     let nav = null;
-    if (pages > 0){
+    if (!hideNavbar && pages > 0){
       nav = !navigation || (navigation && typeof(navigation) === 'object')
         ? <Navigation
             page={page}
@@ -100,6 +101,7 @@ class PDFViewer extends React.Component {
         <div onClick={onDocumentClick}>
           {pdf}
         </div>
+
         {nav}
       </div>
     );
@@ -125,6 +127,7 @@ PDFViewer.propTypes = {
   css: PropTypes.string,
   onDocumentClick: PropTypes.func,
 
+  hideNavbar: PropTypes.bool,
   navigation: PropTypes.oneOfType([
     // Can be an object with css classes or react elements to be rendered
     PropTypes.shape({
