@@ -66,6 +66,11 @@ React component prop. types:
   * Required: **false**
   * Description: CSS classes that will be setted for the component wrapper
 
+* `navigationEnabled`:
+  * Type: *Boolean*
+  * Required: **false**
+  * Description: Sets whether or not the navigation bar should be displayed. Navbar is displayed by default
+
 * `navigation`:
   * Type:
 
