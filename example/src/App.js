@@ -10,7 +10,11 @@ import sources from './source';
 
 import './App.css';
 
-const FromUrl = () => (<div>
+const exampleWrapperStyle = {
+  width: '50%',
+};
+
+const FromUrl = () => (<div style={exampleWrapperStyle}>
   <h1>Fetch PDF by URL</h1>
   <PDFViewer
     document={{
@@ -18,7 +22,7 @@ const FromUrl = () => (<div>
     }}/>
 </div>);
 
-const FromBase64 = () => (<div>
+const FromBase64 = () => (<div style={exampleWrapperStyle}>
   <h1>Load PDF from base 64 string</h1>
   <PDFViewer
     document={{
@@ -26,7 +30,7 @@ const FromBase64 = () => (<div>
     }} />
 </div>);
 
-const WithCustomLoader = () => (<div>
+const WithCustomLoader = () => (<div style={exampleWrapperStyle}>
   <h1>Custom loader element</h1>
   <PDFViewer
     document={{
@@ -35,7 +39,7 @@ const WithCustomLoader = () => (<div>
     loader={<h2 style={{color: '#fa5b35'}}>Custom loader element</h2>}/>
 </div>);
 
-const WithCustomStartingPage = () => (<div>
+const WithCustomStartingPage = () => (<div style={exampleWrapperStyle}>
   <h1>Custom starting page</h1>
   <PDFViewer
     document={{
@@ -44,7 +48,7 @@ const WithCustomStartingPage = () => (<div>
     page={5} />
 </div>);
 
-const WithCustomScale = () => (<div>
+const WithCustomScale = () => (<div style={exampleWrapperStyle}>
   <h1>Custom scale</h1>
   <PDFViewer
     document={{
@@ -53,7 +57,7 @@ const WithCustomScale = () => (<div>
     scale={0.5} />
 </div>);
 
-const WithCustomNavigationStyles = () => (<div>
+const WithCustomNavigationStyles = () => (<div style={exampleWrapperStyle}>
   <h1>Custom css classes</h1>
   <PDFViewer
     document={{
@@ -70,7 +74,7 @@ const WithCustomNavigationStyles = () => (<div>
     }} />
 </div>);
 
-const WithCustomNavigationElements = () => (<div>
+const WithCustomNavigationElements = () => (<div style={exampleWrapperStyle}>
   <h1>Custom navigation elements</h1>
   <PDFViewer
     document={{
@@ -86,7 +90,7 @@ const WithCustomNavigationElements = () => (<div>
     }} />
 </div>);
 
-const WithCustomNavigation = () => (<div>
+const WithCustomNavigation = () => (<div style={exampleWrapperStyle}>
   <h1>Custom navigation</h1>
   <PDFViewer
     document={{
@@ -106,7 +110,7 @@ class WithDynamicScale extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={exampleWrapperStyle}>
         <h1>Dynamic scale</h1>
         <button onClick={this.decreaseScale}>-</button>
         <span>Scale: {this.state.scale}</span>
@@ -121,8 +125,39 @@ class WithDynamicScale extends React.Component {
   }
 }
 
+const WithOnDocumentClick = () => (
+  <div style={exampleWrapperStyle}>
+    <h1>With onDocumentClick handler</h1>
+    <PDFViewer
+      document={{
+        url: sources.url
+      }}
+      onDocumentClick={() => alert('Document was clicked')}
+      css="customViewer"
+      navigation={CustomNavigation} />
+  </div>
+);
+
+const WithoutNavigation = () => (
+  <div style={exampleWrapperStyle}>
+    <h1>Without Navigation</h1>
+    <PDFViewer
+      document={{
+        url: sources.url
+      }}
+      hideNavbar
+      css="customViewer" />
+  </div>
+);
+
+const wrapperStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+};
+
 export default () => (
-  <div>
+  <div style={wrapperStyle}>
     <FromUrl />
     <FromBase64 />
     <WithCustomLoader />
@@ -132,5 +167,7 @@ export default () => (
     <WithCustomNavigationStyles />
     <WithCustomNavigationElements />
     <WithCustomNavigation />
+    <WithOnDocumentClick />
+    <WithoutNavigation />
   </div>
 );

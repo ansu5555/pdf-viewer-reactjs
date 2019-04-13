@@ -375,6 +375,7 @@ var PDFViewer = function (_React$Component) {
       var _props = this.props,
           loader = _props.loader,
           scale = _props.scale,
+          hideNavbar = _props.hideNavbar,
           navigation = _props.navigation,
           css = _props.css,
           onDocumentClick = _props.onDocumentClick;
@@ -396,7 +397,7 @@ var PDFViewer = function (_React$Component) {
         onDocumentComplete: this.onDocumentComplete });
 
       var nav = null;
-      if (pages > 0) {
+      if (!hideNavbar && pages > 0) {
         nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? React.createElement(Navigation, {
           page: page,
           pages: pages,
@@ -444,6 +445,7 @@ PDFViewer.propTypes = {
   css: PropTypes.string,
   onDocumentClick: PropTypes.func,
 
+  hideNavbar: PropTypes.bool,
   navigation: PropTypes.oneOfType([
   // Can be an object with css classes or react elements to be rendered
   PropTypes.shape({
