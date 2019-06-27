@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PDF from 'react-pdf-js';
+import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'material-design-icons/iconfont/material-icons.css';
 
 import Navigation from './Navigation';
 
@@ -13,18 +17,25 @@ mgrpdfStyles.wrapper = {
 class PDFViewer extends React.Component {
     state = {
         pages: 0,
-        page: 1
+        page: 1,
+        scale: 1,
+        maxScale: 3
     };
 
-    componentWillMount() {
+    componentDidMount() {
         this.setState({
             pages: null,
-            page: this.props.page || 1
+            page: this.props.page || 1,
+            scale: this.props.scale || 1,
+            maxScale: this.props.maxScale || 3
         });
     }
 
-    componentWillReceiveProps({ page }) {
-        this.setState({ page: page || this.state.page });
+    componentWillReceiveProps({ page, scale }) {
+        this.setState({
+            page: page || this.state.page,
+            scale: scale || this.state.scale
+        });
     }
 
     onDocumentComplete = pages => {
@@ -49,11 +60,32 @@ class PDFViewer extends React.Component {
         });
     };
 
+    handleZoomIn = () => {
+        if (this.state.scale < this.state.maxScale) {
+            this.setState({
+                scale: this.state.scale + 1
+            });
+        }
+    };
+
+    handleResetZoom = () => {
+        this.setState({
+            scale: 1
+        });
+    };
+
+    handleZoomOut = () => {
+        if (this.state.scale > 1) {
+            this.setState({
+                scale: this.state.scale - 1
+            });
+        }
+    };
+
     render() {
         const source = this.props.document;
         const {
             loader,
-            scale,
             hideNavbar,
             navigation,
             css,
@@ -61,7 +93,7 @@ class PDFViewer extends React.Component {
             onDocumentClick
         } = this.props;
 
-        const { page, pages } = this.state;
+        const { page, pages, scale, maxScale } = this.state;
 
         const NavigationElement = navigation;
 
@@ -90,11 +122,16 @@ class PDFViewer extends React.Component {
                         elements={navigation ? navigation.elements : undefined}
                         handleNextClick={this.handleNextClick}
                         handlePrevClick={this.handlePrevClick}
+                        handleZoomIn={this.handleZoomIn}
+                        handleResetZoom={this.handleResetZoom}
+                        handleZoomOut={this.handleZoomOut}
                     />
                 ) : (
                     <NavigationElement
                         page={page}
                         pages={pages}
+                        scale={scale}
+                        maxScale={maxScale}
                         handleNextClick={this.handleNextClick}
                         handlePrevClick={this.handlePrevClick}
                     />
@@ -157,10 +194,6 @@ PDFViewer.propTypes = {
         // Or a full navigation component
         PropTypes.any
     ])
-};
-
-PDFViewer.defaultProps = {
-    scale: 1
 };
 
 export default PDFViewer;

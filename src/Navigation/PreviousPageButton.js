@@ -3,21 +3,24 @@ import PropTypes from 'prop-types';
 import styles from '../styles';
 
 const PreviousPageButton = ({ css, page, handlePrevClick }) => {
-  const prevClass = `
-    ${css ? css : 'mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--previous'}
-    ${page === 1 ? ' mgrpdf-navigation__controls--disabled' : ''}
+    const prevClass = `
+    ${css ? css : 'btn btn-sm btn-link pr-0 mr-n3 text-white'}
+    ${page === 1 ? ' disabled' : ''}
   `;
 
-  return (
-    <div className={prevClass} style={css ? {} : styles.previous} onClick={handlePrevClick}>
-      <a>{'<'}</a>
-    </div>
-  );
+    return (
+        <button
+            className={prevClass}
+            style={prevClass ? {} : styles.previous}
+            onClick={handlePrevClick}>
+            <i className="material-icons">keyboard_arrow_left</i>
+        </button>
+    );
 };
 PreviousPageButton.propTypes = {
-  css: PropTypes.string,
-  page: PropTypes.number.isRequired,
-  handlePrevClick: PropTypes.func.isRequired
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    handlePrevClick: PropTypes.func.isRequired
 };
 
 export default PreviousPageButton;

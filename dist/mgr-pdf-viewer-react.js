@@ -5,6 +5,10 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = _interopDefault(require('react'));
 var PropTypes = _interopDefault(require('prop-types'));
 var PDF = _interopDefault(require('react-pdf-js'));
+var jquery_dist_jquery_min_js = require('jquery/dist/jquery.min.js');
+var bootstrap_dist_css_bootstrap_min_css = require('bootstrap/dist/css/bootstrap.min.css');
+var bootstrap_dist_js_bootstrap_min_js = require('bootstrap/dist/js/bootstrap.min.js');
+var materialDesignIcons_iconfont_materialIcons_css = require('material-design-icons/iconfont/material-icons.css');
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -178,137 +182,285 @@ styles.next = _extends({}, styles.controls, {
 styles.pages = _extends({}, styles.controls);
 
 var NextPageButton = function NextPageButton(_ref) {
-  var css = _ref.css,
-      page = _ref.page,
-      pages = _ref.pages,
-      handleNextClick = _ref.handleNextClick;
+    var css = _ref.css,
+        page = _ref.page,
+        pages = _ref.pages,
+        handleNextClick = _ref.handleNextClick;
 
-  var nextClass = '\n    ' + (css ? css : 'mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--next') + '\n    ' + (page === pages ? ' mgrpdf-navigation__controls--disabled' : '') + '\n  ';
+    var nextClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pl-0 ml-n3 text-white') + '\n    ' + (page === pages ? ' disabled' : '') + '\n  ';
 
-  return React.createElement(
-    'div',
-    { className: nextClass, style: css ? {} : styles.next, onClick: handleNextClick },
-    React.createElement(
-      'a',
-      null,
-      '>'
-    )
-  );
+    return React.createElement(
+        'button',
+        {
+            className: nextClass,
+            style: nextClass ? {} : styles.next,
+            onClick: handleNextClick },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'keyboard_arrow_right'
+        )
+    );
 };
 NextPageButton.propTypes = {
-  css: PropTypes.string,
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired,
-  handleNextClick: PropTypes.func.isRequired
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired,
+    handleNextClick: PropTypes.func.isRequired
 };
 
 var PagesIndicator = function PagesIndicator(_ref) {
-  var css = _ref.css,
-      page = _ref.page,
-      pages = _ref.pages;
+    var css = _ref.css,
+        page = _ref.page,
+        pages = _ref.pages;
 
-  var pagesClass = css ? css : 'mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--pages';
+    var pagesClass = css ? css : 'small pt-2';
 
-  return React.createElement(
-    'div',
-    { className: pagesClass, style: css ? {} : styles.pages },
-    page,
-    '/',
-    pages
-  );
+    return React.createElement(
+        'div',
+        { className: pagesClass, style: pagesClass ? {} : styles.pages },
+        'Page ' + page + ' / ' + pages
+    );
 };
 
 PagesIndicator.propTypes = {
-  css: PropTypes.string,
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired
 };
 
 var PreviousPageButton = function PreviousPageButton(_ref) {
-  var css = _ref.css,
-      page = _ref.page,
-      handlePrevClick = _ref.handlePrevClick;
+    var css = _ref.css,
+        page = _ref.page,
+        handlePrevClick = _ref.handlePrevClick;
 
-  var prevClass = '\n    ' + (css ? css : 'mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--previous') + '\n    ' + (page === 1 ? ' mgrpdf-navigation__controls--disabled' : '') + '\n  ';
+    var prevClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pr-0 mr-n3 text-white') + '\n    ' + (page === 1 ? ' disabled' : '') + '\n  ';
 
-  return React.createElement(
-    'div',
-    { className: prevClass, style: css ? {} : styles.previous, onClick: handlePrevClick },
-    React.createElement(
-      'a',
-      null,
-      '<'
-    )
-  );
+    return React.createElement(
+        'button',
+        {
+            className: prevClass,
+            style: prevClass ? {} : styles.previous,
+            onClick: handlePrevClick },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'keyboard_arrow_left'
+        )
+    );
 };
 PreviousPageButton.propTypes = {
-  css: PropTypes.string,
-  page: PropTypes.number.isRequired,
-  handlePrevClick: PropTypes.func.isRequired
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    handlePrevClick: PropTypes.func.isRequired
+};
+
+var ZoomIn = function ZoomIn(_ref) {
+    var scale = _ref.scale,
+        maxScale = _ref.maxScale,
+        css = _ref.css,
+        handleZoomIn = _ref.handleZoomIn;
+
+    var zoomInClass = '' + (css ? css : 'btn btn-sm btn-link text-white pl-2') + (scale === maxScale ? ' disabled' : '');
+
+    return React.createElement(
+        'button',
+        { type: 'button', className: zoomInClass, onClick: handleZoomIn },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'zoom_in'
+        )
+    );
+};
+
+ZoomIn.propTypes = {
+    css: PropTypes.string,
+    handleZoomIn: PropTypes.func.isRequired
+};
+
+var ZoomOut = function ZoomOut(_ref) {
+    var scale = _ref.scale,
+        css = _ref.css,
+        handleZoomOut = _ref.handleZoomOut;
+
+    var zoomOutClass = '' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + (scale === 1 ? ' disabled' : '');
+
+    return React.createElement(
+        'button',
+        { type: 'button', className: zoomOutClass, onClick: handleZoomOut },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'zoom_out'
+        )
+    );
+};
+
+ZoomOut.propTypes = {
+    css: PropTypes.string,
+    handleZoomOut: PropTypes.func.isRequired
+};
+
+var ResetZoom = function ResetZoom(_ref) {
+    var css = _ref.css,
+        handleResetZoom = _ref.handleResetZoom;
+
+    var resetZoomClass = css ? css : 'btn btn-sm btn-link text-white px-2';
+
+    return React.createElement(
+        'button',
+        {
+            type: 'button',
+            className: resetZoomClass,
+            onClick: handleResetZoom },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'youtube_searched_for'
+        )
+    );
+};
+
+ResetZoom.propTypes = {
+    css: PropTypes.string,
+    handleResetZoom: PropTypes.func.isRequired
 };
 
 var Navigation = function Navigation(_ref) {
-  var page = _ref.page,
-      pages = _ref.pages,
-      css = _ref.css,
-      elements = _ref.elements,
-      handlePrevClick = _ref.handlePrevClick,
-      handleNextClick = _ref.handleNextClick;
+    var page = _ref.page,
+        pages = _ref.pages,
+        scale = _ref.scale,
+        maxScale = _ref.maxScale,
+        css = _ref.css,
+        elements = _ref.elements,
+        handlePrevClick = _ref.handlePrevClick,
+        handleNextClick = _ref.handleNextClick,
+        handleZoomIn = _ref.handleZoomIn,
+        handleResetZoom = _ref.handleResetZoom,
+        handleZoomOut = _ref.handleZoomOut;
 
-  var prevEl = void 0,
-      nextEl = void 0,
-      pagesEl = void 0;
-  if (elements.previousPageBtn) {
-    prevEl = React.createElement(elements.previousPageBtn, { page: page, pages: pages, handlePrevClick: handlePrevClick });
-  } else {
-    prevEl = React.createElement(PreviousPageButton, { css: css.previousPageBtn, page: page, pages: pages, handlePrevClick: handlePrevClick });
-  }
+    var prevEl = void 0,
+        nextEl = void 0,
+        pagesEl = void 0;
+    if (elements.previousPageBtn) {
+        prevEl = React.createElement(elements.previousPageBtn, {
+            page: page,
+            pages: pages,
+            handlePrevClick: handlePrevClick
+        });
+    } else {
+        prevEl = React.createElement(PreviousPageButton, {
+            css: css.previousPageBtn,
+            page: page,
+            pages: pages,
+            handlePrevClick: handlePrevClick
+        });
+    }
 
-  if (elements.nextPageBtn) {
-    nextEl = React.createElement(elements.nextPageBtn, { page: page, pages: pages, handleNextClick: handleNextClick });
-  } else {
-    nextEl = React.createElement(NextPageButton, { css: css.nextPageBtn, page: page, pages: pages, handleNextClick: handleNextClick });
-  }
+    if (elements.nextPageBtn) {
+        nextEl = React.createElement(elements.nextPageBtn, {
+            page: page,
+            pages: pages,
+            handleNextClick: handleNextClick
+        });
+    } else {
+        nextEl = React.createElement(NextPageButton, {
+            css: css.nextPageBtn,
+            page: page,
+            pages: pages,
+            handleNextClick: handleNextClick
+        });
+    }
 
-  if (elements.pages) {
-    pagesEl = React.createElement(elements.pages, { page: page, pages: pages });
-  } else {
-    pagesEl = React.createElement(PagesIndicator, { css: css.pages, page: page, pages: pages });
-  }
+    if (elements.pages) {
+        pagesEl = React.createElement(elements.pages, { page: page, pages: pages });
+    } else {
+        pagesEl = React.createElement(PagesIndicator, { css: css.pages, page: page, pages: pages });
+    }
 
-  var wrapperClass = css.wrapper ? css.wrapper : 'mgrpdf-navigation mgrpdf-navigation__controls mgrpdf-navigation__controls--wrapper';
+    var wrapperClass = css.wrapper ? css.wrapper : 'container rounded bg-dark text-white';
 
-  return React.createElement(
-    'div',
-    { className: wrapperClass, style: css.wrapper ? {} : styles.wrapper },
-    prevEl,
-    pagesEl,
-    nextEl
-  );
+    return React.createElement(
+        'div',
+        {
+            className: wrapperClass,
+            style: wrapperClass ? {} : styles.wrapper },
+        React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+                'div',
+                { className: 'col-sm-6' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 text-right' },
+                        prevEl
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 text-center' },
+                        pagesEl
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 text-left' },
+                        nextEl
+                    )
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'col-sm-6' },
+                React.createElement(
+                    'div',
+                    { className: 'btn-group', role: 'group' },
+                    React.createElement(ZoomOut, {
+                        scale: scale,
+                        css: css.zoomOutBtn,
+                        handleZoomOut: handleZoomOut
+                    }),
+                    React.createElement(ResetZoom, {
+                        css: css.restZoomBtn,
+                        handleResetZoom: handleResetZoom
+                    }),
+                    React.createElement(ZoomIn, {
+                        scale: scale,
+                        maxScale: maxScale,
+                        css: css.zoomInBtn,
+                        handleZoomIn: handleZoomIn
+                    })
+                )
+            )
+        )
+    );
 };
 
 Navigation.propTypes = {
-  page: PropTypes.number.isRequired,
-  pages: PropTypes.number.isRequired,
+    page: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired,
 
-  css: PropTypes.shape({
-    previousPageBtn: PropTypes.string,
-    nextPageBtn: PropTypes.string,
-    pages: PropTypes.string,
-    wrapper: PropTypes.string
-  }),
-  elements: PropTypes.shape({
-    previousPageBtn: PropTypes.any,
-    nextPageBtn: PropTypes.any,
-    pages: PropTypes.any
-  }),
+    css: PropTypes.shape({
+        previousPageBtn: PropTypes.string,
+        nextPageBtn: PropTypes.string,
+        pages: PropTypes.string,
+        wrapper: PropTypes.string
+    }),
+    elements: PropTypes.shape({
+        previousPageBtn: PropTypes.any,
+        nextPageBtn: PropTypes.any,
+        pages: PropTypes.any
+    }),
 
-  handlePrevClick: PropTypes.func.isRequired,
-  handleNextClick: PropTypes.func.isRequired
+    handlePrevClick: PropTypes.func.isRequired,
+    handleNextClick: PropTypes.func.isRequired
 };
 Navigation.defaultProps = {
-  css: {},
-  elements: {}
+    css: {},
+    elements: {}
 };
 
 var mgrpdfStyles = {};
@@ -333,7 +485,9 @@ var PDFViewer = function (_React$Component) {
 
         return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = PDFViewer.__proto__ || Object.getPrototypeOf(PDFViewer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             pages: 0,
-            page: 1
+            page: 1,
+            scale: 1,
+            maxScale: 3
         }, _this.onDocumentComplete = function (pages) {
             _this.setState({
                 pages: pages
@@ -350,23 +504,45 @@ var PDFViewer = function (_React$Component) {
             _this.setState({
                 page: _this.state.page + 1
             });
+        }, _this.handleZoomIn = function () {
+            if (_this.state.scale < _this.state.maxScale) {
+                _this.setState({
+                    scale: _this.state.scale + 1
+                });
+            }
+        }, _this.handleResetZoom = function () {
+            _this.setState({
+                scale: 1
+            });
+        }, _this.handleZoomOut = function () {
+            if (_this.state.scale > 1) {
+                _this.setState({
+                    scale: _this.state.scale - 1
+                });
+            }
         }, _temp), possibleConstructorReturn(_this, _ret);
     }
 
     createClass(PDFViewer, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
             this.setState({
                 pages: null,
-                page: this.props.page || 1
+                page: this.props.page || 1,
+                scale: this.props.scale || 1,
+                maxScale: this.props.maxScale || 3
             });
         }
     }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(_ref2) {
-            var page = _ref2.page;
+            var page = _ref2.page,
+                scale = _ref2.scale;
 
-            this.setState({ page: page || this.state.page });
+            this.setState({
+                page: page || this.state.page,
+                scale: scale || this.state.scale
+            });
         }
     }, {
         key: 'render',
@@ -374,7 +550,6 @@ var PDFViewer = function (_React$Component) {
             var source = this.props.document;
             var _props = this.props,
                 loader = _props.loader,
-                scale = _props.scale,
                 hideNavbar = _props.hideNavbar,
                 navigation = _props.navigation,
                 css = _props.css,
@@ -382,7 +557,9 @@ var PDFViewer = function (_React$Component) {
                 onDocumentClick = _props.onDocumentClick;
             var _state = this.state,
                 page = _state.page,
-                pages = _state.pages;
+                pages = _state.pages,
+                scale = _state.scale,
+                maxScale = _state.maxScale;
 
 
             var NavigationElement = navigation;
@@ -406,10 +583,15 @@ var PDFViewer = function (_React$Component) {
                     css: navigation ? navigation.css : undefined,
                     elements: navigation ? navigation.elements : undefined,
                     handleNextClick: this.handleNextClick,
-                    handlePrevClick: this.handlePrevClick
+                    handlePrevClick: this.handlePrevClick,
+                    handleZoomIn: this.handleZoomIn,
+                    handleResetZoom: this.handleResetZoom,
+                    handleZoomOut: this.handleZoomOut
                 }) : React.createElement(NavigationElement, {
                     page: page,
                     pages: pages,
+                    scale: scale,
+                    maxScale: maxScale,
                     handleNextClick: this.handleNextClick,
                     handlePrevClick: this.handlePrevClick
                 });
@@ -473,10 +655,6 @@ PDFViewer.propTypes = {
     }),
     // Or a full navigation component
     PropTypes.any])
-};
-
-PDFViewer.defaultProps = {
-    scale: 1
 };
 
 module.exports = PDFViewer;
