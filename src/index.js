@@ -7,149 +7,159 @@ import Navigation from './Navigation';
 const mgrpdfStyles = {};
 
 mgrpdfStyles.wrapper = {
-  textAlign: 'center'
+    textAlign: 'center'
 };
 
 class PDFViewer extends React.Component {
-  state = {
-    pages: 0,
-    page: 1,
-  }
+    state = {
+        pages: 0,
+        page: 1
+    };
 
-  componentWillMount() {
-    this.setState({
-      pages: null,
-      page: this.props.page || 1,
-    })
-  }
-
-  componentWillReceiveProps({ page }) {
-    this.setState({ page: page || this.state.page });
-  }
-
-  onDocumentComplete = (pages) => {
-    this.setState({
-      pages
-    });
-  }
-
-  handlePrevClick = () => {
-    if (this.state.page === 1) return;
-
-    this.setState({
-      page: this.state.page - 1
-    });
-  }
-
-  handleNextClick = () => {
-    if (this.state.page === this.state.pages) return;
-
-    this.setState({
-      page: this.state.page + 1
-    });
-  }
-
-  render() {
-    const source = this.props.document;
-    const {
-      loader,
-      scale,
-      hideNavbar,
-      navigation,
-      css,
-      onDocumentClick
-    } = this.props;
-
-    const {
-      page,
-      pages
-    } = this.state;
-
-    const NavigationElement = navigation;
-
-    const pdf = (
-      <PDF
-        file={source.file || source.url}
-        content={source.base64}
-        binaryContent={source.binary}
-        documentInitParameters={source.connection}
-        loading={loader}
-        page={page}
-        scale={scale}
-        onDocumentComplete={this.onDocumentComplete} />
-    );
-
-    let nav = null;
-    if (!hideNavbar && pages > 0){
-      nav = !navigation || (navigation && typeof(navigation) === 'object')
-        ? <Navigation
-            page={page}
-            pages={pages}
-            css={navigation ? navigation.css : undefined}
-            elements={navigation ? navigation.elements : undefined}
-            handleNextClick={this.handleNextClick}
-            handlePrevClick={this.handlePrevClick} />
-        : <NavigationElement
-            page={page}
-            pages={pages}
-            handleNextClick={this.handleNextClick}
-            handlePrevClick={this.handlePrevClick} />;
+    componentWillMount() {
+        this.setState({
+            pages: null,
+            page: this.props.page || 1
+        });
     }
 
-    return (
-      <div className={css ? css : 'mgrpdf__wrapper'} style={mgrpdfStyles.wrapper}>
-        <div onClick={onDocumentClick}>
-          {pdf}
-        </div>
+    componentWillReceiveProps({ page }) {
+        this.setState({ page: page || this.state.page });
+    }
 
-        {nav}
-      </div>
-    );
-  }
+    onDocumentComplete = pages => {
+        this.setState({
+            pages
+        });
+    };
+
+    handlePrevClick = () => {
+        if (this.state.page === 1) return;
+
+        this.setState({
+            page: this.state.page - 1
+        });
+    };
+
+    handleNextClick = () => {
+        if (this.state.page === this.state.pages) return;
+
+        this.setState({
+            page: this.state.page + 1
+        });
+    };
+
+    render() {
+        const source = this.props.document;
+        const {
+            loader,
+            scale,
+            hideNavbar,
+            navigation,
+            css,
+            onDocumentClick
+        } = this.props;
+
+        const { page, pages } = this.state;
+
+        const NavigationElement = navigation;
+
+        const pdf = (
+            <PDF
+                file={source.file || source.url}
+                content={source.base64}
+                binaryContent={source.binary}
+                documentInitParameters={source.connection}
+                loading={loader}
+                page={page}
+                scale={scale}
+                onDocumentComplete={this.onDocumentComplete}
+            />
+        );
+
+        let nav = null;
+        if (!hideNavbar && pages > 0) {
+            nav =
+                !navigation ||
+                (navigation && typeof navigation === 'object') ? (
+                    <Navigation
+                        page={page}
+                        pages={pages}
+                        css={navigation ? navigation.css : undefined}
+                        elements={navigation ? navigation.elements : undefined}
+                        handleNextClick={this.handleNextClick}
+                        handlePrevClick={this.handlePrevClick}
+                    />
+                ) : (
+                    <NavigationElement
+                        page={page}
+                        pages={pages}
+                        handleNextClick={this.handleNextClick}
+                        handlePrevClick={this.handlePrevClick}
+                    />
+                );
+        }
+
+        return (
+            <div
+                className={css ? css : 'mgrpdf__wrapper'}
+                style={mgrpdfStyles.wrapper}>
+                <div
+                    className={cssCanvas ? cssCanvas : undefined}
+                    onClick={onDocumentClick}>
+                    {pdf}
+                </div>
+
+                {nav}
+            </div>
+        );
+    }
 }
 
 PDFViewer.propTypes = {
-  document: PropTypes.shape({
-    file: PropTypes.any, // File object,
-    url: PropTypes.string,
-    connection: PropTypes.shape({
-      url: PropTypes.string.isRequired, // URL to fetch the pdf
-    }),
-    base64: PropTypes.string, // PDF file encoded in base64
-    binary: PropTypes.shape({ // UInt8Array
-      data: PropTypes.any,
-    })
-  }).isRequired,
+    document: PropTypes.shape({
+        file: PropTypes.any, // File object,
+        url: PropTypes.string,
+        connection: PropTypes.shape({
+            url: PropTypes.string.isRequired // URL to fetch the pdf
+        }),
+        base64: PropTypes.string, // PDF file encoded in base64
+        binary: PropTypes.shape({
+            // UInt8Array
+            data: PropTypes.any
+        })
+    }).isRequired,
 
-  loader: PropTypes.node,
-  page: PropTypes.number,
-  scale: PropTypes.number,
-  css: PropTypes.string,
-  onDocumentClick: PropTypes.func,
+    loader: PropTypes.node,
+    page: PropTypes.number,
+    scale: PropTypes.number,
+    css: PropTypes.string,
+    cssCanvas: PropTypes.string,
+    onDocumentClick: PropTypes.func,
 
-  hideNavbar: PropTypes.bool,
-  navigation: PropTypes.oneOfType([
-    // Can be an object with css classes or react elements to be rendered
-    PropTypes.shape({
-      css: PropTypes.shape({
-        previousPageBtn: PropTypes.string,
-        nextPageBtn: PropTypes.string,
-        pages: PropTypes.string,
-        wrapper: PropTypes.string
-      }),
-      elements: PropTypes.shape({
-        previousPageBtn: PropTypes.any,
-        nextPageBtn: PropTypes.any,
-        pages: PropTypes.any
-      })
-    }),
-    // Or a full navigation component
-    PropTypes.any
-  ])
+    hideNavbar: PropTypes.bool,
+    navigation: PropTypes.oneOfType([
+        // Can be an object with css classes or react elements to be rendered
+        PropTypes.shape({
+            css: PropTypes.shape({
+                previousPageBtn: PropTypes.string,
+                nextPageBtn: PropTypes.string,
+                pages: PropTypes.string,
+                wrapper: PropTypes.string
+            }),
+            elements: PropTypes.shape({
+                previousPageBtn: PropTypes.any,
+                nextPageBtn: PropTypes.any,
+                pages: PropTypes.any
+            })
+        }),
+        // Or a full navigation component
+        PropTypes.any
+    ])
 };
 
 PDFViewer.defaultProps = {
-  scale: 1
+    scale: 1
 };
 
 export default PDFViewer;

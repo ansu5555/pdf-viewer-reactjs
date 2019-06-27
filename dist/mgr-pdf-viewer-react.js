@@ -314,159 +314,168 @@ Navigation.defaultProps = {
 var mgrpdfStyles = {};
 
 mgrpdfStyles.wrapper = {
-  textAlign: 'center'
+    textAlign: 'center'
 };
 
 var PDFViewer = function (_React$Component) {
-  inherits(PDFViewer, _React$Component);
+    inherits(PDFViewer, _React$Component);
 
-  function PDFViewer() {
-    var _ref;
+    function PDFViewer() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    classCallCheck(this, PDFViewer);
+        classCallCheck(this, PDFViewer);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = PDFViewer.__proto__ || Object.getPrototypeOf(PDFViewer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            pages: 0,
+            page: 1
+        }, _this.onDocumentComplete = function (pages) {
+            _this.setState({
+                pages: pages
+            });
+        }, _this.handlePrevClick = function () {
+            if (_this.state.page === 1) return;
+
+            _this.setState({
+                page: _this.state.page - 1
+            });
+        }, _this.handleNextClick = function () {
+            if (_this.state.page === _this.state.pages) return;
+
+            _this.setState({
+                page: _this.state.page + 1
+            });
+        }, _temp), possibleConstructorReturn(_this, _ret);
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = PDFViewer.__proto__ || Object.getPrototypeOf(PDFViewer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      pages: 0,
-      page: 1
-    }, _this.onDocumentComplete = function (pages) {
-      _this.setState({
-        pages: pages
-      });
-    }, _this.handlePrevClick = function () {
-      if (_this.state.page === 1) return;
+    createClass(PDFViewer, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setState({
+                pages: null,
+                page: this.props.page || 1
+            });
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(_ref2) {
+            var page = _ref2.page;
 
-      _this.setState({
-        page: _this.state.page - 1
-      });
-    }, _this.handleNextClick = function () {
-      if (_this.state.page === _this.state.pages) return;
-
-      _this.setState({
-        page: _this.state.page + 1
-      });
-    }, _temp), possibleConstructorReturn(_this, _ret);
-  }
-
-  createClass(PDFViewer, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.setState({
-        pages: null,
-        page: this.props.page || 1
-      });
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref2) {
-      var page = _ref2.page;
-
-      this.setState({ page: page || this.state.page });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var source = this.props.document;
-      var _props = this.props,
-          loader = _props.loader,
-          scale = _props.scale,
-          hideNavbar = _props.hideNavbar,
-          navigation = _props.navigation,
-          css = _props.css,
-          onDocumentClick = _props.onDocumentClick;
-      var _state = this.state,
-          page = _state.page,
-          pages = _state.pages;
+            this.setState({ page: page || this.state.page });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var source = this.props.document;
+            var _props = this.props,
+                loader = _props.loader,
+                scale = _props.scale,
+                hideNavbar = _props.hideNavbar,
+                navigation = _props.navigation,
+                css = _props.css,
+                onDocumentClick = _props.onDocumentClick;
+            var _state = this.state,
+                page = _state.page,
+                pages = _state.pages;
 
 
-      var NavigationElement = navigation;
+            var NavigationElement = navigation;
 
-      var pdf = React.createElement(PDF, {
-        file: source.file || source.url,
-        content: source.base64,
-        binaryContent: source.binary,
-        documentInitParameters: source.connection,
-        loading: loader,
-        page: page,
-        scale: scale,
-        onDocumentComplete: this.onDocumentComplete });
+            var pdf = React.createElement(PDF, {
+                file: source.file || source.url,
+                content: source.base64,
+                binaryContent: source.binary,
+                documentInitParameters: source.connection,
+                loading: loader,
+                page: page,
+                scale: scale,
+                onDocumentComplete: this.onDocumentComplete
+            });
 
-      var nav = null;
-      if (!hideNavbar && pages > 0) {
-        nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? React.createElement(Navigation, {
-          page: page,
-          pages: pages,
-          css: navigation ? navigation.css : undefined,
-          elements: navigation ? navigation.elements : undefined,
-          handleNextClick: this.handleNextClick,
-          handlePrevClick: this.handlePrevClick }) : React.createElement(NavigationElement, {
-          page: page,
-          pages: pages,
-          handleNextClick: this.handleNextClick,
-          handlePrevClick: this.handlePrevClick });
-      }
+            var nav = null;
+            if (!hideNavbar && pages > 0) {
+                nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? React.createElement(Navigation, {
+                    page: page,
+                    pages: pages,
+                    css: navigation ? navigation.css : undefined,
+                    elements: navigation ? navigation.elements : undefined,
+                    handleNextClick: this.handleNextClick,
+                    handlePrevClick: this.handlePrevClick
+                }) : React.createElement(NavigationElement, {
+                    page: page,
+                    pages: pages,
+                    handleNextClick: this.handleNextClick,
+                    handlePrevClick: this.handlePrevClick
+                });
+            }
 
-      return React.createElement(
-        'div',
-        { className: css ? css : 'mgrpdf__wrapper', style: mgrpdfStyles.wrapper },
-        React.createElement(
-          'div',
-          { onClick: onDocumentClick },
-          pdf
-        ),
-        nav
-      );
-    }
-  }]);
-  return PDFViewer;
+            return React.createElement(
+                'div',
+                {
+                    className: css ? css : 'mgrpdf__wrapper',
+                    style: mgrpdfStyles.wrapper },
+                React.createElement(
+                    'div',
+                    {
+                        className: cssCanvas ? cssCanvas : undefined,
+                        onClick: onDocumentClick },
+                    pdf
+                ),
+                nav
+            );
+        }
+    }]);
+    return PDFViewer;
 }(React.Component);
 
 PDFViewer.propTypes = {
-  document: PropTypes.shape({
-    file: PropTypes.any, // File object,
-    url: PropTypes.string,
-    connection: PropTypes.shape({
-      url: PropTypes.string.isRequired // URL to fetch the pdf
-    }),
-    base64: PropTypes.string, // PDF file encoded in base64
-    binary: PropTypes.shape({ // UInt8Array
-      data: PropTypes.any
-    })
-  }).isRequired,
+    document: PropTypes.shape({
+        file: PropTypes.any, // File object,
+        url: PropTypes.string,
+        connection: PropTypes.shape({
+            url: PropTypes.string.isRequired // URL to fetch the pdf
+        }),
+        base64: PropTypes.string, // PDF file encoded in base64
+        binary: PropTypes.shape({
+            // UInt8Array
+            data: PropTypes.any
+        })
+    }).isRequired,
 
-  loader: PropTypes.node,
-  page: PropTypes.number,
-  scale: PropTypes.number,
-  css: PropTypes.string,
-  onDocumentClick: PropTypes.func,
+    loader: PropTypes.node,
+    page: PropTypes.number,
+    scale: PropTypes.number,
+    css: PropTypes.string,
+    cssCanvas: PropTypes.string,
+    onDocumentClick: PropTypes.func,
 
-  hideNavbar: PropTypes.bool,
-  navigation: PropTypes.oneOfType([
-  // Can be an object with css classes or react elements to be rendered
-  PropTypes.shape({
-    css: PropTypes.shape({
-      previousPageBtn: PropTypes.string,
-      nextPageBtn: PropTypes.string,
-      pages: PropTypes.string,
-      wrapper: PropTypes.string
+    hideNavbar: PropTypes.bool,
+    navigation: PropTypes.oneOfType([
+    // Can be an object with css classes or react elements to be rendered
+    PropTypes.shape({
+        css: PropTypes.shape({
+            previousPageBtn: PropTypes.string,
+            nextPageBtn: PropTypes.string,
+            pages: PropTypes.string,
+            wrapper: PropTypes.string
+        }),
+        elements: PropTypes.shape({
+            previousPageBtn: PropTypes.any,
+            nextPageBtn: PropTypes.any,
+            pages: PropTypes.any
+        })
     }),
-    elements: PropTypes.shape({
-      previousPageBtn: PropTypes.any,
-      nextPageBtn: PropTypes.any,
-      pages: PropTypes.any
-    })
-  }),
-  // Or a full navigation component
-  PropTypes.any])
+    // Or a full navigation component
+    PropTypes.any])
 };
 
 PDFViewer.defaultProps = {
-  scale: 1
+    scale: 1
 };
 
 module.exports = PDFViewer;
