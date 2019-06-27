@@ -57,6 +57,7 @@ class PDFViewer extends React.Component {
             hideNavbar,
             navigation,
             css,
+            cssCanvas,
             onDocumentClick
         } = this.props;
 

@@ -378,6 +378,7 @@ var PDFViewer = function (_React$Component) {
                 hideNavbar = _props.hideNavbar,
                 navigation = _props.navigation,
                 css = _props.css,
+                cssCanvas = _props.cssCanvas,
                 onDocumentClick = _props.onDocumentClick;
             var _state = this.state,
                 page = _state.page,
