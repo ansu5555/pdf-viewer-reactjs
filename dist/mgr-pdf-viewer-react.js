@@ -580,6 +580,8 @@ var PDFViewer = function (_React$Component) {
                 nav = !navigation || navigation && (typeof navigation === 'undefined' ? 'undefined' : _typeof(navigation)) === 'object' ? React.createElement(Navigation, {
                     page: page,
                     pages: pages,
+                    scale: scale,
+                    maxScale: maxScale,
                     css: navigation ? navigation.css : undefined,
                     elements: navigation ? navigation.elements : undefined,
                     handleNextClick: this.handleNextClick,

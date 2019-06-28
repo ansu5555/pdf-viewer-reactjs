@@ -118,6 +118,8 @@ class PDFViewer extends React.Component {
                     <Navigation
                         page={page}
                         pages={pages}
+                        scale={scale}
+                        maxScale={maxScale}
                         css={navigation ? navigation.css : undefined}
                         elements={navigation ? navigation.elements : undefined}
                         handleNextClick={this.handleNextClick}
