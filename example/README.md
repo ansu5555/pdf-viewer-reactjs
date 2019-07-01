@@ -1,1 +1,1 @@
-# mgr-pdf-viewer-react example
+# pdf-viewer-reactjs example

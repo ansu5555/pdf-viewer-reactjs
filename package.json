@@ -1,41 +1,42 @@
 {
-  "name": "mgr-pdf-viewer-react",
-  "version": "1.0.3",
-  "description": "Simple react PDF viewer component. Based on PDF.js.",
-  "main": "index.js",
-  "repository": {
-    "url": "https://github.com/MGrin/mgr-pdf-viewer-react",
-    "type": "git"
-  },
-  "scripts": {
-    "build": "./node_modules/.bin/rollup-babel-lib-bundler src/index.js",
-    "prepublish": "npm run build"
-  },
-  "author": "MGrin",
-  "license": "MIT",
-  "devDependencies": {
-    "babel-preset-es2015-rollup": "^3.0.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "rollup-babel-lib-bundler": "^3.1.0"
-  },
-  "dependencies": {
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "material-design-icons": "^3.0.1",
-    "popper.js": "^1.15.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-pdf-js": "^2.0.5"
-  },
-  "peerDependencies": {
-    "react": ">=15.3.2"
-  },
-  "rollupBabelLibBundler": {
-    "moduleName": "mgr-pdf-viewer-react",
-    "dest": "dist",
-    "format": [
-      "cjs"
-    ]
-  }
+    "name": "pdf-viewer-reactjs",
+    "version": "1.0.0",
+    "description": "Simple react PDF viewer component with controls based on PDF.js.",
+    "main": "index",
+    "typings": "index",
+    "repository": {
+        "url": "https://github.com/ansu5555/pdf-viewer-reactjs",
+        "type": "git"
+    },
+    "scripts": {
+        "build": "./node_modules/.bin/rollup-babel-lib-bundler src/index.js",
+        "prepublish": "npm run build"
+    },
+    "author": "ansu5555",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-preset-es2015-rollup": "^3.0.0",
+        "babel-preset-react": "^6.16.0",
+        "babel-preset-stage-0": "^6.16.0",
+        "rollup-babel-lib-bundler": "^3.1.0"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "jquery": "^3.4.1",
+        "material-design-icons": "^3.0.1",
+        "popper.js": "^1.15.0",
+        "prop-types": "^15.6.0",
+        "react": "^16.0.0",
+        "react-pdf-js": "^2.0.5"
+    },
+    "peerDependencies": {
+        "react": ">=15.3.2"
+    },
+    "rollupBabelLibBundler": {
+        "moduleName": "pdf-viewer-reactjs",
+        "dest": "dist",
+        "format": [
+            "cjs"
+        ]
+    }
 }
