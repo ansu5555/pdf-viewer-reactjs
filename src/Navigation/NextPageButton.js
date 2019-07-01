@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles';
 
 const NextPageButton = ({ css, page, pages, handleNextClick }) => {
     const nextClass = `
@@ -9,10 +8,7 @@ const NextPageButton = ({ css, page, pages, handleNextClick }) => {
   `;
 
     return (
-        <button
-            className={nextClass}
-            style={nextClass ? {} : styles.next}
-            onClick={handleNextClick}>
+        <button className={nextClass} onClick={handleNextClick}>
             <i className="material-icons">keyboard_arrow_right</i>
         </button>
     );

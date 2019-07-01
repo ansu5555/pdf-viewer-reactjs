@@ -7,34 +7,26 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'material-design-icons/iconfont/material-icons.css';
 
 import Navigation from './Navigation';
-
-const mgrpdfStyles = {};
-
-mgrpdfStyles.wrapper = {
-    textAlign: 'center'
-};
+import Styles from './Styles';
 
 class PDFViewer extends React.Component {
     state = {
         pages: 0,
         page: 1,
         scale: 1,
-        maxScale: 3
+        scaleStep: 1,
+        maxScale: 3,
+        rotationAngle: 0
     };
 
     componentDidMount() {
         this.setState({
             pages: null,
-            page: this.props.page || 1,
-            scale: this.props.scale || 1,
-            maxScale: this.props.maxScale || 3
-        });
-    }
-
-    componentWillReceiveProps({ page, scale }) {
-        this.setState({
-            page: page || this.state.page,
-            scale: scale || this.state.scale
+            page: this.props.page || this.state.page,
+            scale: this.props.scale || this.state.scale,
+            scaleStep: this.props.scaleStep || this.state.scaleStep,
+            maxScale: this.props.maxScale || this.state.maxScale,
+            rotationAngle: this.props.rotationAngle || this.state.rotationAngle
         });
     }
 
@@ -63,7 +55,7 @@ class PDFViewer extends React.Component {
     handleZoomIn = () => {
         if (this.state.scale < this.state.maxScale) {
             this.setState({
-                scale: this.state.scale + 1
+                scale: this.state.scale + this.state.scaleStep
             });
         }
     };
@@ -77,7 +69,34 @@ class PDFViewer extends React.Component {
     handleZoomOut = () => {
         if (this.state.scale > 1) {
             this.setState({
-                scale: this.state.scale - 1
+                scale: this.state.scale - this.state.scaleStep
+            });
+        }
+    };
+
+    handleRotateLeft = () => {
+        if (this.state.rotationAngle !== -90) {
+            this.setState({
+                rotationAngle: -90
+            });
+        }
+    };
+
+    handleResetRotation = () => {
+        if (
+            this.state.rotationAngle !== 0 ||
+            this.state.rotationAngle !== 360
+        ) {
+            this.setState({
+                rotationAngle: 360
+            });
+        }
+    };
+
+    handleRotateRight = () => {
+        if (this.state.rotationAngle !== 90) {
+            this.setState({
+                rotationAngle: 90
             });
         }
     };
@@ -87,13 +106,15 @@ class PDFViewer extends React.Component {
         const {
             loader,
             hideNavbar,
+            hideZoom,
+            hideRotation,
             navigation,
             css,
-            cssCanvas,
+            canvasCss,
             onDocumentClick
         } = this.props;
 
-        const { page, pages, scale, maxScale } = this.state;
+        const { page, pages, scale, maxScale, rotationAngle } = this.state;
 
         const NavigationElement = navigation;
 
@@ -106,6 +127,7 @@ class PDFViewer extends React.Component {
                 loading={loader}
                 page={page}
                 scale={scale}
+                rotate={rotationAngle}
                 onDocumentComplete={this.onDocumentComplete}
             />
         );
@@ -120,6 +142,9 @@ class PDFViewer extends React.Component {
                         pages={pages}
                         scale={scale}
                         maxScale={maxScale}
+                        rotationAngle={rotationAngle}
+                        hideZoom={hideZoom}
+                        hideRotation={hideRotation}
                         css={navigation ? navigation.css : undefined}
                         elements={navigation ? navigation.elements : undefined}
                         handleNextClick={this.handleNextClick}
@@ -127,6 +152,9 @@ class PDFViewer extends React.Component {
                         handleZoomIn={this.handleZoomIn}
                         handleResetZoom={this.handleResetZoom}
                         handleZoomOut={this.handleZoomOut}
+                        handleRotateLeft={this.handleRotateLeft}
+                        handleResetRotation={this.handleResetRotation}
+                        handleRotateRight={this.handleRotateRight}
                     />
                 ) : (
                     <NavigationElement
@@ -141,11 +169,10 @@ class PDFViewer extends React.Component {
         }
 
         return (
-            <div
-                className={css ? css : 'mgrpdf__wrapper'}
-                style={mgrpdfStyles.wrapper}>
+            <div className={css ? css : 'container text-center'}>
                 <div
-                    className={cssCanvas ? cssCanvas : undefined}
+                    className={canvasCss ? canvasCss : ''}
+                    style={canvasCss ? {} : Styles.canvas}
                     onClick={onDocumentClick}>
                     {pdf}
                 </div>
@@ -174,9 +201,11 @@ PDFViewer.propTypes = {
     page: PropTypes.number,
     scale: PropTypes.number,
     css: PropTypes.string,
-    cssCanvas: PropTypes.string,
+    canvasCss: PropTypes.string,
+    rotationAngle: PropTypes.number,
     onDocumentClick: PropTypes.func,
-
+    hideZoom: PropTypes.bool,
+    hideRotation: PropTypes.bool,
     hideNavbar: PropTypes.bool,
     navigation: PropTypes.oneOfType([
         // Can be an object with css classes or react elements to be rendered
@@ -196,6 +225,12 @@ PDFViewer.propTypes = {
         // Or a full navigation component
         PropTypes.any
     ])
+};
+
+PDFViewer.defaultProps = {
+    hideNavbar: false,
+    hideZoom: false,
+    hideRotation: false
 };
 
 export default PDFViewer;

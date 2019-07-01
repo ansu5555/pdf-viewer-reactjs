@@ -10,6 +10,401 @@ var bootstrap_dist_css_bootstrap_min_css = require('bootstrap/dist/css/bootstrap
 var bootstrap_dist_js_bootstrap_min_js = require('bootstrap/dist/js/bootstrap.min.js');
 var materialDesignIcons_iconfont_materialIcons_css = require('material-design-icons/iconfont/material-icons.css');
 
+var NextPageButton = function NextPageButton(_ref) {
+    var css = _ref.css,
+        page = _ref.page,
+        pages = _ref.pages,
+        handleNextClick = _ref.handleNextClick;
+
+    var nextClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pl-0 ml-n3 text-white') + '\n    ' + (page === pages ? ' disabled' : '') + '\n  ';
+
+    return React.createElement(
+        'button',
+        { className: nextClass, onClick: handleNextClick },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'keyboard_arrow_right'
+        )
+    );
+};
+NextPageButton.propTypes = {
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired,
+    handleNextClick: PropTypes.func.isRequired
+};
+
+var PagesIndicator = function PagesIndicator(_ref) {
+    var css = _ref.css,
+        page = _ref.page,
+        pages = _ref.pages;
+
+    var pagesClass = css ? css : 'small pt-2';
+
+    return React.createElement(
+        'div',
+        { className: pagesClass },
+        'Page ' + page + ' / ' + pages
+    );
+};
+
+PagesIndicator.propTypes = {
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired
+};
+
+var PreviousPageButton = function PreviousPageButton(_ref) {
+    var css = _ref.css,
+        page = _ref.page,
+        handlePrevClick = _ref.handlePrevClick;
+
+    var prevClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pr-0 mr-n3 text-white') + '\n    ' + (page === 1 ? ' disabled' : '') + '\n  ';
+
+    return React.createElement(
+        'button',
+        { className: prevClass, onClick: handlePrevClick },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'keyboard_arrow_left'
+        )
+    );
+};
+PreviousPageButton.propTypes = {
+    css: PropTypes.string,
+    page: PropTypes.number.isRequired,
+    handlePrevClick: PropTypes.func.isRequired
+};
+
+var ZoomIn = function ZoomIn(_ref) {
+    var scale = _ref.scale,
+        maxScale = _ref.maxScale,
+        css = _ref.css,
+        handleZoomIn = _ref.handleZoomIn;
+
+    var zoomInClass = '' + (css ? css : 'btn btn-sm btn-link text-white pl-2') + (scale === maxScale ? ' disabled' : '');
+
+    return React.createElement(
+        'button',
+        { type: 'button', className: zoomInClass, onClick: handleZoomIn },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'zoom_in'
+        )
+    );
+};
+
+ZoomIn.propTypes = {
+    css: PropTypes.string,
+    handleZoomIn: PropTypes.func.isRequired
+};
+
+var ZoomOut = function ZoomOut(_ref) {
+    var scale = _ref.scale,
+        css = _ref.css,
+        handleZoomOut = _ref.handleZoomOut;
+
+    var zoomOutClass = '' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + (scale === 1 ? ' disabled' : '');
+
+    return React.createElement(
+        'button',
+        { type: 'button', className: zoomOutClass, onClick: handleZoomOut },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'zoom_out'
+        )
+    );
+};
+
+ZoomOut.propTypes = {
+    css: PropTypes.string,
+    handleZoomOut: PropTypes.func.isRequired
+};
+
+var ResetZoom = function ResetZoom(_ref) {
+    var css = _ref.css,
+        handleResetZoom = _ref.handleResetZoom;
+
+    var resetZoomClass = css ? css : 'btn btn-sm btn-link text-white px-2';
+
+    return React.createElement(
+        'button',
+        {
+            type: 'button',
+            className: resetZoomClass,
+            onClick: handleResetZoom },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'refresh'
+        )
+    );
+};
+
+ResetZoom.propTypes = {
+    css: PropTypes.string,
+    handleResetZoom: PropTypes.func.isRequired
+};
+
+var RotateLeft = function RotateLeft(_ref) {
+    var css = _ref.css,
+        rotationAngle = _ref.rotationAngle,
+        handleRotateLeft = _ref.handleRotateLeft;
+
+    var rotateLeftClass = '\n    ' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + '\n    ' + (rotationAngle === -90 ? ' disabled' : '') + '\n  ';
+
+    return React.createElement(
+        'button',
+        {
+            type: 'button',
+            className: rotateLeftClass,
+            onClick: handleRotateLeft },
+        React.createElement(
+            'i',
+            { className: 'material-icons' },
+            'rotate_left'
+        )
+    );
+};
+
+RotateLeft.propTypes = {
+    css: PropTypes.string,
+    rotationAngle: PropTypes.number.isRequired,
+    handleRotateLeft: PropTypes.func.isRequired
+};
+
+var ResetRotation = function ResetRotation(_ref) {
+    var css = _ref.css,
+        rotationAngle = _ref.rotationAngle,
+        handleResetRotation = _ref.handleResetRotation;
+
+    var resetRotationClass = '\n    ' + (css ? css : 'btn btn-sm btn-link text-white px-2') + '\n    ' + (rotationAngle === 0 || rotationAngle === 360 ? ' disabled' : '') + '\n  ';
+
+    return React.createElement(
+        'button',
+        {
+            type: 'button',
+            className: resetRotationClass,
+            onClick: handleResetRotation },
+        React.createElement(
+            'i',
+            { 'class': 'material-icons' },
+            'refresh'
+        )
+    );
+};
+ResetRotation.propTypes = {
+    css: PropTypes.string,
+    rotationAngle: PropTypes.number.isRequired,
+    handleResetRotation: PropTypes.func.isRequired
+};
+
+var RotateRight = function RotateRight(_ref) {
+    var css = _ref.css,
+        rotationAngle = _ref.rotationAngle,
+        handleRotateRight = _ref.handleRotateRight;
+
+    var rotateRightClass = '\n    ' + (css ? css : 'btn btn-sm btn-link text-white pl-2') + '\n    ' + (rotationAngle === 90 ? ' disabled' : '') + '\n  ';
+
+    return React.createElement(
+        'button',
+        {
+            type: 'button',
+            className: rotateRightClass,
+            onClick: handleRotateRight },
+        React.createElement(
+            'i',
+            { 'class': 'material-icons' },
+            'rotate_right'
+        )
+    );
+};
+RotateRight.propTypes = {
+    css: PropTypes.string,
+    rotationAngle: PropTypes.number.isRequired,
+    handleRotateRight: PropTypes.func.isRequired
+};
+
+var Styles = {
+    canvas: {
+        height: '1000px',
+        maxHeight: '1000px',
+        minWidth: '1000px',
+        maxWidth: '1000px',
+        overflow: 'auto'
+    }
+};
+
+var Navigation = function Navigation(_ref) {
+    var page = _ref.page,
+        pages = _ref.pages,
+        scale = _ref.scale,
+        maxScale = _ref.maxScale,
+        rotationAngle = _ref.rotationAngle,
+        hideZoom = _ref.hideZoom,
+        hideRotation = _ref.hideRotation,
+        css = _ref.css,
+        elements = _ref.elements,
+        handlePrevClick = _ref.handlePrevClick,
+        handleNextClick = _ref.handleNextClick,
+        handleZoomIn = _ref.handleZoomIn,
+        handleResetZoom = _ref.handleResetZoom,
+        handleZoomOut = _ref.handleZoomOut,
+        handleRotateLeft = _ref.handleRotateLeft,
+        handleResetRotation = _ref.handleResetRotation,
+        handleRotateRight = _ref.handleRotateRight;
+
+    var prevEl = void 0,
+        nextEl = void 0,
+        pagesEl = void 0;
+    if (elements.previousPageBtn) {
+        prevEl = React.createElement(elements.previousPageBtn, {
+            page: page,
+            pages: pages,
+            handlePrevClick: handlePrevClick
+        });
+    } else {
+        prevEl = React.createElement(PreviousPageButton, {
+            css: css.previousPageBtn,
+            page: page,
+            pages: pages,
+            handlePrevClick: handlePrevClick
+        });
+    }
+
+    if (elements.nextPageBtn) {
+        nextEl = React.createElement(elements.nextPageBtn, {
+            page: page,
+            pages: pages,
+            handleNextClick: handleNextClick
+        });
+    } else {
+        nextEl = React.createElement(NextPageButton, {
+            css: css.nextPageBtn,
+            page: page,
+            pages: pages,
+            handleNextClick: handleNextClick
+        });
+    }
+
+    if (elements.pages) {
+        pagesEl = React.createElement(elements.pages, { page: page, pages: pages });
+    } else {
+        pagesEl = React.createElement(PagesIndicator, { css: css.pages, page: page, pages: pages });
+    }
+
+    var wrapperClass = css.wrapper ? css.wrapper : 'container rounded bg-dark text-white';
+
+    return React.createElement(
+        'div',
+        {
+            className: wrapperClass,
+            style: wrapperClass ? {} : Styles.wrapper },
+        React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+                'div',
+                { className: 'col-sm-4' },
+                hideZoom ? undefined : React.createElement(
+                    'div',
+                    { className: 'btn-group', role: 'group' },
+                    React.createElement(ZoomOut, {
+                        scale: scale,
+                        css: css.zoomOutBtn,
+                        handleZoomOut: handleZoomOut
+                    }),
+                    React.createElement(ResetZoom, {
+                        css: css.restZoomBtn,
+                        handleResetZoom: handleResetZoom
+                    }),
+                    React.createElement(ZoomIn, {
+                        scale: scale,
+                        maxScale: maxScale,
+                        css: css.zoomInBtn,
+                        handleZoomIn: handleZoomIn
+                    })
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'col-sm-4' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 text-right' },
+                        prevEl
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 text-center' },
+                        pagesEl
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 text-left' },
+                        nextEl
+                    )
+                )
+            ),
+            React.createElement(
+                'div',
+                { className: 'col-sm-4' },
+                hideRotation ? undefined : React.createElement(
+                    'div',
+                    { className: 'btn-group', role: 'group' },
+                    React.createElement(RotateLeft, {
+                        css: css.RotateLeftBtn,
+                        rotationAngle: rotationAngle,
+                        handleRotateLeft: handleRotateLeft
+                    }),
+                    React.createElement(ResetRotation, {
+                        css: css.ResetRotationBtn,
+                        rotationAngle: rotationAngle,
+                        handleResetRotation: handleResetRotation
+                    }),
+                    React.createElement(RotateRight, {
+                        css: css.RotateRightBtn,
+                        rotationAngle: rotationAngle,
+                        handleRotateRight: handleRotateRight
+                    })
+                )
+            )
+        )
+    );
+};
+
+Navigation.propTypes = {
+    page: PropTypes.number.isRequired,
+    pages: PropTypes.number.isRequired,
+
+    css: PropTypes.shape({
+        previousPageBtn: PropTypes.string,
+        nextPageBtn: PropTypes.string,
+        pages: PropTypes.string,
+        wrapper: PropTypes.string
+    }),
+    elements: PropTypes.shape({
+        previousPageBtn: PropTypes.any,
+        nextPageBtn: PropTypes.any,
+        pages: PropTypes.any
+    }),
+
+    handlePrevClick: PropTypes.func.isRequired,
+    handleNextClick: PropTypes.func.isRequired
+};
+
+Navigation.defaultProps = {
+    css: {},
+    elements: {}
+};
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
@@ -55,20 +450,6 @@ var createClass = function () {
 
 
 
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
 
 var get = function get(object, property, receiver) {
   if (object === null) object = Function.prototype;
@@ -153,322 +534,6 @@ var set = function set(object, property, value, receiver) {
   return value;
 };
 
-var styles = {};
-styles.navigation = {
-  display: 'inline-block'
-};
-
-styles.controls = _extends({}, styles.navigation, {
-  textAlign: 'center'
-});
-
-styles.wrapper = _extends({}, styles.controls, {
-  width: '100%',
-  heigth: 24,
-  backgroundColor: '#323232',
-  color: '#fff'
-});
-
-styles.previous = _extends({}, styles.controls, {
-  marginRight: 12,
-  cursor: 'pointer'
-});
-
-styles.next = _extends({}, styles.controls, {
-  marginLeft: 12,
-  cursor: 'pointer'
-});
-
-styles.pages = _extends({}, styles.controls);
-
-var NextPageButton = function NextPageButton(_ref) {
-    var css = _ref.css,
-        page = _ref.page,
-        pages = _ref.pages,
-        handleNextClick = _ref.handleNextClick;
-
-    var nextClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pl-0 ml-n3 text-white') + '\n    ' + (page === pages ? ' disabled' : '') + '\n  ';
-
-    return React.createElement(
-        'button',
-        {
-            className: nextClass,
-            style: nextClass ? {} : styles.next,
-            onClick: handleNextClick },
-        React.createElement(
-            'i',
-            { className: 'material-icons' },
-            'keyboard_arrow_right'
-        )
-    );
-};
-NextPageButton.propTypes = {
-    css: PropTypes.string,
-    page: PropTypes.number.isRequired,
-    pages: PropTypes.number.isRequired,
-    handleNextClick: PropTypes.func.isRequired
-};
-
-var PagesIndicator = function PagesIndicator(_ref) {
-    var css = _ref.css,
-        page = _ref.page,
-        pages = _ref.pages;
-
-    var pagesClass = css ? css : 'small pt-2';
-
-    return React.createElement(
-        'div',
-        { className: pagesClass, style: pagesClass ? {} : styles.pages },
-        'Page ' + page + ' / ' + pages
-    );
-};
-
-PagesIndicator.propTypes = {
-    css: PropTypes.string,
-    page: PropTypes.number.isRequired,
-    pages: PropTypes.number.isRequired
-};
-
-var PreviousPageButton = function PreviousPageButton(_ref) {
-    var css = _ref.css,
-        page = _ref.page,
-        handlePrevClick = _ref.handlePrevClick;
-
-    var prevClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pr-0 mr-n3 text-white') + '\n    ' + (page === 1 ? ' disabled' : '') + '\n  ';
-
-    return React.createElement(
-        'button',
-        {
-            className: prevClass,
-            style: prevClass ? {} : styles.previous,
-            onClick: handlePrevClick },
-        React.createElement(
-            'i',
-            { className: 'material-icons' },
-            'keyboard_arrow_left'
-        )
-    );
-};
-PreviousPageButton.propTypes = {
-    css: PropTypes.string,
-    page: PropTypes.number.isRequired,
-    handlePrevClick: PropTypes.func.isRequired
-};
-
-var ZoomIn = function ZoomIn(_ref) {
-    var scale = _ref.scale,
-        maxScale = _ref.maxScale,
-        css = _ref.css,
-        handleZoomIn = _ref.handleZoomIn;
-
-    var zoomInClass = '' + (css ? css : 'btn btn-sm btn-link text-white pl-2') + (scale === maxScale ? ' disabled' : '');
-
-    return React.createElement(
-        'button',
-        { type: 'button', className: zoomInClass, onClick: handleZoomIn },
-        React.createElement(
-            'i',
-            { className: 'material-icons' },
-            'zoom_in'
-        )
-    );
-};
-
-ZoomIn.propTypes = {
-    css: PropTypes.string,
-    handleZoomIn: PropTypes.func.isRequired
-};
-
-var ZoomOut = function ZoomOut(_ref) {
-    var scale = _ref.scale,
-        css = _ref.css,
-        handleZoomOut = _ref.handleZoomOut;
-
-    var zoomOutClass = '' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + (scale === 1 ? ' disabled' : '');
-
-    return React.createElement(
-        'button',
-        { type: 'button', className: zoomOutClass, onClick: handleZoomOut },
-        React.createElement(
-            'i',
-            { className: 'material-icons' },
-            'zoom_out'
-        )
-    );
-};
-
-ZoomOut.propTypes = {
-    css: PropTypes.string,
-    handleZoomOut: PropTypes.func.isRequired
-};
-
-var ResetZoom = function ResetZoom(_ref) {
-    var css = _ref.css,
-        handleResetZoom = _ref.handleResetZoom;
-
-    var resetZoomClass = css ? css : 'btn btn-sm btn-link text-white px-2';
-
-    return React.createElement(
-        'button',
-        {
-            type: 'button',
-            className: resetZoomClass,
-            onClick: handleResetZoom },
-        React.createElement(
-            'i',
-            { className: 'material-icons' },
-            'youtube_searched_for'
-        )
-    );
-};
-
-ResetZoom.propTypes = {
-    css: PropTypes.string,
-    handleResetZoom: PropTypes.func.isRequired
-};
-
-var Navigation = function Navigation(_ref) {
-    var page = _ref.page,
-        pages = _ref.pages,
-        scale = _ref.scale,
-        maxScale = _ref.maxScale,
-        css = _ref.css,
-        elements = _ref.elements,
-        handlePrevClick = _ref.handlePrevClick,
-        handleNextClick = _ref.handleNextClick,
-        handleZoomIn = _ref.handleZoomIn,
-        handleResetZoom = _ref.handleResetZoom,
-        handleZoomOut = _ref.handleZoomOut;
-
-    var prevEl = void 0,
-        nextEl = void 0,
-        pagesEl = void 0;
-    if (elements.previousPageBtn) {
-        prevEl = React.createElement(elements.previousPageBtn, {
-            page: page,
-            pages: pages,
-            handlePrevClick: handlePrevClick
-        });
-    } else {
-        prevEl = React.createElement(PreviousPageButton, {
-            css: css.previousPageBtn,
-            page: page,
-            pages: pages,
-            handlePrevClick: handlePrevClick
-        });
-    }
-
-    if (elements.nextPageBtn) {
-        nextEl = React.createElement(elements.nextPageBtn, {
-            page: page,
-            pages: pages,
-            handleNextClick: handleNextClick
-        });
-    } else {
-        nextEl = React.createElement(NextPageButton, {
-            css: css.nextPageBtn,
-            page: page,
-            pages: pages,
-            handleNextClick: handleNextClick
-        });
-    }
-
-    if (elements.pages) {
-        pagesEl = React.createElement(elements.pages, { page: page, pages: pages });
-    } else {
-        pagesEl = React.createElement(PagesIndicator, { css: css.pages, page: page, pages: pages });
-    }
-
-    var wrapperClass = css.wrapper ? css.wrapper : 'container rounded bg-dark text-white';
-
-    return React.createElement(
-        'div',
-        {
-            className: wrapperClass,
-            style: wrapperClass ? {} : styles.wrapper },
-        React.createElement(
-            'div',
-            { className: 'row' },
-            React.createElement(
-                'div',
-                { className: 'col-sm-6' },
-                React.createElement(
-                    'div',
-                    { className: 'row' },
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 text-right' },
-                        prevEl
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 text-center' },
-                        pagesEl
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 text-left' },
-                        nextEl
-                    )
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'col-sm-6' },
-                React.createElement(
-                    'div',
-                    { className: 'btn-group', role: 'group' },
-                    React.createElement(ZoomOut, {
-                        scale: scale,
-                        css: css.zoomOutBtn,
-                        handleZoomOut: handleZoomOut
-                    }),
-                    React.createElement(ResetZoom, {
-                        css: css.restZoomBtn,
-                        handleResetZoom: handleResetZoom
-                    }),
-                    React.createElement(ZoomIn, {
-                        scale: scale,
-                        maxScale: maxScale,
-                        css: css.zoomInBtn,
-                        handleZoomIn: handleZoomIn
-                    })
-                )
-            )
-        )
-    );
-};
-
-Navigation.propTypes = {
-    page: PropTypes.number.isRequired,
-    pages: PropTypes.number.isRequired,
-
-    css: PropTypes.shape({
-        previousPageBtn: PropTypes.string,
-        nextPageBtn: PropTypes.string,
-        pages: PropTypes.string,
-        wrapper: PropTypes.string
-    }),
-    elements: PropTypes.shape({
-        previousPageBtn: PropTypes.any,
-        nextPageBtn: PropTypes.any,
-        pages: PropTypes.any
-    }),
-
-    handlePrevClick: PropTypes.func.isRequired,
-    handleNextClick: PropTypes.func.isRequired
-};
-Navigation.defaultProps = {
-    css: {},
-    elements: {}
-};
-
-var mgrpdfStyles = {};
-
-mgrpdfStyles.wrapper = {
-    textAlign: 'center'
-};
-
 var PDFViewer = function (_React$Component) {
     inherits(PDFViewer, _React$Component);
 
@@ -487,7 +552,9 @@ var PDFViewer = function (_React$Component) {
             pages: 0,
             page: 1,
             scale: 1,
-            maxScale: 3
+            scaleStep: 1,
+            maxScale: 3,
+            rotationAngle: 0
         }, _this.onDocumentComplete = function (pages) {
             _this.setState({
                 pages: pages
@@ -507,7 +574,7 @@ var PDFViewer = function (_React$Component) {
         }, _this.handleZoomIn = function () {
             if (_this.state.scale < _this.state.maxScale) {
                 _this.setState({
-                    scale: _this.state.scale + 1
+                    scale: _this.state.scale + _this.state.scaleStep
                 });
             }
         }, _this.handleResetZoom = function () {
@@ -517,7 +584,25 @@ var PDFViewer = function (_React$Component) {
         }, _this.handleZoomOut = function () {
             if (_this.state.scale > 1) {
                 _this.setState({
-                    scale: _this.state.scale - 1
+                    scale: _this.state.scale - _this.state.scaleStep
+                });
+            }
+        }, _this.handleRotateLeft = function () {
+            if (_this.state.rotationAngle !== -90) {
+                _this.setState({
+                    rotationAngle: -90
+                });
+            }
+        }, _this.handleResetRotation = function () {
+            if (_this.state.rotationAngle !== 0 || _this.state.rotationAngle !== 360) {
+                _this.setState({
+                    rotationAngle: 360
+                });
+            }
+        }, _this.handleRotateRight = function () {
+            if (_this.state.rotationAngle !== 90) {
+                _this.setState({
+                    rotationAngle: 90
                 });
             }
         }, _temp), possibleConstructorReturn(_this, _ret);
@@ -528,20 +613,11 @@ var PDFViewer = function (_React$Component) {
         value: function componentDidMount() {
             this.setState({
                 pages: null,
-                page: this.props.page || 1,
-                scale: this.props.scale || 1,
-                maxScale: this.props.maxScale || 3
-            });
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(_ref2) {
-            var page = _ref2.page,
-                scale = _ref2.scale;
-
-            this.setState({
-                page: page || this.state.page,
-                scale: scale || this.state.scale
+                page: this.props.page || this.state.page,
+                scale: this.props.scale || this.state.scale,
+                scaleStep: this.props.scaleStep || this.state.scaleStep,
+                maxScale: this.props.maxScale || this.state.maxScale,
+                rotationAngle: this.props.rotationAngle || this.state.rotationAngle
             });
         }
     }, {
@@ -551,15 +627,18 @@ var PDFViewer = function (_React$Component) {
             var _props = this.props,
                 loader = _props.loader,
                 hideNavbar = _props.hideNavbar,
+                hideZoom = _props.hideZoom,
+                hideRotation = _props.hideRotation,
                 navigation = _props.navigation,
                 css = _props.css,
-                cssCanvas = _props.cssCanvas,
+                canvasCss = _props.canvasCss,
                 onDocumentClick = _props.onDocumentClick;
             var _state = this.state,
                 page = _state.page,
                 pages = _state.pages,
                 scale = _state.scale,
-                maxScale = _state.maxScale;
+                maxScale = _state.maxScale,
+                rotationAngle = _state.rotationAngle;
 
 
             var NavigationElement = navigation;
@@ -572,6 +651,7 @@ var PDFViewer = function (_React$Component) {
                 loading: loader,
                 page: page,
                 scale: scale,
+                rotate: rotationAngle,
                 onDocumentComplete: this.onDocumentComplete
             });
 
@@ -582,13 +662,19 @@ var PDFViewer = function (_React$Component) {
                     pages: pages,
                     scale: scale,
                     maxScale: maxScale,
+                    rotationAngle: rotationAngle,
+                    hideZoom: hideZoom,
+                    hideRotation: hideRotation,
                     css: navigation ? navigation.css : undefined,
                     elements: navigation ? navigation.elements : undefined,
                     handleNextClick: this.handleNextClick,
                     handlePrevClick: this.handlePrevClick,
                     handleZoomIn: this.handleZoomIn,
                     handleResetZoom: this.handleResetZoom,
-                    handleZoomOut: this.handleZoomOut
+                    handleZoomOut: this.handleZoomOut,
+                    handleRotateLeft: this.handleRotateLeft,
+                    handleResetRotation: this.handleResetRotation,
+                    handleRotateRight: this.handleRotateRight
                 }) : React.createElement(NavigationElement, {
                     page: page,
                     pages: pages,
@@ -601,13 +687,12 @@ var PDFViewer = function (_React$Component) {
 
             return React.createElement(
                 'div',
-                {
-                    className: css ? css : 'mgrpdf__wrapper',
-                    style: mgrpdfStyles.wrapper },
+                { className: css ? css : 'container text-center' },
                 React.createElement(
                     'div',
                     {
-                        className: cssCanvas ? cssCanvas : undefined,
+                        className: canvasCss ? canvasCss : '',
+                        style: canvasCss ? {} : Styles.canvas,
                         onClick: onDocumentClick },
                     pdf
                 ),
@@ -636,9 +721,11 @@ PDFViewer.propTypes = {
     page: PropTypes.number,
     scale: PropTypes.number,
     css: PropTypes.string,
-    cssCanvas: PropTypes.string,
+    canvasCss: PropTypes.string,
+    rotationAngle: PropTypes.number,
     onDocumentClick: PropTypes.func,
-
+    hideZoom: PropTypes.bool,
+    hideRotation: PropTypes.bool,
     hideNavbar: PropTypes.bool,
     navigation: PropTypes.oneOfType([
     // Can be an object with css classes or react elements to be rendered
@@ -657,6 +744,12 @@ PDFViewer.propTypes = {
     }),
     // Or a full navigation component
     PropTypes.any])
+};
+
+PDFViewer.defaultProps = {
+    hideNavbar: false,
+    hideZoom: false,
+    hideRotation: false
 };
 
 module.exports = PDFViewer;

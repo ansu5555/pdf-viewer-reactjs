@@ -4,6 +4,7 @@
     "private": true,
     "homepage": "https://ansu5555.github.io/pdf-viewer-reactjs/",
     "dependencies": {
+        "bootstrap": "^4.3.1",
         "pdf-viewer-reactjs": "file:..",
         "react": "^16.0.0",
         "react-dom": "^16.0.0"
@@ -19,5 +20,17 @@
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

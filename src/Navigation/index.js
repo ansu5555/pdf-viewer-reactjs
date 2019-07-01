@@ -6,20 +6,29 @@ import PreviousPageButton from './PreviousPageButton';
 import ZoomIn from './ZoomIn';
 import ZoomOut from './ZoomOut';
 import ResetZoom from './ResetZoom';
-import styles from '../styles';
+import RotateLeft from './RotateLeft';
+import ResetRotation from './ResetRotation';
+import RotateRight from './RotateRight';
+import styles from '../Styles';
 
 const Navigation = ({
     page,
     pages,
     scale,
     maxScale,
+    rotationAngle,
+    hideZoom,
+    hideRotation,
     css,
     elements,
     handlePrevClick,
     handleNextClick,
     handleZoomIn,
     handleResetZoom,
-    handleZoomOut
+    handleZoomOut,
+    handleRotateLeft,
+    handleResetRotation,
+    handleRotateRight
 }) => {
     let prevEl, nextEl, pagesEl;
     if (elements.previousPageBtn) {
@@ -75,31 +84,58 @@ const Navigation = ({
             className={wrapperClass}
             style={wrapperClass ? {} : styles.wrapper}>
             <div className="row">
-                <div className="col-sm-6">
+                <div className="col-sm-4">
+                    {hideZoom ? (
+                        undefined
+                    ) : (
+                        <div className="btn-group" role="group">
+                            <ZoomOut
+                                scale={scale}
+                                css={css.zoomOutBtn}
+                                handleZoomOut={handleZoomOut}
+                            />
+                            <ResetZoom
+                                css={css.restZoomBtn}
+                                handleResetZoom={handleResetZoom}
+                            />
+                            <ZoomIn
+                                scale={scale}
+                                maxScale={maxScale}
+                                css={css.zoomInBtn}
+                                handleZoomIn={handleZoomIn}
+                            />
+                        </div>
+                    )}
+                </div>
+                <div className="col-sm-4">
                     <div className="row">
                         <div className="col-sm-4 text-right">{prevEl}</div>
                         <div className="col-sm-4 text-center">{pagesEl}</div>
                         <div className="col-sm-4 text-left">{nextEl}</div>
                     </div>
                 </div>
-                <div className="col-sm-6">
-                    <div className="btn-group" role="group">
-                        <ZoomOut
-                            scale={scale}
-                            css={css.zoomOutBtn}
-                            handleZoomOut={handleZoomOut}
-                        />
-                        <ResetZoom
-                            css={css.restZoomBtn}
-                            handleResetZoom={handleResetZoom}
-                        />
-                        <ZoomIn
-                            scale={scale}
-                            maxScale={maxScale}
-                            css={css.zoomInBtn}
-                            handleZoomIn={handleZoomIn}
-                        />
-                    </div>
+                <div className="col-sm-4">
+                    {hideRotation ? (
+                        undefined
+                    ) : (
+                        <div className="btn-group" role="group">
+                            <RotateLeft
+                                css={css.RotateLeftBtn}
+                                rotationAngle={rotationAngle}
+                                handleRotateLeft={handleRotateLeft}
+                            />
+                            <ResetRotation
+                                css={css.ResetRotationBtn}
+                                rotationAngle={rotationAngle}
+                                handleResetRotation={handleResetRotation}
+                            />
+                            <RotateRight
+                                css={css.RotateRightBtn}
+                                rotationAngle={rotationAngle}
+                                handleRotateRight={handleRotateRight}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
@@ -125,6 +161,7 @@ Navigation.propTypes = {
     handlePrevClick: PropTypes.func.isRequired,
     handleNextClick: PropTypes.func.isRequired
 };
+
 Navigation.defaultProps = {
     css: {},
     elements: {}

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles';
 
 const PreviousPageButton = ({ css, page, handlePrevClick }) => {
     const prevClass = `
@@ -9,10 +8,7 @@ const PreviousPageButton = ({ css, page, handlePrevClick }) => {
   `;
 
     return (
-        <button
-            className={prevClass}
-            style={prevClass ? {} : styles.previous}
-            onClick={handlePrevClick}>
+        <button className={prevClass} onClick={handlePrevClick}>
             <i className="material-icons">keyboard_arrow_left</i>
         </button>
     );

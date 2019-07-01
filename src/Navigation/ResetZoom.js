@@ -9,7 +9,7 @@ const ResetZoom = ({ css, handleResetZoom }) => {
             type="button"
             className={resetZoomClass}
             onClick={handleResetZoom}>
-            <i className="material-icons">youtube_searched_for</i>
+            <i className="material-icons">refresh</i>
         </button>
     );
 };
