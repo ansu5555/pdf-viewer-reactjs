@@ -108,6 +108,7 @@ class PDFViewer extends React.Component {
             hideNavbar,
             hideZoom,
             hideRotation,
+            navbarOnTop,
             navigation,
             css,
             canvasCss,
@@ -146,7 +147,6 @@ class PDFViewer extends React.Component {
                         hideZoom={hideZoom}
                         hideRotation={hideRotation}
                         css={navigation ? navigation.css : undefined}
-                        elements={navigation ? navigation.elements : undefined}
                         handleNextClick={this.handleNextClick}
                         handlePrevClick={this.handlePrevClick}
                         handleZoomIn={this.handleZoomIn}
@@ -162,22 +162,44 @@ class PDFViewer extends React.Component {
                         pages={pages}
                         scale={scale}
                         maxScale={maxScale}
+                        rotationAngle={rotationAngle}
+                        hideZoom={hideZoom}
+                        hideRotation={hideRotation}
                         handleNextClick={this.handleNextClick}
                         handlePrevClick={this.handlePrevClick}
+                        handleZoomIn={this.handleZoomIn}
+                        handleResetZoom={this.handleResetZoom}
+                        handleZoomOut={this.handleZoomOut}
+                        handleRotateLeft={this.handleRotateLeft}
+                        handleResetRotation={this.handleResetRotation}
+                        handleRotateRight={this.handleRotateRight}
                     />
                 );
         }
 
         return (
             <div className={css ? css : 'container text-center'}>
-                <div
-                    className={canvasCss ? canvasCss : ''}
-                    style={canvasCss ? {} : Styles.canvas}
-                    onClick={onDocumentClick}>
-                    {pdf}
-                </div>
-
-                {nav}
+                {navbarOnTop ? (
+                    <div>
+                        <div>{nav}</div>
+                        <div
+                            className={canvasCss ? canvasCss : ''}
+                            style={canvasCss ? {} : Styles.canvas}
+                            onClick={onDocumentClick}>
+                            {pdf}
+                        </div>
+                    </div>
+                ) : (
+                    <div>
+                        <div
+                            className={canvasCss ? canvasCss : ''}
+                            style={canvasCss ? {} : Styles.canvas}
+                            onClick={onDocumentClick}>
+                            {pdf}
+                        </div>
+                        <div>{nav}</div>
+                    </div>
+                )}
             </div>
         );
     }
@@ -211,15 +233,16 @@ PDFViewer.propTypes = {
         // Can be an object with css classes or react elements to be rendered
         PropTypes.shape({
             css: PropTypes.shape({
+                navbarWrapper: PropTypes.string,
+                zoomOutBtn: PropTypes.string,
+                resetZoomBtn: PropTypes.string,
+                zoomInBtn: PropTypes.string,
                 previousPageBtn: PropTypes.string,
+                pageIndicator: PropTypes.string,
                 nextPageBtn: PropTypes.string,
-                pages: PropTypes.string,
-                wrapper: PropTypes.string
-            }),
-            elements: PropTypes.shape({
-                previousPageBtn: PropTypes.any,
-                nextPageBtn: PropTypes.any,
-                pages: PropTypes.any
+                rotateLeftBtn: PropTypes.string,
+                resetRotationBtn: PropTypes.string,
+                rotateRightBtn: PropTypes.string
             })
         }),
         // Or a full navigation component
@@ -230,7 +253,8 @@ PDFViewer.propTypes = {
 PDFViewer.defaultProps = {
     hideNavbar: false,
     hideZoom: false,
-    hideRotation: false
+    hideRotation: false,
+    navbarOnTop: false
 };
 
 export default PDFViewer;

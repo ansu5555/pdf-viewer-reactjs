@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const PreviousPageButton = ({ css, page, handlePrevClick }) => {
     const prevClass = `
-    ${css ? css : 'btn btn-sm btn-link pr-0 mr-n3 text-white'}
+    ${css ? css : 'btn btn-sm btn-link text-white pr-2'}
     ${page === 1 ? ' disabled' : ''}
   `;
 

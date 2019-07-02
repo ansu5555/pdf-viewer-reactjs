@@ -16,7 +16,7 @@ var NextPageButton = function NextPageButton(_ref) {
         pages = _ref.pages,
         handleNextClick = _ref.handleNextClick;
 
-    var nextClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pl-0 ml-n3 text-white') + '\n    ' + (page === pages ? ' disabled' : '') + '\n  ';
+    var nextClass = '\n    ' + (css ? css : 'btn btn-sm btn-link text-white pl-2') + '\n    ' + (page === pages ? ' disabled' : '') + '\n  ';
 
     return React.createElement(
         'button',
@@ -60,7 +60,7 @@ var PreviousPageButton = function PreviousPageButton(_ref) {
         page = _ref.page,
         handlePrevClick = _ref.handlePrevClick;
 
-    var prevClass = '\n    ' + (css ? css : 'btn btn-sm btn-link pr-0 mr-n3 text-white') + '\n    ' + (page === 1 ? ' disabled' : '') + '\n  ';
+    var prevClass = '\n    ' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + '\n    ' + (page === 1 ? ' disabled' : '') + '\n  ';
 
     return React.createElement(
         'button',
@@ -229,16 +229,6 @@ RotateRight.propTypes = {
     handleRotateRight: PropTypes.func.isRequired
 };
 
-var Styles = {
-    canvas: {
-        height: '1000px',
-        maxHeight: '1000px',
-        minWidth: '1000px',
-        maxWidth: '1000px',
-        overflow: 'auto'
-    }
-};
-
 var Navigation = function Navigation(_ref) {
     var page = _ref.page,
         pages = _ref.pages,
@@ -248,7 +238,6 @@ var Navigation = function Navigation(_ref) {
         hideZoom = _ref.hideZoom,
         hideRotation = _ref.hideRotation,
         css = _ref.css,
-        elements = _ref.elements,
         handlePrevClick = _ref.handlePrevClick,
         handleNextClick = _ref.handleNextClick,
         handleZoomIn = _ref.handleZoomIn,
@@ -258,52 +247,10 @@ var Navigation = function Navigation(_ref) {
         handleResetRotation = _ref.handleResetRotation,
         handleRotateRight = _ref.handleRotateRight;
 
-    var prevEl = void 0,
-        nextEl = void 0,
-        pagesEl = void 0;
-    if (elements.previousPageBtn) {
-        prevEl = React.createElement(elements.previousPageBtn, {
-            page: page,
-            pages: pages,
-            handlePrevClick: handlePrevClick
-        });
-    } else {
-        prevEl = React.createElement(PreviousPageButton, {
-            css: css.previousPageBtn,
-            page: page,
-            pages: pages,
-            handlePrevClick: handlePrevClick
-        });
-    }
-
-    if (elements.nextPageBtn) {
-        nextEl = React.createElement(elements.nextPageBtn, {
-            page: page,
-            pages: pages,
-            handleNextClick: handleNextClick
-        });
-    } else {
-        nextEl = React.createElement(NextPageButton, {
-            css: css.nextPageBtn,
-            page: page,
-            pages: pages,
-            handleNextClick: handleNextClick
-        });
-    }
-
-    if (elements.pages) {
-        pagesEl = React.createElement(elements.pages, { page: page, pages: pages });
-    } else {
-        pagesEl = React.createElement(PagesIndicator, { css: css.pages, page: page, pages: pages });
-    }
-
-    var wrapperClass = css.wrapper ? css.wrapper : 'container rounded bg-dark text-white';
-
     return React.createElement(
         'div',
         {
-            className: wrapperClass,
-            style: wrapperClass ? {} : Styles.wrapper },
+            className: css.navbarWrapper ? css.navbarWrapper : 'container rounded bg-dark text-white' },
         React.createElement(
             'div',
             { className: 'row' },
@@ -319,7 +266,7 @@ var Navigation = function Navigation(_ref) {
                         handleZoomOut: handleZoomOut
                     }),
                     React.createElement(ResetZoom, {
-                        css: css.restZoomBtn,
+                        css: css.resetZoomBtn,
                         handleResetZoom: handleResetZoom
                     }),
                     React.createElement(ZoomIn, {
@@ -335,22 +282,24 @@ var Navigation = function Navigation(_ref) {
                 { className: 'col-sm-4' },
                 React.createElement(
                     'div',
-                    { className: 'row' },
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 text-right' },
-                        prevEl
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 text-center' },
-                        pagesEl
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 text-left' },
-                        nextEl
-                    )
+                    { className: 'btn-group', role: 'group' },
+                    React.createElement(PreviousPageButton, {
+                        css: css.previousPageBtn,
+                        page: page,
+                        pages: pages,
+                        handlePrevClick: handlePrevClick
+                    }),
+                    React.createElement(PagesIndicator, {
+                        css: css.pageIndicator,
+                        page: page,
+                        pages: pages
+                    }),
+                    React.createElement(NextPageButton, {
+                        css: css.nextPageBtn,
+                        page: page,
+                        pages: pages,
+                        handleNextClick: handleNextClick
+                    })
                 )
             ),
             React.createElement(
@@ -360,17 +309,17 @@ var Navigation = function Navigation(_ref) {
                     'div',
                     { className: 'btn-group', role: 'group' },
                     React.createElement(RotateLeft, {
-                        css: css.RotateLeftBtn,
+                        css: css.rotateLeftBtn,
                         rotationAngle: rotationAngle,
                         handleRotateLeft: handleRotateLeft
                     }),
                     React.createElement(ResetRotation, {
-                        css: css.ResetRotationBtn,
+                        css: css.resetRotationBtn,
                         rotationAngle: rotationAngle,
                         handleResetRotation: handleResetRotation
                     }),
                     React.createElement(RotateRight, {
-                        css: css.RotateRightBtn,
+                        css: css.rotateRightBtn,
                         rotationAngle: rotationAngle,
                         handleRotateRight: handleRotateRight
                     })
@@ -403,6 +352,16 @@ Navigation.propTypes = {
 Navigation.defaultProps = {
     css: {},
     elements: {}
+};
+
+var Styles = {
+    canvas: {
+        height: '1000px',
+        maxHeight: '1000px',
+        minWidth: '1000px',
+        maxWidth: '1000px',
+        overflow: 'auto'
+    }
 };
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -629,6 +588,7 @@ var PDFViewer = function (_React$Component) {
                 hideNavbar = _props.hideNavbar,
                 hideZoom = _props.hideZoom,
                 hideRotation = _props.hideRotation,
+                navbarOnTop = _props.navbarOnTop,
                 navigation = _props.navigation,
                 css = _props.css,
                 canvasCss = _props.canvasCss,
@@ -666,7 +626,6 @@ var PDFViewer = function (_React$Component) {
                     hideZoom: hideZoom,
                     hideRotation: hideRotation,
                     css: navigation ? navigation.css : undefined,
-                    elements: navigation ? navigation.elements : undefined,
                     handleNextClick: this.handleNextClick,
                     handlePrevClick: this.handlePrevClick,
                     handleZoomIn: this.handleZoomIn,
@@ -680,23 +639,56 @@ var PDFViewer = function (_React$Component) {
                     pages: pages,
                     scale: scale,
                     maxScale: maxScale,
+                    rotationAngle: rotationAngle,
+                    hideZoom: hideZoom,
+                    hideRotation: hideRotation,
                     handleNextClick: this.handleNextClick,
-                    handlePrevClick: this.handlePrevClick
+                    handlePrevClick: this.handlePrevClick,
+                    handleZoomIn: this.handleZoomIn,
+                    handleResetZoom: this.handleResetZoom,
+                    handleZoomOut: this.handleZoomOut,
+                    handleRotateLeft: this.handleRotateLeft,
+                    handleResetRotation: this.handleResetRotation,
+                    handleRotateRight: this.handleRotateRight
                 });
             }
 
             return React.createElement(
                 'div',
                 { className: css ? css : 'container text-center' },
-                React.createElement(
+                navbarOnTop ? React.createElement(
                     'div',
-                    {
-                        className: canvasCss ? canvasCss : '',
-                        style: canvasCss ? {} : Styles.canvas,
-                        onClick: onDocumentClick },
-                    pdf
-                ),
-                nav
+                    null,
+                    React.createElement(
+                        'div',
+                        null,
+                        nav
+                    ),
+                    React.createElement(
+                        'div',
+                        {
+                            className: canvasCss ? canvasCss : '',
+                            style: canvasCss ? {} : Styles.canvas,
+                            onClick: onDocumentClick },
+                        pdf
+                    )
+                ) : React.createElement(
+                    'div',
+                    null,
+                    React.createElement(
+                        'div',
+                        {
+                            className: canvasCss ? canvasCss : '',
+                            style: canvasCss ? {} : Styles.canvas,
+                            onClick: onDocumentClick },
+                        pdf
+                    ),
+                    React.createElement(
+                        'div',
+                        null,
+                        nav
+                    )
+                )
             );
         }
     }]);
@@ -731,15 +723,16 @@ PDFViewer.propTypes = {
     // Can be an object with css classes or react elements to be rendered
     PropTypes.shape({
         css: PropTypes.shape({
+            navbarWrapper: PropTypes.string,
+            zoomOutBtn: PropTypes.string,
+            resetZoomBtn: PropTypes.string,
+            zoomInBtn: PropTypes.string,
             previousPageBtn: PropTypes.string,
+            pageIndicator: PropTypes.string,
             nextPageBtn: PropTypes.string,
-            pages: PropTypes.string,
-            wrapper: PropTypes.string
-        }),
-        elements: PropTypes.shape({
-            previousPageBtn: PropTypes.any,
-            nextPageBtn: PropTypes.any,
-            pages: PropTypes.any
+            rotateLeftBtn: PropTypes.string,
+            resetRotationBtn: PropTypes.string,
+            rotateRightBtn: PropTypes.string
         })
     }),
     // Or a full navigation component
@@ -749,7 +742,8 @@ PDFViewer.propTypes = {
 PDFViewer.defaultProps = {
     hideNavbar: false,
     hideZoom: false,
-    hideRotation: false
+    hideRotation: false,
+    navbarOnTop: false
 };
 
 module.exports = PDFViewer;

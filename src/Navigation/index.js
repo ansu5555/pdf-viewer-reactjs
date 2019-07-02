@@ -9,7 +9,6 @@ import ResetZoom from './ResetZoom';
 import RotateLeft from './RotateLeft';
 import ResetRotation from './ResetRotation';
 import RotateRight from './RotateRight';
-import styles from '../Styles';
 
 const Navigation = ({
     page,
@@ -20,7 +19,6 @@ const Navigation = ({
     hideZoom,
     hideRotation,
     css,
-    elements,
     handlePrevClick,
     handleNextClick,
     handleZoomIn,
@@ -30,59 +28,13 @@ const Navigation = ({
     handleResetRotation,
     handleRotateRight
 }) => {
-    let prevEl, nextEl, pagesEl;
-    if (elements.previousPageBtn) {
-        prevEl = (
-            <elements.previousPageBtn
-                page={page}
-                pages={pages}
-                handlePrevClick={handlePrevClick}
-            />
-        );
-    } else {
-        prevEl = (
-            <PreviousPageButton
-                css={css.previousPageBtn}
-                page={page}
-                pages={pages}
-                handlePrevClick={handlePrevClick}
-            />
-        );
-    }
-
-    if (elements.nextPageBtn) {
-        nextEl = (
-            <elements.nextPageBtn
-                page={page}
-                pages={pages}
-                handleNextClick={handleNextClick}
-            />
-        );
-    } else {
-        nextEl = (
-            <NextPageButton
-                css={css.nextPageBtn}
-                page={page}
-                pages={pages}
-                handleNextClick={handleNextClick}
-            />
-        );
-    }
-
-    if (elements.pages) {
-        pagesEl = <elements.pages page={page} pages={pages} />;
-    } else {
-        pagesEl = <PagesIndicator css={css.pages} page={page} pages={pages} />;
-    }
-
-    const wrapperClass = css.wrapper
-        ? css.wrapper
-        : 'container rounded bg-dark text-white';
-
     return (
         <div
-            className={wrapperClass}
-            style={wrapperClass ? {} : styles.wrapper}>
+            className={
+                css.navbarWrapper
+                    ? css.navbarWrapper
+                    : 'container rounded bg-dark text-white'
+            }>
             <div className="row">
                 <div className="col-sm-4">
                     {hideZoom ? (
@@ -95,7 +47,7 @@ const Navigation = ({
                                 handleZoomOut={handleZoomOut}
                             />
                             <ResetZoom
-                                css={css.restZoomBtn}
+                                css={css.resetZoomBtn}
                                 handleResetZoom={handleResetZoom}
                             />
                             <ZoomIn
@@ -108,10 +60,24 @@ const Navigation = ({
                     )}
                 </div>
                 <div className="col-sm-4">
-                    <div className="row">
-                        <div className="col-sm-4 text-right">{prevEl}</div>
-                        <div className="col-sm-4 text-center">{pagesEl}</div>
-                        <div className="col-sm-4 text-left">{nextEl}</div>
+                    <div className="btn-group" role="group">
+                        <PreviousPageButton
+                            css={css.previousPageBtn}
+                            page={page}
+                            pages={pages}
+                            handlePrevClick={handlePrevClick}
+                        />
+                        <PagesIndicator
+                            css={css.pageIndicator}
+                            page={page}
+                            pages={pages}
+                        />
+                        <NextPageButton
+                            css={css.nextPageBtn}
+                            page={page}
+                            pages={pages}
+                            handleNextClick={handleNextClick}
+                        />
                     </div>
                 </div>
                 <div className="col-sm-4">
@@ -120,17 +86,17 @@ const Navigation = ({
                     ) : (
                         <div className="btn-group" role="group">
                             <RotateLeft
-                                css={css.RotateLeftBtn}
+                                css={css.rotateLeftBtn}
                                 rotationAngle={rotationAngle}
                                 handleRotateLeft={handleRotateLeft}
                             />
                             <ResetRotation
-                                css={css.ResetRotationBtn}
+                                css={css.resetRotationBtn}
                                 rotationAngle={rotationAngle}
                                 handleResetRotation={handleResetRotation}
                             />
                             <RotateRight
-                                css={css.RotateRightBtn}
+                                css={css.rotateRightBtn}
                                 rotationAngle={rotationAngle}
                                 handleRotateRight={handleRotateRight}
                             />
