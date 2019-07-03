@@ -222,13 +222,16 @@ PDFViewer.propTypes = {
     loader: PropTypes.node,
     page: PropTypes.number,
     scale: PropTypes.number,
+    scaleStep: PropTypes.number,
+    maxScale: PropTypes.number,
     css: PropTypes.string,
     canvasCss: PropTypes.string,
     rotationAngle: PropTypes.number,
     onDocumentClick: PropTypes.func,
+    hideNavbar: PropTypes.bool,
+    navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
     hideRotation: PropTypes.bool,
-    hideNavbar: PropTypes.bool,
     navigation: PropTypes.oneOfType([
         // Can be an object with css classes or react elements to be rendered
         PropTypes.shape({

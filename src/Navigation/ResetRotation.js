@@ -12,7 +12,7 @@ const ResetRotation = ({ css, rotationAngle, handleResetRotation }) => {
             type="button"
             className={resetRotationClass}
             onClick={handleResetRotation}>
-            <i class="material-icons">refresh</i>
+            <i className="material-icons">refresh</i>
         </button>
     );
 };

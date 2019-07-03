@@ -1,11 +1,7 @@
 import React from 'react';
-import CustomNavigation, {
-    CustomPrevButton,
-    CustomNextButton,
-    CustomPages
-} from './Navigation';
-
 import PDFViewer from 'pdf-viewer-reactjs';
+
+import CustomNavigation from './Navigation';
 import sources from './source';
 
 import './App.css';
@@ -77,6 +73,8 @@ const WithCustomScale = () => (
                     base64: sources.base64
                 }}
                 scale={0.5}
+                scaleStep={0.1}
+                maxScale={5}
             />
         </div>
     </div>
@@ -91,35 +89,19 @@ const WithCustomNavigationStyles = () => (
                     url: sources.url
                 }}
                 css="customViewer"
+                canvasCss="customCanvas"
                 navigation={{
                     css: {
+                        navbarWrapper: 'customWrapper',
+                        zoomOutBtn: 'customPrevBtn',
+                        resetZoomBtn: 'customResetBtn',
+                        zoomInBtn: 'customNextBtn',
                         previousPageBtn: 'customPrevBtn',
+                        pageIndicator: 'customPages',
                         nextPageBtn: 'customNextBtn',
-                        pages: 'customPages',
-                        wrapper: 'customWrapper'
-                    }
-                }}
-            />
-        </div>
-    </div>
-);
-
-const WithCustomNavigationElements = () => (
-    <div className="col-md-auto text-center">
-        <h1 className="text-white bg-info rounded">
-            Custom navigation elements
-        </h1>
-        <div className="border rounded">
-            <PDFViewer
-                document={{
-                    url: sources.url
-                }}
-                css="customViewer"
-                navigation={{
-                    elements: {
-                        previousPageBtn: CustomPrevButton,
-                        nextPageBtn: CustomNextButton,
-                        pages: CustomPages
+                        rotateLeftBtn: 'customPrevBtn',
+                        resetRotationBtn: 'customResetBtn',
+                        rotateRightBtn: 'customNextBtn'
                     }
                 }}
             />
@@ -142,36 +124,6 @@ const WithCustomNavigation = () => (
     </div>
 );
 
-class WithDynamicScale extends React.Component {
-    state = {
-        scale: 1.0
-    };
-
-    increaseScale = () =>
-        this.setState(({ scale }) => ({ scale: scale + 0.1 }));
-    decreaseScale = () =>
-        this.setState(({ scale }) => ({ scale: scale - 0.1 }));
-
-    render() {
-        return (
-            <div className="col-md-auto text-center">
-                <h1 className="text-white bg-info rounded">Dynamic scale</h1>
-                <button onClick={this.decreaseScale}>-</button>
-                <span>Scale: {this.state.scale}</span>
-                <button onClick={this.increaseScale}>+</button>
-                <div className="border rounded">
-                    <PDFViewer
-                        document={{
-                            url: sources.url
-                        }}
-                        scale={this.state.scale}
-                    />
-                </div>
-            </div>
-        );
-    }
-}
-
 const WithOnDocumentClick = () => (
     <div className="col-md-auto text-center">
         <h1 className="text-white bg-info rounded">
@@ -183,8 +135,6 @@ const WithOnDocumentClick = () => (
                     url: sources.url
                 }}
                 onDocumentClick={() => alert('Document was clicked')}
-                css="customViewer"
-                navigation={CustomNavigation}
             />
         </div>
     </div>
@@ -199,7 +149,37 @@ const WithoutNavigation = () => (
                     url: sources.url
                 }}
                 hideNavbar
-                css="customViewer"
+            />
+        </div>
+    </div>
+);
+
+const WithoutZoomRotation = () => (
+    <div className="col-md-auto text-center">
+        <h1 className="text-white bg-info rounded">
+            Without Zoom and Rotation
+        </h1>
+        <div className="border rounded">
+            <PDFViewer
+                document={{
+                    url: sources.url
+                }}
+                hideZoom
+                hideRotation
+            />
+        </div>
+    </div>
+);
+
+const WithNavbarTop = () => (
+    <div className="col-md-auto text-center">
+        <h1 className="text-white bg-info rounded">Navigation Bar on top</h1>
+        <div className="border rounded">
+            <PDFViewer
+                document={{
+                    url: sources.url
+                }}
+                navbarOnTop
             />
         </div>
     </div>
@@ -223,13 +203,7 @@ export default () => (
             <WithCustomScale />
         </div>
         <div className="row my-5">
-            <WithDynamicScale />
-        </div>
-        <div className="row my-5">
             <WithCustomNavigationStyles />
-        </div>
-        <div className="row my-5">
-            <WithCustomNavigationElements />
         </div>
         <div className="row my-5">
             <WithCustomNavigation />
@@ -239,6 +213,12 @@ export default () => (
         </div>
         <div className="row my-5">
             <WithoutNavigation />
+        </div>
+        <div className="row my-5">
+            <WithoutZoomRotation />
+        </div>
+        <div className="row my-5">
+            <WithNavbarTop />
         </div>
     </div>
 );

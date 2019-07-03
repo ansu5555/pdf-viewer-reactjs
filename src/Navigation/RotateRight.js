@@ -12,7 +12,7 @@ const RotateRight = ({ css, rotationAngle, handleRotateRight }) => {
             type="button"
             className={rotateRightClass}
             onClick={handleRotateRight}>
-            <i class="material-icons">rotate_right</i>
+            <i className="material-icons">rotate_right</i>
         </button>
     );
 };

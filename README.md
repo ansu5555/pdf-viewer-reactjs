@@ -1,15 +1,21 @@
 # pdf-viewer-reactjs
 
-Simple react PDF Viewer component with controls like page navigation, zoom and rotation. Every element can be styled upon your preferences using default classes your own and also custom react element can be passed.
+Simple react PDF Viewer component with controls like
+
+-   Page navigation
+-   Zoom
+-   Rotation
+
+Every element can be styled upon your preferences using default classes your own and also custom react element can be passed.
 
 it is originally forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr-pdf-viewer-react)
 
-## Example: [pdf-viewer-reactjs](https://ansu5555.github.io/pdf-viewer-reactjs/)
+### Example: Live demo is available [here](https://ansu5555.github.io/pdf-viewer-reactjs/)
 
 # How to install
 
 ```
-npm install pdf-viewer-reactjs --save
+npm install pdf-viewer-reactjs
 ```
 
 # How to use
@@ -18,6 +24,7 @@ Since it is a React module, I suppose you have the webpack and babel configured.
 
 ```js
 import React from 'react';
+import PDFViewer from 'pdf-viewer-reactjs';
 
 const ExamplePDFViewer = () => {
     return (
@@ -71,6 +78,24 @@ React component prop. types:
     -   Required: **false**
     -   Description: Scale factor relative to the component parent element
 
+-   `scaleStep`:
+
+    -   Type: _Number_
+    -   Required: **false**
+    -   Description: Scale factor to be increased or decreased on Zoom-in or zoom-out
+
+-   `maxScale`:
+
+    -   Type: _Number_
+    -   Required: **false**
+    -   Description: Maximun scale factor for zoom-in
+
+-   `rotationAngle`:
+
+    -   Type: _Number_
+    -   Required: **false**
+    -   Description: Initial rotation of the document, values can be -90, 0 or 90
+
 -   `onDocumentClick`:
 
     -   Type: _Function_
@@ -83,11 +108,35 @@ React component prop. types:
     -   Required: **false**
     -   Description: CSS classes that will be setted for the component wrapper
 
+-   `canvasCss`:
+
+    -   Type: _String_
+    -   Required: **false**
+    -   Description: CSS classes that will be setted for the PDF page
+
 -   `hideNavbar`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default navbar is displayed, but can be hidden by passing this prop
+
+-   `navbarOnTop`:
+
+    -   Type: _Boolean_
+    -   Required: **false**
+    -   Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
+
+-   `hideZoom`:
+
+    -   Type: _Boolean_
+    -   Required: **false**
+    -   Description: By default zoom buttons are displayed, but can be hidden by passing this prop
+
+-   `hideRotation`:
+
+    -   Type: _Boolean_
+    -   Required: **false**
+    -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
 
 -   `navigation`:
 
@@ -98,17 +147,17 @@ React component prop. types:
             // Can be an object with css classes or react elements to be rendered
             PropTypes.shape({
                 css: PropTypes.shape({
-                    previousPageBtn: String, // CSS Class for the previous page button
-                    nextPageBtn: String, // CSS Class for the next page button
-                    pages: String, // CSS Class for the pages indicator
-                    wrapper: String // CSS Class for the navigation wrapper
-                }),
-                elements: PropTypes.shape({
-                    previousPageBtn: Any, // previous page button React element
-                    nextPageBtn: Any, // next page button React element
-                    pages: Any // pages indicator React Element
+                    navbarWrapper: String,  // CSS Class for the previous page button
+                    zoomOutBtn: String,  // CSS Class for the previous page button
+                    resetZoomBtn: String,  // CSS Class for the previous page button
+                    zoomInBtn: String,  // CSS Class for the previous page button
+                    previousPageBtn: String,  // CSS Class for the previous page button
+                    pageIndicator: String,  // CSS Class for the previous page button
+                    nextPageBtn: String,  // CSS Class for the previous page button
+                    rotateLeftBtn: String,  // CSS Class for the previous page button
+                    resetRotationBtn: String,  // CSS Class for the previous page button
+                    rotateRightBtn: String  // CSS Class for the previous page button
                 })
-            }),
             // Or a full navigation component
             PropTypes.any // Full navigation React element
         ]);
@@ -117,8 +166,36 @@ React component prop. types:
     -   Required: **false**
     -   Description: Defines the navigation bar styles and/or elements.
 
-        The `previousPageBtn` and the `nextPageBtn` elements should take following properties: `page` for current page number, `pages` for total number of pages, and the callback function `handlePrevClick` for the `previousPageBtn` and `handleNextClick` for the `nextPageBtn`.
+---
 
-        The `pages` element should take following properties: `page` for current page number, `pages` for total number of pages.
+The `navigation` element should accept following properties:
 
-        The `navigation` element (so the full navigation element) should accept following properties: `page` for current page number, `pages` for total number of pages, and the callback functions `handlePrevClick` and `handleNextClick`.
+-   `page` for current page number
+
+-   `pages` for total number of pages
+
+-   `scale` for zoom
+
+-   `maxScale` for maximum zoom
+
+-   `rotationAngle` for rotation
+
+-   `hideZoom` for hiding zoom
+
+-   `hideRotation` for hding rotation
+
+-   `handleNextClick` for next button click
+
+-   `handlePrevClick` for previous button click
+
+-   `handleZoomIn` for zoom-in button click
+
+-   `handleResetZoom` for reset zoom button click
+
+-   `handleZoomOut` for zoom-out button click
+
+-   `handleRotateLeft` for left rotation
+
+-   `handleResetRotation` for reset rotation
+
+-   `handleRotateRight` for right rotation
