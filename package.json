@@ -38,5 +38,13 @@
         "format": [
             "cjs"
         ]
-    }
+    },
+    "keywords": [
+        "pdf",
+        "pdf viewer",
+        "rotate",
+        "zoom",
+        "react",
+        "reactjs"
+    ]
 }

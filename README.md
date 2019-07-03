@@ -20,8 +20,6 @@ npm install pdf-viewer-reactjs
 
 # How to use
 
-Since it is a React module, I suppose you have the webpack and babel configured.
-
 ```js
 import React from 'react';
 import PDFViewer from 'pdf-viewer-reactjs';
