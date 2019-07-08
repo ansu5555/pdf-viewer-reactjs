@@ -42,6 +42,7 @@ class PDFViewer extends React.Component {
         this.setState({
             page: this.state.page - 1
         });
+        this.props.onPrevBtnClick(this.state.page - 1);
     };
 
     handleNextClick = () => {
@@ -50,6 +51,7 @@ class PDFViewer extends React.Component {
         this.setState({
             page: this.state.page + 1
         });
+        this.props.onNextBtnClick(this.state.page + 1);
     };
 
     handleZoomIn = () => {
@@ -228,6 +230,8 @@ PDFViewer.propTypes = {
     canvasCss: PropTypes.string,
     rotationAngle: PropTypes.number,
     onDocumentClick: PropTypes.func,
+    onPrevBtnClick: PropTypes.func,
+    onNextBtnClick: PropTypes.func,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,

@@ -100,6 +100,18 @@ React component prop. types:
     -   Required: **false**
     -   Description: A function that will be called only on clicking the PDF page itself, NOT on the navbar
 
+-   `onPrevBtnClick`:
+
+    -   Type: _Function_
+    -   Required: **false**
+    -   Description: A function that will be called on clicking on the previous page button, page number can be accessed in the function.
+
+-   `onNextBtnClick`:
+
+    -   Type: _Function_
+    -   Required: **false**
+    -   Description: A function that will be called on clicking on the next page button, page number can be accessed in the function.
+
 -   `css`:
 
     -   Type: _String_

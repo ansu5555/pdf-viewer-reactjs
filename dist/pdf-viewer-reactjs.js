@@ -524,12 +524,14 @@ var PDFViewer = function (_React$Component) {
             _this.setState({
                 page: _this.state.page - 1
             });
+            _this.props.onPrevBtnClick(_this.state.page - 1);
         }, _this.handleNextClick = function () {
             if (_this.state.page === _this.state.pages) return;
 
             _this.setState({
                 page: _this.state.page + 1
             });
+            _this.props.onNextBtnClick(_this.state.page + 1);
         }, _this.handleZoomIn = function () {
             if (_this.state.scale < _this.state.maxScale) {
                 _this.setState({
@@ -718,6 +720,8 @@ PDFViewer.propTypes = {
     canvasCss: PropTypes.string,
     rotationAngle: PropTypes.number,
     onDocumentClick: PropTypes.func,
+    onPrevBtnClick: PropTypes.func,
+    onNextBtnClick: PropTypes.func,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
