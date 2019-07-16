@@ -358,7 +358,6 @@ var Styles = {
     canvas: {
         height: '1000px',
         maxHeight: '1000px',
-        minWidth: '1000px',
         maxWidth: '1000px',
         overflow: 'auto'
     }
