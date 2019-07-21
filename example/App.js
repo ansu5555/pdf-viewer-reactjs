@@ -2,11 +2,9 @@ import React from 'react'
 import PDF from '../index'
 const App = props => {
 
-  console.warn('HELLOOO')
-
   return (
     <div>
-      HELLO GUYS
+      PDF Example
 
       <PDF
         navbarOnTop={true}
