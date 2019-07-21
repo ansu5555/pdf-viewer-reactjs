@@ -9,6 +9,20 @@ import ResetZoom from './ResetZoom';
 import RotateLeft from './RotateLeft';
 import ResetRotation from './ResetRotation';
 import RotateRight from './RotateRight';
+const displayFlex = {
+    display: 'flex',
+    alignItems: 'center'
+}
+
+const displayFlexCenter = {
+    ...displayFlex,
+    justifyContent: 'center'
+}
+
+const displayFlexSpaceBetween = {
+    ...displayFlex,
+    justifyContent: 'space-between'
+}
 
 const Navigation = ({
     page,
@@ -35,32 +49,28 @@ const Navigation = ({
                     ? css.navbarWrapper
                     : 'container rounded bg-dark text-white'
             }>
-            <div className="row">
-                <div className="col-sm-4">
-                    {hideZoom ? (
-                        undefined
-                    ) : (
-                        <div className="btn-group" role="group">
-                            <ZoomOut
-                                scale={scale}
-                                css={css.zoomOutBtn}
-                                handleZoomOut={handleZoomOut}
-                            />
-                            <ResetZoom
-                                css={css.resetZoomBtn}
-                                handleResetZoom={handleResetZoom}
-                            />
-                            <ZoomIn
-                                scale={scale}
-                                maxScale={maxScale}
-                                css={css.zoomInBtn}
-                                handleZoomIn={handleZoomIn}
-                            />
-                        </div>
-                    )}
-                </div>
-                <div className="col-sm-4">
-                    <div className="btn-group" role="group">
+            <div style={displayFlexSpaceBetween}>
+                {!hideZoom && (
+                    <div>
+                        <ZoomOut
+                            scale={scale}
+                            css={css.zoomOutBtn}
+                            handleZoomOut={handleZoomOut}
+                        />
+                        <ResetZoom
+                            css={css.resetZoomBtn}
+                            handleResetZoom={handleResetZoom}
+                        />
+                        <ZoomIn
+                            scale={scale}
+                            maxScale={maxScale}
+                            css={css.zoomInBtn}
+                            handleZoomIn={handleZoomIn}
+                        />
+                    </div>
+                )}
+                <div>
+                    <div style={displayFlexCenter}>
                         <PreviousPageButton
                             css={css.previousPageBtn}
                             page={page}
@@ -80,29 +90,25 @@ const Navigation = ({
                         />
                     </div>
                 </div>
-                <div className="col-sm-4">
-                    {hideRotation ? (
-                        undefined
-                    ) : (
-                        <div className="btn-group" role="group">
-                            <RotateLeft
-                                css={css.rotateLeftBtn}
-                                rotationAngle={rotationAngle}
-                                handleRotateLeft={handleRotateLeft}
-                            />
-                            <ResetRotation
-                                css={css.resetRotationBtn}
-                                rotationAngle={rotationAngle}
-                                handleResetRotation={handleResetRotation}
-                            />
-                            <RotateRight
-                                css={css.rotateRightBtn}
-                                rotationAngle={rotationAngle}
-                                handleRotateRight={handleRotateRight}
-                            />
-                        </div>
-                    )}
-                </div>
+                {!hideRotation && (
+                    <div>
+                        <RotateLeft
+                            css={css.rotateLeftBtn}
+                            rotationAngle={rotationAngle}
+                            handleRotateLeft={handleRotateLeft}
+                        />
+                        <ResetRotation
+                            css={css.resetRotationBtn}
+                            rotationAngle={rotationAngle}
+                            handleResetRotation={handleResetRotation}
+                        />
+                        <RotateRight
+                            css={css.rotateRightBtn}
+                            rotationAngle={rotationAngle}
+                            handleRotateRight={handleRotateRight}
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );

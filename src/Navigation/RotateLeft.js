@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RotateLeftIcon from '../icons/RotateLeft'
 
 const RotateLeft = ({ css, rotationAngle, handleRotateLeft }) => {
     const rotateLeftClass = `
@@ -12,7 +13,7 @@ const RotateLeft = ({ css, rotationAngle, handleRotateLeft }) => {
             type="button"
             className={rotateLeftClass}
             onClick={handleRotateLeft}>
-            <i className="material-icons">rotate_left</i>
+            <RotateLeftIcon/>
         </button>
     );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ZoomOutIcon from '../icons/ZoomOut'
+
 
 const ZoomOut = ({ scale, css, handleZoomOut }) => {
     const zoomOutClass = `${css ? css : 'btn btn-sm btn-link text-white pr-2'}${
@@ -8,7 +10,7 @@ const ZoomOut = ({ scale, css, handleZoomOut }) => {
 
     return (
         <button type="button" className={zoomOutClass} onClick={handleZoomOut}>
-            <i className="material-icons">zoom_out</i>
+            <ZoomOutIcon/>
         </button>
     );
 };

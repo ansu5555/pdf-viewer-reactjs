@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import ResetIcon from '../icons/Reset'
 const ResetRotation = ({ css, rotationAngle, handleResetRotation }) => {
     const resetRotationClass = `
     ${css ? css : 'btn btn-sm btn-link text-white px-2'}
@@ -12,7 +12,7 @@ const ResetRotation = ({ css, rotationAngle, handleResetRotation }) => {
             type="button"
             className={resetRotationClass}
             onClick={handleResetRotation}>
-            <i className="material-icons">refresh</i>
+            <ResetIcon/>
         </button>
     );
 };

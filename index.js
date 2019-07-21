@@ -1,3 +1,3 @@
-import PDFViewer from './dist/pdf-viewer-reactjs';
+import PDFViewer from './dist/index'
 
-export default PDFViewer;
+export default PDFViewer

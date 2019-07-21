@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ResetIcon from '../icons/Reset'
 
 const ResetZoom = ({ css, handleResetZoom }) => {
     const resetZoomClass = css ? css : 'btn btn-sm btn-link text-white px-2';
@@ -9,7 +10,7 @@ const ResetZoom = ({ css, handleResetZoom }) => {
             type="button"
             className={resetZoomClass}
             onClick={handleResetZoom}>
-            <i className="material-icons">refresh</i>
+            <ResetIcon/>
         </button>
     );
 };

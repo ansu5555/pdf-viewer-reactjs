@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PDF from 'react-pdf-js';
-import 'jquery/dist/jquery.min.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'material-design-icons/iconfont/material-icons.css';
-
+import './root.css'
 import Navigation from './Navigation';
 import Styles from './Styles';
 
@@ -31,27 +27,38 @@ class PDFViewer extends React.Component {
     }
 
     onDocumentComplete = pages => {
+
         this.setState({
             pages
         });
+        this.props.onDocumentComplete && this.props.onDocumentComplete(pages)
+
+    };
+
+    onDocumentError = err => {
+        this.props.onDocumentError && this.props.onDocumentError(err)
     };
 
     handlePrevClick = () => {
-        if (this.state.page === 1) return;
+        const {page} = this.state
+        const {onPrevBtnClick} = this.props
+        if (page === 1) return;
 
         this.setState({
-            page: this.state.page - 1
+            page: page - 1
         });
-        this.props.onPrevBtnClick(this.state.page - 1);
+        onPrevBtnClick && onPrevBtnClick(page - 1);
     };
 
     handleNextClick = () => {
-        if (this.state.page === this.state.pages) return;
+        const {page, pages} = this.state
+        const {onNextBtnClick} = this.props
+        if (page === pages) return;
 
         this.setState({
-            page: this.state.page + 1
+            page: page + 1
         });
-        this.props.onNextBtnClick(this.state.page + 1);
+        onNextBtnClick && onNextBtnClick(page + 1);
     };
 
     handleZoomIn = () => {
@@ -86,8 +93,8 @@ class PDFViewer extends React.Component {
 
     handleResetRotation = () => {
         if (
-            this.state.rotationAngle !== 0 ||
-            this.state.rotationAngle !== 360
+          this.state.rotationAngle !== 0 ||
+          this.state.rotationAngle !== 360
         ) {
             this.setState({
                 rotationAngle: 360
@@ -122,87 +129,88 @@ class PDFViewer extends React.Component {
         const NavigationElement = navigation;
 
         const pdf = (
-            <PDF
-                file={source.file || source.url}
-                content={source.base64}
-                binaryContent={source.binary}
-                documentInitParameters={source.connection}
-                loading={loader}
-                page={page}
-                scale={scale}
-                rotate={rotationAngle}
-                onDocumentComplete={this.onDocumentComplete}
-            />
+          <PDF
+            file={source.file || source.url}
+            content={source.base64}
+            binaryContent={source.binary}
+            documentInitParameters={source.connection}
+            loading={loader}
+            page={page}
+            scale={scale}
+            rotate={rotationAngle}
+            onDocumentError={this.onDocumentError}
+            onDocumentComplete={this.onDocumentComplete}
+          />
         );
 
         let nav = null;
         if (!hideNavbar && pages > 0) {
             nav =
-                !navigation ||
-                (navigation && typeof navigation === 'object') ? (
-                    <Navigation
-                        page={page}
-                        pages={pages}
-                        scale={scale}
-                        maxScale={maxScale}
-                        rotationAngle={rotationAngle}
-                        hideZoom={hideZoom}
-                        hideRotation={hideRotation}
-                        css={navigation ? navigation.css : undefined}
-                        handleNextClick={this.handleNextClick}
-                        handlePrevClick={this.handlePrevClick}
-                        handleZoomIn={this.handleZoomIn}
-                        handleResetZoom={this.handleResetZoom}
-                        handleZoomOut={this.handleZoomOut}
-                        handleRotateLeft={this.handleRotateLeft}
-                        handleResetRotation={this.handleResetRotation}
-                        handleRotateRight={this.handleRotateRight}
-                    />
-                ) : (
-                    <NavigationElement
-                        page={page}
-                        pages={pages}
-                        scale={scale}
-                        maxScale={maxScale}
-                        rotationAngle={rotationAngle}
-                        hideZoom={hideZoom}
-                        hideRotation={hideRotation}
-                        handleNextClick={this.handleNextClick}
-                        handlePrevClick={this.handlePrevClick}
-                        handleZoomIn={this.handleZoomIn}
-                        handleResetZoom={this.handleResetZoom}
-                        handleZoomOut={this.handleZoomOut}
-                        handleRotateLeft={this.handleRotateLeft}
-                        handleResetRotation={this.handleResetRotation}
-                        handleRotateRight={this.handleRotateRight}
-                    />
-                );
+              !navigation ||
+              (navigation && typeof navigation === 'object') ? (
+                <Navigation
+                  page={page}
+                  pages={pages}
+                  scale={scale}
+                  maxScale={maxScale}
+                  rotationAngle={rotationAngle}
+                  hideZoom={hideZoom}
+                  hideRotation={hideRotation}
+                  css={navigation ? navigation.css : undefined}
+                  handleNextClick={this.handleNextClick}
+                  handlePrevClick={this.handlePrevClick}
+                  handleZoomIn={this.handleZoomIn}
+                  handleResetZoom={this.handleResetZoom}
+                  handleZoomOut={this.handleZoomOut}
+                  handleRotateLeft={this.handleRotateLeft}
+                  handleResetRotation={this.handleResetRotation}
+                  handleRotateRight={this.handleRotateRight}
+                />
+              ) : (
+                <NavigationElement
+                  page={page}
+                  pages={pages}
+                  scale={scale}
+                  maxScale={maxScale}
+                  rotationAngle={rotationAngle}
+                  hideZoom={hideZoom}
+                  hideRotation={hideRotation}
+                  handleNextClick={this.handleNextClick}
+                  handlePrevClick={this.handlePrevClick}
+                  handleZoomIn={this.handleZoomIn}
+                  handleResetZoom={this.handleResetZoom}
+                  handleZoomOut={this.handleZoomOut}
+                  handleRotateLeft={this.handleRotateLeft}
+                  handleResetRotation={this.handleResetRotation}
+                  handleRotateRight={this.handleRotateRight}
+                />
+              );
         }
 
         return (
-            <div className={css ? css : 'container text-center'}>
-                {navbarOnTop ? (
-                    <div>
-                        <div>{nav}</div>
-                        <div
-                            className={canvasCss ? canvasCss : ''}
-                            style={canvasCss ? {} : Styles.canvas}
-                            onClick={onDocumentClick}>
-                            {pdf}
-                        </div>
+          <div className={css ? css : 'container text-center'}>
+              {navbarOnTop ? (
+                <div>
+                    <div>{nav}</div>
+                    <div
+                      className={canvasCss ? canvasCss : ''}
+                      style={canvasCss ? {} : Styles.canvas}
+                      onClick={onDocumentClick}>
+                        {pdf}
                     </div>
-                ) : (
-                    <div>
-                        <div
-                            className={canvasCss ? canvasCss : ''}
-                            style={canvasCss ? {} : Styles.canvas}
-                            onClick={onDocumentClick}>
-                            {pdf}
-                        </div>
-                        <div>{nav}</div>
+                </div>
+              ) : (
+                <div>
+                    <div
+                      className={canvasCss ? canvasCss : ''}
+                      style={canvasCss ? {} : Styles.canvas}
+                      onClick={onDocumentClick}>
+                        {pdf}
                     </div>
-                )}
-            </div>
+                    <div>{nav}</div>
+                </div>
+              )}
+          </div>
         );
     }
 }
@@ -230,6 +238,8 @@ PDFViewer.propTypes = {
     canvasCss: PropTypes.string,
     rotationAngle: PropTypes.number,
     onDocumentClick: PropTypes.func,
+    onDocumentComplete: PropTypes.func,
+    onDocumentError: PropTypes.func,
     onPrevBtnClick: PropTypes.func,
     onNextBtnClick: PropTypes.func,
     hideNavbar: PropTypes.bool,

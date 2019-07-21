@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import RotateRightIcon from '../icons/RotateRight'
 const RotateRight = ({ css, rotationAngle, handleRotateRight }) => {
     const rotateRightClass = `
     ${css ? css : 'btn btn-sm btn-link text-white pl-2'}
@@ -12,7 +12,7 @@ const RotateRight = ({ css, rotationAngle, handleRotateRight }) => {
             type="button"
             className={rotateRightClass}
             onClick={handleRotateRight}>
-            <i className="material-icons">rotate_right</i>
+            <RotateRightIcon/>
         </button>
     );
 };

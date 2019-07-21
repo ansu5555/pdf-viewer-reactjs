@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import NextIcon from '../icons/Next'
 const NextPageButton = ({ css, page, pages, handleNextClick }) => {
     const nextClass = `
     ${css ? css : 'btn btn-sm btn-link text-white pl-2'}
@@ -8,9 +8,9 @@ const NextPageButton = ({ css, page, pages, handleNextClick }) => {
   `;
 
     return (
-        <button className={nextClass} onClick={handleNextClick}>
-            <i className="material-icons">keyboard_arrow_right</i>
-        </button>
+      <button className={nextClass} onClick={handleNextClick}>
+        <NextIcon/>
+      </button>
     );
 };
 NextPageButton.propTypes = {

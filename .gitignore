@@ -38,3 +38,7 @@ jspm_packages
 
 # Ignore MacOS config file
 .DS_Store
+.idea
+.cache
+
+dist

@@ -8,7 +8,8 @@ Simple react PDF Viewer component with controls like
 
 Every element can be styled upon your preferences using default classes your own and also custom react element can be passed.
 
-it is originally forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr-pdf-viewer-react)
+> it is originally forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr-pdf-viewer-react)
+then inspired by [pdf-viewer-reactjs](https://github.com/ansu5555/pdf-viewer-reactjs)
 
 ### Example: Live demo is available [here](https://ansu5555.github.io/pdf-viewer-reactjs/)
 
@@ -28,7 +29,7 @@ const ExamplePDFViewer = () => {
     return (
         <PDFViewer
             document={{
-                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf'
+                url: 'https://arxiv.org/pdf/1805.00772.pdf'
             }}
         />
     );
@@ -168,6 +169,8 @@ React component prop. types:
                     resetRotationBtn: String,  // CSS Class for the previous page button
                     rotateRightBtn: String  // CSS Class for the previous page button
                 })
+            }),
+     
             // Or a full navigation component
             PropTypes.any // Full navigation React element
         ]);
