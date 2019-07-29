@@ -188,7 +188,7 @@ class PDFViewer extends React.Component {
         }
 
         return (
-          <div className={css ? css : 'container text-center'}>
+          <div className={css ? css : 'text-center'}>
               {navbarOnTop ? (
                 <div>
                     <div>{nav}</div>

@@ -47,7 +47,7 @@ const Navigation = ({
             className={
                 css.navbarWrapper
                     ? css.navbarWrapper
-                    : 'container rounded bg-dark text-white'
+                    : 'rounded bg-dark text-white'
             }>
             <div style={displayFlexSpaceBetween}>
                 {!hideZoom && (
