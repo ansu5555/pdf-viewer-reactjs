@@ -1,6 +1,6 @@
 {
     "name": "react-styled-pdf",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Simple react PDF viewer component with controls based on PDF.js.",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
