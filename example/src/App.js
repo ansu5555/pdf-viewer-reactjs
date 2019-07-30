@@ -127,7 +127,8 @@ const WithCustomNavigation = () => (
 const WithOnDocumentClick = () => (
     <div className="col-md-auto text-center">
         <h1 className="text-white bg-info rounded">
-            With onDocumentClick, onPrevBtnClick and onNextBtnClick handler
+            With onDocumentClick, onPrevBtnClick, onNextBtnClick, onZoom and
+            onRotation handler
         </h1>
         <div className="border rounded">
             <PDFViewer
@@ -135,8 +136,10 @@ const WithOnDocumentClick = () => (
                     url: sources.url
                 }}
                 onDocumentClick={() => alert('Document was clicked')}
-                onPrevBtnClick={page => alert(`Page ${page} was selected`)}
-                onNextBtnClick={page => alert(`Page ${page} was selected`)}
+                onPrevBtnClick={page => alert(`Page ${page} selected`)}
+                onNextBtnClick={page => alert(`Page ${page} selected`)}
+                onZoom={scale => alert(`Zoom scale is ${scale}`)}
+                onRotation={angle => alert(`Page angle is ${angle}`)}
             />
         </div>
     </div>

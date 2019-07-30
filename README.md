@@ -112,43 +112,55 @@ React component prop. types:
     -   Required: **false**
     -   Description: A function that will be called on clicking on the next page button, page number can be accessed in the function.
 
--   `css`:
+-   `onZoom`:
+
+    -   Type: _Function_
+    -   Required: **false**
+    -   Description: A function that will be called on clicking on Zoom controls, zoom scale can be accessed in the function.
+
+-   `onRotation`:
+
+    -   Type: _Function_
+    -   Required: **false**
+    -   Description: A function that will be called on clicking on Rotation controls, rotation angle can be accessed in the function.
+
+*   `css`:
 
     -   Type: _String_
     -   Required: **false**
     -   Description: CSS classes that will be setted for the component wrapper
 
--   `canvasCss`:
+*   `canvasCss`:
 
     -   Type: _String_
     -   Required: **false**
     -   Description: CSS classes that will be setted for the PDF page
 
--   `hideNavbar`:
+*   `hideNavbar`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default navbar is displayed, but can be hidden by passing this prop
 
--   `navbarOnTop`:
+*   `navbarOnTop`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
 
--   `hideZoom`:
+*   `hideZoom`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default zoom buttons are displayed, but can be hidden by passing this prop
 
--   `hideRotation`:
+*   `hideRotation`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
 
--   `navigation`:
+*   `navigation`:
 
     -   Type:
 

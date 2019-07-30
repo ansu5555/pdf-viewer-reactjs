@@ -47,6 +47,7 @@ const Navigation = ({
                                 handleZoomOut={handleZoomOut}
                             />
                             <ResetZoom
+                                scale={scale}
                                 css={css.resetZoomBtn}
                                 handleResetZoom={handleResetZoom}
                             />

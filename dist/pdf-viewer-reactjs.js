@@ -126,10 +126,11 @@ ZoomOut.propTypes = {
 };
 
 var ResetZoom = function ResetZoom(_ref) {
-    var css = _ref.css,
+    var scale = _ref.scale,
+        css = _ref.css,
         handleResetZoom = _ref.handleResetZoom;
 
-    var resetZoomClass = css ? css : 'btn btn-sm btn-link text-white px-2';
+    var resetZoomClass = (css ? css : 'btn btn-sm btn-link text-white px-2') + '\n    ' + (scale === 1 ? ' disabled' : '');
 
     return React.createElement(
         'button',
@@ -266,6 +267,7 @@ var Navigation = function Navigation(_ref) {
                         handleZoomOut: handleZoomOut
                     }),
                     React.createElement(ResetZoom, {
+                        scale: scale,
                         css: css.resetZoomBtn,
                         handleResetZoom: handleResetZoom
                     }),
@@ -523,29 +525,47 @@ var PDFViewer = function (_React$Component) {
             _this.setState({
                 page: _this.state.page - 1
             });
-            _this.props.onPrevBtnClick(_this.state.page - 1);
+
+            if (_this.props.onPrevBtnClick) {
+                _this.props.onPrevBtnClick(_this.state.page - 1);
+            }
         }, _this.handleNextClick = function () {
             if (_this.state.page === _this.state.pages) return;
 
             _this.setState({
                 page: _this.state.page + 1
             });
-            _this.props.onNextBtnClick(_this.state.page + 1);
+
+            if (_this.props.onNextBtnClick) {
+                _this.props.onNextBtnClick(_this.state.page + 1);
+            }
         }, _this.handleZoomIn = function () {
             if (_this.state.scale < _this.state.maxScale) {
                 _this.setState({
                     scale: _this.state.scale + _this.state.scaleStep
                 });
             }
+
+            if (_this.props.onZoom) {
+                _this.props.onZoom(_this.state.scale + _this.state.scaleStep);
+            }
         }, _this.handleResetZoom = function () {
             _this.setState({
                 scale: 1
             });
+
+            if (_this.props.onZoom) {
+                _this.props.onZoom(1);
+            }
         }, _this.handleZoomOut = function () {
             if (_this.state.scale > 1) {
                 _this.setState({
                     scale: _this.state.scale - _this.state.scaleStep
                 });
+            }
+
+            if (_this.props.onZoom) {
+                _this.props.onZoom(_this.state.scale - _this.state.scaleStep);
             }
         }, _this.handleRotateLeft = function () {
             if (_this.state.rotationAngle !== -90) {
@@ -553,17 +573,29 @@ var PDFViewer = function (_React$Component) {
                     rotationAngle: -90
                 });
             }
+
+            if (_this.props.onZoom) {
+                _this.props.onRotation(-90);
+            }
         }, _this.handleResetRotation = function () {
             if (_this.state.rotationAngle !== 0 || _this.state.rotationAngle !== 360) {
                 _this.setState({
                     rotationAngle: 360
                 });
             }
+
+            if (_this.props.onZoom) {
+                _this.props.onRotation(0);
+            }
         }, _this.handleRotateRight = function () {
             if (_this.state.rotationAngle !== 90) {
                 _this.setState({
                     rotationAngle: 90
                 });
+            }
+
+            if (_this.props.onZoom) {
+                _this.props.onRotation(90);
             }
         }, _temp), possibleConstructorReturn(_this, _ret);
     }
@@ -721,6 +753,8 @@ PDFViewer.propTypes = {
     onDocumentClick: PropTypes.func,
     onPrevBtnClick: PropTypes.func,
     onNextBtnClick: PropTypes.func,
+    onZoom: PropTypes.func,
+    onRotation: PropTypes.func,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,

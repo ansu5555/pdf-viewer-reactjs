@@ -42,7 +42,10 @@ class PDFViewer extends React.Component {
         this.setState({
             page: this.state.page - 1
         });
-        this.props.onPrevBtnClick(this.state.page - 1);
+
+        if (this.props.onPrevBtnClick) {
+            this.props.onPrevBtnClick(this.state.page - 1);
+        }
     };
 
     handleNextClick = () => {
@@ -51,7 +54,10 @@ class PDFViewer extends React.Component {
         this.setState({
             page: this.state.page + 1
         });
-        this.props.onNextBtnClick(this.state.page + 1);
+
+        if (this.props.onNextBtnClick) {
+            this.props.onNextBtnClick(this.state.page + 1);
+        }
     };
 
     handleZoomIn = () => {
@@ -60,12 +66,20 @@ class PDFViewer extends React.Component {
                 scale: this.state.scale + this.state.scaleStep
             });
         }
+
+        if (this.props.onZoom) {
+            this.props.onZoom(this.state.scale + this.state.scaleStep);
+        }
     };
 
     handleResetZoom = () => {
         this.setState({
             scale: 1
         });
+
+        if (this.props.onZoom) {
+            this.props.onZoom(1);
+        }
     };
 
     handleZoomOut = () => {
@@ -74,6 +88,10 @@ class PDFViewer extends React.Component {
                 scale: this.state.scale - this.state.scaleStep
             });
         }
+
+        if (this.props.onZoom) {
+            this.props.onZoom(this.state.scale - this.state.scaleStep);
+        }
     };
 
     handleRotateLeft = () => {
@@ -81,6 +99,10 @@ class PDFViewer extends React.Component {
             this.setState({
                 rotationAngle: -90
             });
+        }
+
+        if (this.props.onZoom) {
+            this.props.onRotation(-90);
         }
     };
 
@@ -93,6 +115,10 @@ class PDFViewer extends React.Component {
                 rotationAngle: 360
             });
         }
+
+        if (this.props.onZoom) {
+            this.props.onRotation(0);
+        }
     };
 
     handleRotateRight = () => {
@@ -100,6 +126,10 @@ class PDFViewer extends React.Component {
             this.setState({
                 rotationAngle: 90
             });
+        }
+
+        if (this.props.onZoom) {
+            this.props.onRotation(90);
         }
     };
 
@@ -232,6 +262,8 @@ PDFViewer.propTypes = {
     onDocumentClick: PropTypes.func,
     onPrevBtnClick: PropTypes.func,
     onNextBtnClick: PropTypes.func,
+    onZoom: PropTypes.func,
+    onRotation: PropTypes.func,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
