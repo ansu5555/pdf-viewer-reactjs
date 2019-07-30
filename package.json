@@ -1,6 +1,6 @@
 {
     "name": "pdf-viewer-reactjs",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Simple react PDF viewer component with controls based on PDF.js.",
     "main": "index",
     "typings": "index",
