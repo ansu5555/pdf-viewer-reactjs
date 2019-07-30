@@ -104,10 +104,11 @@ ZoomIn.propTypes = {
 
 var ZoomOut = function ZoomOut(_ref) {
     var scale = _ref.scale,
+        minScale = _ref.minScale,
         css = _ref.css,
         handleZoomOut = _ref.handleZoomOut;
 
-    var zoomOutClass = '' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + (scale === 1 ? ' disabled' : '');
+    var zoomOutClass = '' + (css ? css : 'btn btn-sm btn-link text-white pr-2') + (scale === minScale ? ' disabled' : '');
 
     return React.createElement(
         'button',
@@ -127,10 +128,11 @@ ZoomOut.propTypes = {
 
 var ResetZoom = function ResetZoom(_ref) {
     var scale = _ref.scale,
+        defaultScale = _ref.defaultScale,
         css = _ref.css,
         handleResetZoom = _ref.handleResetZoom;
 
-    var resetZoomClass = (css ? css : 'btn btn-sm btn-link text-white px-2') + '\n    ' + (scale === 1 ? ' disabled' : '');
+    var resetZoomClass = (css ? css : 'btn btn-sm btn-link text-white px-2') + '\n    ' + (scale === defaultScale ? ' disabled' : '');
 
     return React.createElement(
         'button',
@@ -234,7 +236,9 @@ var Navigation = function Navigation(_ref) {
     var page = _ref.page,
         pages = _ref.pages,
         scale = _ref.scale,
+        defaultScale = _ref.defaultScale,
         maxScale = _ref.maxScale,
+        minScale = _ref.minScale,
         rotationAngle = _ref.rotationAngle,
         hideZoom = _ref.hideZoom,
         hideRotation = _ref.hideRotation,
@@ -263,11 +267,13 @@ var Navigation = function Navigation(_ref) {
                     { className: 'btn-group', role: 'group' },
                     React.createElement(ZoomOut, {
                         scale: scale,
+                        minScale: minScale,
                         css: css.zoomOutBtn,
                         handleZoomOut: handleZoomOut
                     }),
                     React.createElement(ResetZoom, {
                         scale: scale,
+                        defaultScale: defaultScale,
                         css: css.resetZoomBtn,
                         handleResetZoom: handleResetZoom
                     }),
@@ -512,8 +518,10 @@ var PDFViewer = function (_React$Component) {
             pages: 0,
             page: 1,
             scale: 1,
+            defaultScale: 1,
             scaleStep: 1,
             maxScale: 3,
+            minScale: 1,
             rotationAngle: 0
         }, _this.onDocumentComplete = function (pages) {
             _this.setState({
@@ -551,14 +559,14 @@ var PDFViewer = function (_React$Component) {
             }
         }, _this.handleResetZoom = function () {
             _this.setState({
-                scale: 1
+                scale: _this.state.defaultScale
             });
 
             if (_this.props.onZoom) {
-                _this.props.onZoom(1);
+                _this.props.onZoom(_this.state.defaultScale);
             }
         }, _this.handleZoomOut = function () {
-            if (_this.state.scale > 1) {
+            if (_this.state.scale > _this.state.minScale) {
                 _this.setState({
                     scale: _this.state.scale - _this.state.scaleStep
                 });
@@ -607,8 +615,10 @@ var PDFViewer = function (_React$Component) {
                 pages: null,
                 page: this.props.page || this.state.page,
                 scale: this.props.scale || this.state.scale,
+                defaultScale: this.props.scale || this.state.scale,
                 scaleStep: this.props.scaleStep || this.state.scaleStep,
                 maxScale: this.props.maxScale || this.state.maxScale,
+                minScale: this.props.minScale || this.state.minScale,
                 rotationAngle: this.props.rotationAngle || this.state.rotationAngle
             });
         }
@@ -630,7 +640,9 @@ var PDFViewer = function (_React$Component) {
                 page = _state.page,
                 pages = _state.pages,
                 scale = _state.scale,
+                defaultScale = _state.defaultScale,
                 maxScale = _state.maxScale,
+                minScale = _state.minScale,
                 rotationAngle = _state.rotationAngle;
 
 
@@ -654,7 +666,9 @@ var PDFViewer = function (_React$Component) {
                     page: page,
                     pages: pages,
                     scale: scale,
+                    defaultScale: defaultScale,
                     maxScale: maxScale,
+                    minScale: minScale,
                     rotationAngle: rotationAngle,
                     hideZoom: hideZoom,
                     hideRotation: hideRotation,
@@ -671,7 +685,9 @@ var PDFViewer = function (_React$Component) {
                     page: page,
                     pages: pages,
                     scale: scale,
+                    defaultScale: defaultScale,
                     maxScale: maxScale,
+                    minScale: minScale,
                     rotationAngle: rotationAngle,
                     hideZoom: hideZoom,
                     hideRotation: hideRotation,
@@ -747,6 +763,7 @@ PDFViewer.propTypes = {
     scale: PropTypes.number,
     scaleStep: PropTypes.number,
     maxScale: PropTypes.number,
+    minScale: PropTypes.number,
     css: PropTypes.string,
     canvasCss: PropTypes.string,
     rotationAngle: PropTypes.number,

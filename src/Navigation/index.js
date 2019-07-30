@@ -14,7 +14,9 @@ const Navigation = ({
     page,
     pages,
     scale,
+    defaultScale,
     maxScale,
+    minScale,
     rotationAngle,
     hideZoom,
     hideRotation,
@@ -43,11 +45,13 @@ const Navigation = ({
                         <div className="btn-group" role="group">
                             <ZoomOut
                                 scale={scale}
+                                minScale={minScale}
                                 css={css.zoomOutBtn}
                                 handleZoomOut={handleZoomOut}
                             />
                             <ResetZoom
                                 scale={scale}
+                                defaultScale={defaultScale}
                                 css={css.resetZoomBtn}
                                 handleResetZoom={handleResetZoom}
                             />

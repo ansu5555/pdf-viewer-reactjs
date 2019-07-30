@@ -88,6 +88,12 @@ React component prop. types:
     -   Required: **false**
     -   Description: Maximun scale factor for zoom-in
 
+-   `minScale`:
+
+    -   Type: _Number_
+    -   Required: **false**
+    -   Description: Minimum scale factor for zoom-in
+
 -   `rotationAngle`:
 
     -   Type: _Number_
@@ -199,6 +205,8 @@ The `navigation` element should accept following properties:
 -   `scale` for zoom
 
 -   `maxScale` for maximum zoom
+
+-   `minScale` for minimum zoom
 
 -   `rotationAngle` for rotation
 

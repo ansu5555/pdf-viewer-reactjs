@@ -14,8 +14,10 @@ class PDFViewer extends React.Component {
         pages: 0,
         page: 1,
         scale: 1,
+        defaultScale: 1,
         scaleStep: 1,
         maxScale: 3,
+        minScale: 1,
         rotationAngle: 0
     };
 
@@ -24,8 +26,10 @@ class PDFViewer extends React.Component {
             pages: null,
             page: this.props.page || this.state.page,
             scale: this.props.scale || this.state.scale,
+            defaultScale: this.props.scale || this.state.scale,
             scaleStep: this.props.scaleStep || this.state.scaleStep,
             maxScale: this.props.maxScale || this.state.maxScale,
+            minScale: this.props.minScale || this.state.minScale,
             rotationAngle: this.props.rotationAngle || this.state.rotationAngle
         });
     }
@@ -74,16 +78,16 @@ class PDFViewer extends React.Component {
 
     handleResetZoom = () => {
         this.setState({
-            scale: 1
+            scale: this.state.defaultScale
         });
 
         if (this.props.onZoom) {
-            this.props.onZoom(1);
+            this.props.onZoom(this.state.defaultScale);
         }
     };
 
     handleZoomOut = () => {
-        if (this.state.scale > 1) {
+        if (this.state.scale > this.state.minScale) {
             this.setState({
                 scale: this.state.scale - this.state.scaleStep
             });
@@ -147,7 +151,15 @@ class PDFViewer extends React.Component {
             onDocumentClick
         } = this.props;
 
-        const { page, pages, scale, maxScale, rotationAngle } = this.state;
+        const {
+            page,
+            pages,
+            scale,
+            defaultScale,
+            maxScale,
+            minScale,
+            rotationAngle
+        } = this.state;
 
         const NavigationElement = navigation;
 
@@ -174,7 +186,9 @@ class PDFViewer extends React.Component {
                         page={page}
                         pages={pages}
                         scale={scale}
+                        defaultScale={defaultScale}
                         maxScale={maxScale}
+                        minScale={minScale}
                         rotationAngle={rotationAngle}
                         hideZoom={hideZoom}
                         hideRotation={hideRotation}
@@ -193,7 +207,9 @@ class PDFViewer extends React.Component {
                         page={page}
                         pages={pages}
                         scale={scale}
+                        defaultScale={defaultScale}
                         maxScale={maxScale}
+                        minScale={minScale}
                         rotationAngle={rotationAngle}
                         hideZoom={hideZoom}
                         hideRotation={hideRotation}
@@ -256,6 +272,7 @@ PDFViewer.propTypes = {
     scale: PropTypes.number,
     scaleStep: PropTypes.number,
     maxScale: PropTypes.number,
+    minScale: PropTypes.number,
     css: PropTypes.string,
     canvasCss: PropTypes.string,
     rotationAngle: PropTypes.number,

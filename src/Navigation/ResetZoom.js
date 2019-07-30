@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ResetZoom = ({ scale, css, handleResetZoom }) => {
+const ResetZoom = ({ scale, defaultScale, css, handleResetZoom }) => {
     const resetZoomClass = `${css ? css : 'btn btn-sm btn-link text-white px-2'}
-    ${scale === 1 ? ' disabled' : ''}`;
+    ${scale === defaultScale ? ' disabled' : ''}`;
 
     return (
         <button

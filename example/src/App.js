@@ -72,9 +72,10 @@ const WithCustomScale = () => (
                 document={{
                     base64: sources.base64
                 }}
-                scale={0.5}
-                scaleStep={0.1}
+                scale={2}
+                scaleStep={0.5}
                 maxScale={5}
+                minScale={0.5}
             />
         </div>
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ZoomOut = ({ scale, css, handleZoomOut }) => {
+const ZoomOut = ({ scale, minScale, css, handleZoomOut }) => {
     const zoomOutClass = `${css ? css : 'btn btn-sm btn-link text-white pr-2'}${
-        scale === 1 ? ' disabled' : ''
+        scale === minScale ? ' disabled' : ''
     }`;
 
     return (
