@@ -582,7 +582,7 @@ var PDFViewer = function (_React$Component) {
                 });
             }
 
-            if (_this.props.onZoom) {
+            if (_this.props.onRotation) {
                 _this.props.onRotation(-90);
             }
         }, _this.handleResetRotation = function () {
@@ -592,7 +592,7 @@ var PDFViewer = function (_React$Component) {
                 });
             }
 
-            if (_this.props.onZoom) {
+            if (_this.props.onRotation) {
                 _this.props.onRotation(0);
             }
         }, _this.handleRotateRight = function () {
@@ -602,7 +602,7 @@ var PDFViewer = function (_React$Component) {
                 });
             }
 
-            if (_this.props.onZoom) {
+            if (_this.props.onRotation) {
                 _this.props.onRotation(90);
             }
         }, _temp), possibleConstructorReturn(_this, _ret);

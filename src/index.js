@@ -105,7 +105,7 @@ class PDFViewer extends React.Component {
             });
         }
 
-        if (this.props.onZoom) {
+        if (this.props.onRotation) {
             this.props.onRotation(-90);
         }
     };
@@ -120,7 +120,7 @@ class PDFViewer extends React.Component {
             });
         }
 
-        if (this.props.onZoom) {
+        if (this.props.onRotation) {
             this.props.onRotation(0);
         }
     };
@@ -132,7 +132,7 @@ class PDFViewer extends React.Component {
             });
         }
 
-        if (this.props.onZoom) {
+        if (this.props.onRotation) {
             this.props.onRotation(90);
         }
     };
