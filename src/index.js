@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'material-design-icons/iconfont/material-icons.css'
 
-import Navigation from './Navigation/NavigationBar'
+import Navigation from './Components/NavigationBar'
 import Styles from './Styles'
 
 class PDFViewer extends React.Component {

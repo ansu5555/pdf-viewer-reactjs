@@ -56,6 +56,7 @@
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
         "material-design-icons": "^3.0.1",
+        "pdfjs-dist": "^2.2.228",
         "popper.js": "^1.16.0",
         "prop-types": "^15.7.2",
         "react-pdf-js": "^5.1.0"
