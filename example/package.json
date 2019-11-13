@@ -6,12 +6,12 @@
     "dependencies": {
         "bootstrap": "^4.3.1",
         "pdf-viewer-reactjs": "file:..",
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react": "^16.11.0",
+        "react-dom": "^16.11.0"
     },
     "devDependencies": {
-        "gh-pages": "^1.0.0",
-        "react-scripts": "^3.0.1"
+        "gh-pages": "^2.1.1",
+        "react-scripts": "^3.2.0"
     },
     "scripts": {
         "start": "react-scripts start",

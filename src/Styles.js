@@ -3,8 +3,8 @@ const Styles = {
         height: '1000px',
         maxHeight: '1000px',
         maxWidth: '1000px',
-        overflow: 'auto'
-    }
-};
+        overflow: 'auto',
+    },
+}
 
-export default Styles;
+export default Styles

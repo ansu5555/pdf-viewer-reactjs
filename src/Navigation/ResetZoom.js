@@ -1,23 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const ResetZoom = ({ scale, defaultScale, css, handleResetZoom }) => {
+const ResetZoom = ({ css, scale, defaultScale, handleResetZoom }) => {
     const resetZoomClass = `${css ? css : 'btn btn-sm btn-link text-white px-2'}
-    ${scale === defaultScale ? ' disabled' : ''}`;
+    ${scale === defaultScale ? ' disabled' : ''}`
 
     return (
         <button
-            type="button"
+            type='button'
             className={resetZoomClass}
             onClick={handleResetZoom}>
-            <i className="material-icons">refresh</i>
+            <i className='material-icons'>refresh</i>
         </button>
-    );
-};
+    )
+}
 
 ResetZoom.propTypes = {
     css: PropTypes.string,
-    handleResetZoom: PropTypes.func.isRequired
-};
+    scale: PropTypes.number.isRequired,
+    defaultScale: PropTypes.number.isRequired,
+    handleResetZoom: PropTypes.func.isRequired,
+}
 
-export default ResetZoom;
+export default ResetZoom

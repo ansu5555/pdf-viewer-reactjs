@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import NextPageButton from './NextPageButton';
-import PagesIndicator from './PagesIndicator';
-import PreviousPageButton from './PreviousPageButton';
-import ZoomIn from './ZoomIn';
-import ZoomOut from './ZoomOut';
-import ResetZoom from './ResetZoom';
-import RotateLeft from './RotateLeft';
-import ResetRotation from './ResetRotation';
-import RotateRight from './RotateRight';
+import React from 'react'
+import PropTypes from 'prop-types'
+import NextPageButton from './NextPageButton'
+import PagesIndicator from './PagesIndicator'
+import PreviousPageButton from './PreviousPageButton'
+import ZoomIn from './ZoomIn'
+import ZoomOut from './ZoomOut'
+import ResetZoom from './ResetZoom'
+import RotateLeft from './RotateLeft'
+import ResetRotation from './ResetRotation'
+import RotateRight from './RotateRight'
 
 const Navigation = ({
     page,
@@ -28,7 +28,7 @@ const Navigation = ({
     handleZoomOut,
     handleRotateLeft,
     handleResetRotation,
-    handleRotateRight
+    handleRotateRight,
 }) => {
     return (
         <div
@@ -37,12 +37,12 @@ const Navigation = ({
                     ? css.navbarWrapper
                     : 'container rounded bg-dark text-white'
             }>
-            <div className="row">
-                <div className="col-sm-4">
+            <div className='row'>
+                <div className='col-sm-4'>
                     {hideZoom ? (
                         undefined
                     ) : (
-                        <div className="btn-group" role="group">
+                        <div className='btn-group' role='group'>
                             <ZoomOut
                                 scale={scale}
                                 minScale={minScale}
@@ -64,8 +64,8 @@ const Navigation = ({
                         </div>
                     )}
                 </div>
-                <div className="col-sm-4">
-                    <div className="btn-group" role="group">
+                <div className='col-sm-4'>
+                    <div className='btn-group' role='group'>
                         <PreviousPageButton
                             css={css.previousPageBtn}
                             page={page}
@@ -85,11 +85,11 @@ const Navigation = ({
                         />
                     </div>
                 </div>
-                <div className="col-sm-4">
+                <div className='col-sm-4'>
                     {hideRotation ? (
                         undefined
                     ) : (
-                        <div className="btn-group" role="group">
+                        <div className='btn-group' role='group'>
                             <RotateLeft
                                 css={css.rotateLeftBtn}
                                 rotationAngle={rotationAngle}
@@ -110,32 +110,53 @@ const Navigation = ({
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 Navigation.propTypes = {
     page: PropTypes.number.isRequired,
     pages: PropTypes.number.isRequired,
+    scale: PropTypes.number,
+    defaultScale: PropTypes.number,
+    maxScale: PropTypes.number,
+    minScale: PropTypes.number,
+    rotationAngle: PropTypes.number,
+    hideZoom: PropTypes.bool,
+    hideRotation: PropTypes.bool,
 
     css: PropTypes.shape({
+        navbarWrapper: PropTypes.string,
+        pages: PropTypes.string,
+        pageIndicator: PropTypes.string,
         previousPageBtn: PropTypes.string,
         nextPageBtn: PropTypes.string,
-        pages: PropTypes.string,
-        wrapper: PropTypes.string
+        zoomOutBtn: PropTypes.string,
+        resetZoomBtn: PropTypes.string,
+        zoomInBtn: PropTypes.string,
+        rotateLeftBtn: PropTypes.string,
+        resetRotationBtn: PropTypes.string,
+        rotateRightBtn: PropTypes.string,
     }),
+
     elements: PropTypes.shape({
         previousPageBtn: PropTypes.any,
         nextPageBtn: PropTypes.any,
-        pages: PropTypes.any
+        pages: PropTypes.any,
     }),
 
     handlePrevClick: PropTypes.func.isRequired,
-    handleNextClick: PropTypes.func.isRequired
-};
+    handleNextClick: PropTypes.func.isRequired,
+    handleZoomIn: PropTypes.func.isRequired,
+    handleResetZoom: PropTypes.func.isRequired,
+    handleZoomOut: PropTypes.func.isRequired,
+    handleRotateLeft: PropTypes.func.isRequired,
+    handleResetRotation: PropTypes.func.isRequired,
+    handleRotateRight: PropTypes.func.isRequired,
+}
 
 Navigation.defaultProps = {
     css: {},
-    elements: {}
-};
+    elements: {},
+}
 
-export default Navigation;
+export default Navigation

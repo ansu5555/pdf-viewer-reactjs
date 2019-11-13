@@ -1,25 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import PDF from 'react-pdf-js';
-import 'jquery/dist/jquery.min.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'material-design-icons/iconfont/material-icons.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import PDF from 'react-pdf-js'
+import 'jquery/dist/jquery.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+import 'material-design-icons/iconfont/material-icons.css'
 
-import Navigation from './Navigation';
-import Styles from './Styles';
+import Navigation from './Navigation/NavigationBar'
+import Styles from './Styles'
 
 class PDFViewer extends React.Component {
-    state = {
-        pages: 0,
-        page: 1,
-        scale: 1,
-        defaultScale: 1,
-        scaleStep: 1,
-        maxScale: 3,
-        minScale: 1,
-        rotationAngle: 0
-    };
+    constructor() {
+        super()
+        this.state = {
+            pages: 0,
+            page: 1,
+            scale: 1,
+            defaultScale: 1,
+            scaleStep: 1,
+            maxScale: 3,
+            minScale: 1,
+            rotationAngle: 0,
+        }
+        this.onDocumentComplete = this.onDocumentComplete.bind(this)
+        this.handlePrevClick = this.handlePrevClick.bind(this)
+        this.handleNextClick = this.handleNextClick.bind(this)
+        this.handleZoomIn = this.handleZoomIn.bind(this)
+        this.handleResetZoom = this.handleResetZoom.bind(this)
+        this.handleZoomOut = this.handleZoomOut.bind(this)
+        this.handleRotateLeft = this.handleRotateLeft.bind(this)
+        this.handleResetRotation = this.handleResetRotation.bind(this)
+        this.handleRotateRight = this.handleRotateRight.bind(this)
+    }
 
     componentDidMount() {
         this.setState({
@@ -30,115 +42,115 @@ class PDFViewer extends React.Component {
             scaleStep: this.props.scaleStep || this.state.scaleStep,
             maxScale: this.props.maxScale || this.state.maxScale,
             minScale: this.props.minScale || this.state.minScale,
-            rotationAngle: this.props.rotationAngle || this.state.rotationAngle
-        });
+            rotationAngle: this.props.rotationAngle || this.state.rotationAngle,
+        })
     }
 
-    onDocumentComplete = pages => {
+    onDocumentComplete(pages) {
         this.setState({
-            pages
-        });
-    };
+            pages,
+        })
+    }
 
-    handlePrevClick = () => {
-        if (this.state.page === 1) return;
+    handlePrevClick() {
+        if (this.state.page === 1) return
 
         this.setState({
-            page: this.state.page - 1
-        });
+            page: this.state.page - 1,
+        })
 
         if (this.props.onPrevBtnClick) {
-            this.props.onPrevBtnClick(this.state.page - 1);
+            this.props.onPrevBtnClick(this.state.page - 1)
         }
-    };
+    }
 
-    handleNextClick = () => {
-        if (this.state.page === this.state.pages) return;
+    handleNextClick() {
+        if (this.state.page === this.state.pages) return
 
         this.setState({
-            page: this.state.page + 1
-        });
+            page: this.state.page + 1,
+        })
 
         if (this.props.onNextBtnClick) {
-            this.props.onNextBtnClick(this.state.page + 1);
+            this.props.onNextBtnClick(this.state.page + 1)
         }
-    };
+    }
 
-    handleZoomIn = () => {
+    handleZoomIn() {
         if (this.state.scale < this.state.maxScale) {
             this.setState({
-                scale: this.state.scale + this.state.scaleStep
-            });
+                scale: this.state.scale + this.state.scaleStep,
+            })
         }
 
         if (this.props.onZoom) {
-            this.props.onZoom(this.state.scale + this.state.scaleStep);
+            this.props.onZoom(this.state.scale + this.state.scaleStep)
         }
-    };
+    }
 
-    handleResetZoom = () => {
+    handleResetZoom() {
         this.setState({
-            scale: this.state.defaultScale
-        });
+            scale: this.state.defaultScale,
+        })
 
         if (this.props.onZoom) {
-            this.props.onZoom(this.state.defaultScale);
+            this.props.onZoom(this.state.defaultScale)
         }
-    };
+    }
 
-    handleZoomOut = () => {
+    handleZoomOut() {
         if (this.state.scale > this.state.minScale) {
             this.setState({
-                scale: this.state.scale - this.state.scaleStep
-            });
+                scale: this.state.scale - this.state.scaleStep,
+            })
         }
 
         if (this.props.onZoom) {
-            this.props.onZoom(this.state.scale - this.state.scaleStep);
+            this.props.onZoom(this.state.scale - this.state.scaleStep)
         }
-    };
+    }
 
-    handleRotateLeft = () => {
+    handleRotateLeft() {
         if (this.state.rotationAngle !== -90) {
             this.setState({
-                rotationAngle: -90
-            });
+                rotationAngle: -90,
+            })
         }
 
         if (this.props.onRotation) {
-            this.props.onRotation(-90);
+            this.props.onRotation(-90)
         }
-    };
+    }
 
-    handleResetRotation = () => {
+    handleResetRotation() {
         if (
             this.state.rotationAngle !== 0 ||
             this.state.rotationAngle !== 360
         ) {
             this.setState({
-                rotationAngle: 360
-            });
+                rotationAngle: 360,
+            })
         }
 
         if (this.props.onRotation) {
-            this.props.onRotation(0);
+            this.props.onRotation(0)
         }
-    };
+    }
 
-    handleRotateRight = () => {
+    handleRotateRight() {
         if (this.state.rotationAngle !== 90) {
             this.setState({
-                rotationAngle: 90
-            });
+                rotationAngle: 90,
+            })
         }
 
         if (this.props.onRotation) {
-            this.props.onRotation(90);
+            this.props.onRotation(90)
         }
-    };
+    }
 
     render() {
-        const source = this.props.document;
+        const source = this.props.document
         const {
             loader,
             hideNavbar,
@@ -148,8 +160,8 @@ class PDFViewer extends React.Component {
             navigation,
             css,
             canvasCss,
-            onDocumentClick
-        } = this.props;
+            onDocumentClick,
+        } = this.props
 
         const {
             page,
@@ -158,10 +170,10 @@ class PDFViewer extends React.Component {
             defaultScale,
             maxScale,
             minScale,
-            rotationAngle
-        } = this.state;
+            rotationAngle,
+        } = this.state
 
-        const NavigationElement = navigation;
+        const NavigationElement = navigation
 
         const pdf = (
             <PDF
@@ -175,9 +187,9 @@ class PDFViewer extends React.Component {
                 rotate={rotationAngle}
                 onDocumentComplete={this.onDocumentComplete}
             />
-        );
+        )
 
-        let nav = null;
+        let nav = null
         if (!hideNavbar && pages > 0) {
             nav =
                 !navigation ||
@@ -222,7 +234,7 @@ class PDFViewer extends React.Component {
                         handleResetRotation={this.handleResetRotation}
                         handleRotateRight={this.handleRotateRight}
                     />
-                );
+                )
         }
 
         return (
@@ -249,7 +261,7 @@ class PDFViewer extends React.Component {
                     </div>
                 )}
             </div>
-        );
+        )
     }
 }
 
@@ -258,13 +270,13 @@ PDFViewer.propTypes = {
         file: PropTypes.any, // File object,
         url: PropTypes.string,
         connection: PropTypes.shape({
-            url: PropTypes.string.isRequired // URL to fetch the pdf
+            url: PropTypes.string.isRequired, // URL to fetch the pdf
         }),
         base64: PropTypes.string, // PDF file encoded in base64
         binary: PropTypes.shape({
             // UInt8Array
-            data: PropTypes.any
-        })
+            data: PropTypes.any,
+        }),
     }).isRequired,
 
     loader: PropTypes.node,
@@ -298,19 +310,19 @@ PDFViewer.propTypes = {
                 nextPageBtn: PropTypes.string,
                 rotateLeftBtn: PropTypes.string,
                 resetRotationBtn: PropTypes.string,
-                rotateRightBtn: PropTypes.string
-            })
+                rotateRightBtn: PropTypes.string,
+            }),
         }),
         // Or a full navigation component
-        PropTypes.any
-    ])
-};
+        PropTypes.any,
+    ]),
+}
 
 PDFViewer.defaultProps = {
     hideNavbar: false,
     hideZoom: false,
     hideRotation: false,
-    navbarOnTop: false
-};
+    navbarOnTop: false,
+}
 
-export default PDFViewer;
+export default PDFViewer
