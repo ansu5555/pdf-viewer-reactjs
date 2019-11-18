@@ -199,7 +199,7 @@ function App() {
             </div>
             {/* <div className='row my-5'>
                 <FromBase64 />
-            </div> */}
+            </div>
             <div className='row my-5'>
                 <WithCustomLoader />
             </div>
@@ -226,7 +226,7 @@ function App() {
             </div>
             <div className='row my-5'>
                 <WithNavbarTop />
-            </div>
+            </div> */}
         </div>
     )
 }

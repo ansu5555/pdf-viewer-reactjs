@@ -9,8 +9,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 class RenderPdf extends Component {
     constructor(props) {
         super(props)
-        this.pdf = null
         this.canvasRef = createRef(null)
+        this.pdf = null
         this.state = {
             src: props.src,
         }
@@ -56,7 +56,7 @@ class RenderPdf extends Component {
 }
 
 RenderPdf.propTypes = {
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
     page: PropTypes.number,
     scale: PropTypes.number,
     rotation: PropTypes.number,
@@ -64,7 +64,6 @@ RenderPdf.propTypes = {
 }
 
 RenderPdf.defaultProps = {
-    src: `${process.env.PUBLIC_URL}/long.pdf`,
     page: 1,
     scale: 1,
     rotation: 0,

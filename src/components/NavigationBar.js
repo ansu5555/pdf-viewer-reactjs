@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import NextPageButton from './NavigationComponents/NextPageButton'
-import PagesIndicator from './NavigationComponents/PagesIndicator'
-import PreviousPageButton from './NavigationComponents/PreviousPageButton'
-import ZoomIn from './NavigationComponents/ZoomIn'
-import ZoomOut from './NavigationComponents/ZoomOut'
-import ResetZoom from './NavigationComponents/ResetZoom'
-import RotateLeft from './NavigationComponents/RotateLeft'
-import ResetRotation from './NavigationComponents/ResetRotation'
-import RotateRight from './NavigationComponents/RotateRight'
+import NextPageButton from './navigationComponents/NextPageButton'
+import PagesIndicator from './navigationComponents/PagesIndicator'
+import PreviousPageButton from './navigationComponents/PreviousPageButton'
+import ZoomIn from './navigationComponents/ZoomIn'
+import ZoomOut from './navigationComponents/ZoomOut'
+import ResetZoom from './navigationComponents/ResetZoom'
+import RotateLeft from './navigationComponents/RotateLeft'
+import ResetRotation from './navigationComponents/ResetRotation'
+import RotateRight from './navigationComponents/RotateRight'
 
 const Navigation = ({
     page,
