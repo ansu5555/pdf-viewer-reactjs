@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -32,7 +33,9 @@ class PDFViewer extends React.Component {
 
     getPageCount(pages) {
         if (this.state.pages !== pages) {
-            setTimeout(this.setState({ pages }), 50)
+            setTimeout(() => {
+                this.setState({ pages })
+            }, 2000)
         }
     }
 
@@ -61,7 +64,7 @@ class PDFViewer extends React.Component {
     }
 
     handleZoomIn() {
-        if (this.state.scale < this.state.maxScale) {
+        if (this.state.scale < this.props.maxScale) {
             this.setState({
                 scale: this.state.scale + this.props.scaleStep,
             })
@@ -83,7 +86,7 @@ class PDFViewer extends React.Component {
     }
 
     handleZoomOut() {
-        if (this.state.scale > this.state.minScale) {
+        if (this.state.scale > this.props.minScale) {
             this.setState({
                 scale: this.state.scale - this.props.scaleStep,
             })
