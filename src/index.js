@@ -35,7 +35,7 @@ class PDFViewer extends React.Component {
         if (this.state.pages !== pages) {
             setTimeout(() => {
                 this.setState({ pages })
-            }, 2000)
+            }, 5000)
         }
     }
 
@@ -137,7 +137,14 @@ class PDFViewer extends React.Component {
     }
 
     render() {
-        const source = this.props.document
+        let source
+        for (let [type, src] of Object.entries(this.props.document)) {
+            if (type === 'base64') {
+                source = { data: atob(src) }
+            } else {
+                source = src
+            }
+        }
         const {
             loader,
             maxScale,
@@ -158,7 +165,7 @@ class PDFViewer extends React.Component {
 
         const pdf = (
             <PDF
-                src={source.url}
+                src={source}
                 page={page}
                 scale={scale}
                 rotation={rotationAngle}
@@ -244,16 +251,8 @@ class PDFViewer extends React.Component {
 
 PDFViewer.propTypes = {
     document: PropTypes.shape({
-        file: PropTypes.any, // File object,
-        url: PropTypes.string,
-        connection: PropTypes.shape({
-            url: PropTypes.string.isRequired, // URL to fetch the pdf
-        }),
+        url: PropTypes.string, // File path
         base64: PropTypes.string, // PDF file encoded in base64
-        binary: PropTypes.shape({
-            // UInt8Array
-            data: PropTypes.any,
-        }),
     }).isRequired,
 
     loader: PropTypes.node,

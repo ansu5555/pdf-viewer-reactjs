@@ -21,20 +21,20 @@ npm install pdf-viewer-reactjs
 # How to use
 
 ```js
-import React from 'react';
-import PDFViewer from 'pdf-viewer-reactjs';
+import React from 'react'
+import PDFViewer from 'pdf-viewer-reactjs'
 
 const ExamplePDFViewer = () => {
     return (
         <PDFViewer
             document={{
-                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf'
+                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
             }}
         />
-    );
-};
+    )
+}
 
-export default ExamplePDFViewer;
+export default ExamplePDFViewer
 ```
 
 # Documentation
@@ -47,12 +47,9 @@ React component prop. types:
 
         ```js
         PropTypes.shape({
-            file: Any, // File object,
-            url: String, // URL to fetch the pdf
-            connection: Object, // connection parameters to fetch the PDF, see PDF.js docs
+            url: String, // URL to the pdf
             base64: String, // PDF file encoded in base64
-            binary: UInt8Array
-        });
+        })
         ```
 
     -   Required: **true**
