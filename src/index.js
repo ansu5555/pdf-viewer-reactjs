@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,7 +7,7 @@ import 'material-design-icons/iconfont/material-icons.css'
 
 import PDF from './components/RenderPdf'
 import Navigation from './components/NavigationBar'
-import Styles from './Styles'
+import Loader from './components/Loader'
 
 class PDFViewer extends React.Component {
     constructor(props) {
@@ -19,6 +18,7 @@ class PDFViewer extends React.Component {
             scale: this.props.scale,
             defaultScale: this.props.scale,
             rotationAngle: this.props.rotationAngle,
+            isReady: false,
         }
         this.getPageCount = this.getPageCount.bind(this)
         this.handlePrevClick = this.handlePrevClick.bind(this)
@@ -34,7 +34,7 @@ class PDFViewer extends React.Component {
     getPageCount(pages) {
         if (this.state.pages !== pages) {
             setTimeout(() => {
-                this.setState({ pages })
+                this.setState({ pages, isReady: true })
             }, 5000)
         }
     }
@@ -110,10 +110,7 @@ class PDFViewer extends React.Component {
     }
 
     handleResetRotation() {
-        if (
-            this.state.rotationAngle !== 0 ||
-            this.state.rotationAngle !== 360
-        ) {
+        if (this.state.rotationAngle !== 0) {
             this.setState({
                 rotationAngle: 0,
             })
@@ -223,27 +220,63 @@ class PDFViewer extends React.Component {
 
         return (
             <div className={css ? css : 'container text-center'}>
-                {navbarOnTop ? (
-                    <div>
-                        <div>{nav}</div>
-                        <div
-                            className={canvasCss ? canvasCss : ''}
-                            style={canvasCss ? {} : Styles.canvas}
-                            onClick={onDocumentClick}>
-                            {pdf}
-                        </div>
+                <div style={{ display: this.state.isReady ? 'none' : 'block' }}>
+                    <div
+                        className={canvasCss ? canvasCss : ''}
+                        style={
+                            canvasCss
+                                ? {}
+                                : {
+                                      height: '1000px',
+                                      maxHeight: '1000px',
+                                      maxWidth: '1000px',
+                                      overflow: 'auto',
+                                  }
+                        }>
+                        {loader ? loader : <Loader />}
                     </div>
-                ) : (
-                    <div>
-                        <div
-                            className={canvasCss ? canvasCss : ''}
-                            style={canvasCss ? {} : Styles.canvas}
-                            onClick={onDocumentClick}>
-                            {pdf}
+                </div>
+                <div style={{ display: this.state.isReady ? 'block' : 'none' }}>
+                    {navbarOnTop ? (
+                        <div>
+                            <div>{nav}</div>
+                            <div
+                                className={canvasCss ? canvasCss : ''}
+                                style={
+                                    canvasCss
+                                        ? {}
+                                        : {
+                                              height: '1000px',
+                                              maxHeight: '1000px',
+                                              maxWidth: '1000px',
+                                              overflow: 'auto',
+                                          }
+                                }
+                                onClick={onDocumentClick}>
+                                {pdf}
+                            </div>
                         </div>
-                        <div>{nav}</div>
-                    </div>
-                )}
+                    ) : (
+                        <div>
+                            <div
+                                className={canvasCss ? canvasCss : ''}
+                                style={
+                                    canvasCss
+                                        ? {}
+                                        : {
+                                              height: '1000px',
+                                              maxHeight: '1000px',
+                                              maxWidth: '1000px',
+                                              overflow: 'auto',
+                                          }
+                                }
+                                onClick={onDocumentClick}>
+                                {pdf}
+                            </div>
+                            <div>{nav}</div>
+                        </div>
+                    )}
+                </div>
             </div>
         )
     }
