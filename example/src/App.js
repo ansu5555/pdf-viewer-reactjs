@@ -34,6 +34,21 @@ const FromBase64 = () => (
     </div>
 )
 
+const ErrorHandling = () => (
+    <div className='col-md-auto text-center'>
+        <h1 className='text-white bg-info rounded'>
+            Error massage for failures
+        </h1>
+        <div className='border rounded'>
+            <PDFViewer
+                document={{
+                    url: 'https://somewrongurl/tsjydyd.pdf',
+                }}
+            />
+        </div>
+    </div>
+)
+
 const WithCustomLoader = () => (
     <div className='col-md-auto text-center'>
         <h1 className='text-white bg-info rounded'>Custom loader element</h1>
@@ -199,6 +214,9 @@ function App() {
             </div>
             <div className='row my-5'>
                 <FromBase64 />
+            </div>
+            <div className='row my-5'>
+                <ErrorHandling />
             </div>
             <div className='row my-5'>
                 <WithCustomLoader />
