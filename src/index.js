@@ -33,9 +33,7 @@ class PDFViewer extends React.Component {
 
     getPageCount(pages) {
         if (this.state.pages !== pages) {
-            setTimeout(() => {
-                this.setState({ pages, isReady: true })
-            }, 5000)
+            this.setState({ pages, isReady: true })
         }
     }
 

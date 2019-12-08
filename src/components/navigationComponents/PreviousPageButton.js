@@ -13,7 +13,7 @@ const PreviousPageButton = ({ css, page, handlePrevClick }) => {
         handlePrevClick()
         setTimeout(() => {
             setState(false)
-        }, 500)
+        }, 200)
     }
 
     return (

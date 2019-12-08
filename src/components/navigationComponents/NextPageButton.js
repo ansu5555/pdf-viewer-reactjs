@@ -13,7 +13,7 @@ const NextPageButton = ({ css, page, pages, handleNextClick }) => {
         handleNextClick()
         setTimeout(() => {
             setState(false)
-        }, 500)
+        }, 200)
     }
 
     return (

@@ -5,22 +5,22 @@ class Loader extends Component {
         const loader1 = {
             width: '0.5rem',
             height: '0.5rem',
-            animationDuration: '1.5s',
+            animationDuration: '0.75s',
             animationDelay: '0s',
         }
 
         const loader2 = {
             width: '0.5rem',
             height: '0.5rem',
-            animationDuration: '1.5s',
-            animationDelay: '0.5s',
+            animationDuration: '0.75s',
+            animationDelay: '0.25s',
         }
 
         const loader3 = {
             width: '0.5rem',
             height: '0.5rem',
-            animationDuration: '1.5s',
-            animationDelay: '2s',
+            animationDuration: '0.75s',
+            animationDelay: '0.5s',
         }
 
         return (

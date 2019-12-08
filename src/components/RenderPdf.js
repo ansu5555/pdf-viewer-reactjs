@@ -20,7 +20,6 @@ class RenderPdf extends Component {
         // Get PDF file
         try {
             this.pdf = await pdfjs.getDocument(this.state.src).promise
-            this.props.pageCount(this.pdf.numPages)
             try {
                 const page = await this.pdf.getPage(this.props.page)
                 const viewport = page.getViewport({
@@ -41,6 +40,7 @@ class RenderPdf extends Component {
                 const renderTask = page.render(renderContext)
                 try {
                     await renderTask.promise
+                    this.props.pageCount(this.pdf.numPages)
                 } catch (error) {
                     console.log('Error occured while rendering !\n', error)
                     this.setState({
@@ -82,7 +82,7 @@ class RenderPdf extends Component {
 }
 
 RenderPdf.propTypes = {
-    src: PropTypes.string.isRequired,
+    src: PropTypes.any.isRequired,
     page: PropTypes.number,
     scale: PropTypes.number,
     rotation: PropTypes.number,
