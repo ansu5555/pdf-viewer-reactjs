@@ -161,7 +161,7 @@ class PDFViewer extends React.Component {
         const pdf = (
             <PDF
                 src={source}
-                page={page}
+                pageNum={page}
                 scale={scale}
                 rotation={rotationAngle}
                 pageCount={num => this.getPageCount(num)}
