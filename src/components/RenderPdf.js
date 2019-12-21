@@ -62,7 +62,7 @@ const RenderPdf = ({ src, pageNum, scale, rotation, pageCount }) => {
 
     useEffect(() => {
         fetchPDF()
-    }, [src, pageNum, scale, rotation])
+    }, [src, pageNum, scale, rotation, pageCount])
 
     if (error.status) {
         pageCount(-1)
