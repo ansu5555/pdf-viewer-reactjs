@@ -206,6 +206,27 @@ const WithNavbarTop = () => (
     </div>
 )
 
+const WithWatermark = () => (
+    <div className='col-md-auto text-center'>
+        <h1 className='text-white bg-info rounded'>Watermark and Protected</h1>
+        <div className='border rounded'>
+            <PDFViewer
+                document={{
+                    url: sources.url,
+                }}
+                protectContent
+                watermark={{
+                    text: 'WaterMark Demo !!!',
+                    diagonal: true,
+                    opacity: '0.5',
+                    size: '72',
+                    color: '#FF5733',
+                }}
+            />
+        </div>
+    </div>
+)
+
 function App() {
     return (
         <div className='container'>
@@ -244,6 +265,9 @@ function App() {
             </div>
             <div className='row my-5'>
                 <WithNavbarTop />
+            </div>
+            <div className='row my-5'>
+                <WithWatermark />
             </div>
         </div>
     )

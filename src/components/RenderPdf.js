@@ -8,7 +8,15 @@ import Alert from './Alert'
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 let pdf = null
 
-const RenderPdf = ({ src, pageNum, scale, rotation, pageCount }) => {
+const RenderPdf = ({
+    src,
+    pageNum,
+    scale,
+    rotation,
+    pageCount,
+    protectContent,
+    watermark,
+}) => {
     const [error, setError] = useState({ status: false, message: '' })
     const canvasRef = useRef(null)
 
@@ -18,10 +26,7 @@ const RenderPdf = ({ src, pageNum, scale, rotation, pageCount }) => {
             pdf = await pdfjs.getDocument(src).promise
             try {
                 const page = await pdf.getPage(pageNum)
-                const viewport = page.getViewport({
-                    scale: scale,
-                    rotation: rotation,
-                })
+                const viewport = page.getViewport({ scale, rotation })
 
                 // Prepare canvas using PDF page dimensions
                 const canvas = canvasRef.current
@@ -29,13 +34,45 @@ const RenderPdf = ({ src, pageNum, scale, rotation, pageCount }) => {
                 canvas.width = viewport.width
 
                 // Render PDF page into canvas context
+                let canvasContext = canvas.getContext('2d')
                 const renderContext = {
-                    canvasContext: canvas.getContext('2d'),
-                    viewport: viewport,
+                    canvasContext,
+                    viewport,
                 }
                 const renderTask = page.render(renderContext)
                 try {
                     await renderTask.promise
+                    if (Object.entries(watermark).length !== 0) {
+                        //watermark config
+                        const {
+                            text,
+                            diagonal,
+                            opacity,
+                            size,
+                            color,
+                        } = watermark
+                        // setup watermark text for filling
+                        canvasContext.globalAlpha = opacity
+                        canvasContext.font = `${size}px Comic Sans MS`
+                        canvasContext.fillStyle = color
+
+                        // get the metrics with font settings
+                        var metrics = canvasContext.measureText(text)
+                        var width = metrics.width
+                        var height = size // height is font size
+                        canvasContext.translate(
+                            viewport.width / 2,
+                            viewport.height / 2
+                        )
+
+                        // rotate the context and center the text
+                        if (diagonal) {
+                            canvasContext.rotate(-0.785)
+                        }
+                        canvasContext.fillText(text, -width / 2, height / 2)
+                    }
+
+                    // call pageCountfunction
                     pageCount(pdf.numPages)
                 } catch (error) {
                     console.warn('Error occured while rendering !\n', error)
@@ -70,6 +107,9 @@ const RenderPdf = ({ src, pageNum, scale, rotation, pageCount }) => {
     } else {
         return (
             <canvas
+                onContextMenu={e =>
+                    protectContent ? e.preventDefault() : null
+                }
                 ref={canvasRef}
                 width={window.innerWidth}
                 height={window.innerHeight}
@@ -80,17 +120,24 @@ const RenderPdf = ({ src, pageNum, scale, rotation, pageCount }) => {
 
 RenderPdf.propTypes = {
     src: PropTypes.any.isRequired,
-    pageNum: PropTypes.number,
-    scale: PropTypes.number,
-    rotation: PropTypes.number,
+    pageNum: PropTypes.number.isRequired,
+    scale: PropTypes.number.isRequired,
+    rotation: PropTypes.number.isRequired,
     pageCount: PropTypes.func,
+    protectContent: PropTypes.bool,
+    watermark: PropTypes.shape({
+        text: PropTypes.string,
+        diagonal: PropTypes.bool,
+        opacity: PropTypes.string,
+        size: PropTypes.string,
+        color: PropTypes.string,
+    }),
 }
 
 RenderPdf.defaultProps = {
-    pageNum: 1,
-    scale: 1,
-    rotation: 0,
     pageCount() {},
+    protectContent: false,
+    watermark: {},
 }
 
 export default RenderPdf

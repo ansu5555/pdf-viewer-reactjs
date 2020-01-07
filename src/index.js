@@ -152,6 +152,8 @@ class PDFViewer extends React.Component {
             css,
             canvasCss,
             onDocumentClick,
+            protectContent,
+            watermark,
         } = this.props
 
         const { page, pages, scale, defaultScale, rotationAngle } = this.state
@@ -165,6 +167,8 @@ class PDFViewer extends React.Component {
                 scale={scale}
                 rotation={rotationAngle}
                 pageCount={num => this.getPageCount(num)}
+                protectContent={protectContent}
+                watermark={watermark}
             />
         )
 
@@ -304,6 +308,14 @@ PDFViewer.propTypes = {
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
     hideRotation: PropTypes.bool,
+    protectContent: PropTypes.bool,
+    watermark: PropTypes.shape({
+        text: PropTypes.string,
+        diagonal: PropTypes.bool,
+        opacity: PropTypes.string,
+        size: PropTypes.string,
+        color: PropTypes.string,
+    }),
     navigation: PropTypes.oneOfType([
         // Can be an object with css classes or react elements to be rendered
         PropTypes.shape({
