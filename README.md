@@ -163,7 +163,28 @@ React component prop. types:
     -   Required: **false**
     -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
 
-*   `navigation`:
+-   `protectContent`:
+
+    -   Type: _Boolean_
+    -   Required: **false**
+    -   Description: By default Right Click and Context Menu are enabled, but can be disabled by passing this prop
+
+*   `watermark`:
+
+    -   Type:
+        ```js
+        PropTypes.shape({
+            text: PropTypes.string, //Watermark text
+            diagonal: PropTypes.bool, // Watermark placement true for Diagonal, false for Horizontal
+            opacity: PropTypes.string, // Watermark opacity ranges from 0 to 1
+            size: PropTypes.string, // Fontsize of Watermark
+            color: PropTypes.string, // Color(hexcode) of the watermark
+        })
+        ```
+    -   Required: **false**
+    -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
+
+-   `navigation`:
 
     -   Type:
 
@@ -172,16 +193,16 @@ React component prop. types:
             // Can be an object with css classes or react elements to be rendered
             PropTypes.shape({
                 css: PropTypes.shape({
-                    navbarWrapper: String,  // CSS Class for the previous page button
-                    zoomOutBtn: String,  // CSS Class for the previous page button
-                    resetZoomBtn: String,  // CSS Class for the previous page button
-                    zoomInBtn: String,  // CSS Class for the previous page button
-                    previousPageBtn: String,  // CSS Class for the previous page button
-                    pageIndicator: String,  // CSS Class for the previous page button
-                    nextPageBtn: String,  // CSS Class for the previous page button
-                    rotateLeftBtn: String,  // CSS Class for the previous page button
-                    resetRotationBtn: String,  // CSS Class for the previous page button
-                    rotateRightBtn: String  // CSS Class for the previous page button
+                    navbarWrapper: String,  // CSS Class for the Navbar Wrapper
+                    zoomOutBtn: String,  // CSS Class for the ZoomOut Button
+                    resetZoomBtn: String,  // CSS Class for the Reset Zoom Button
+                    zoomInBtn: String,  // CSS Class for the ZoomIn Button
+                    previousPageBtn: String,  // CSS Class for the PreviousPage button
+                    pageIndicator: String,  // CSS Class for the Page Indicator
+                    nextPageBtn: String,  // CSS Class for the NextPage button
+                    rotateLeftBtn: String,  // CSS Class for the RotateLeft button
+                    resetRotationBtn: String,  // CSS Class for the Reset Rotation button
+                    rotateRightBtn: String  // CSS Class for the RotateRight button
                 })
             // Or a full navigation component
             PropTypes.any // Full navigation React element
@@ -209,7 +230,7 @@ The `navigation` element should accept following properties:
 
 -   `hideZoom` for hiding zoom
 
--   `hideRotation` for hding rotation
+-   `hideRotation` for hiding rotation
 
 -   `handleNextClick` for next button click
 
