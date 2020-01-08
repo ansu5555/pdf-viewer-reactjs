@@ -55,12 +55,6 @@ React component prop. types:
     -   Required: **true**
     -   Description: Provides a way to fetch the PDF document
 
--   `loader`:
-
-    -   Type: _Node_
-    -   Required: **false**
-    -   Description: A custom loader element that will be shown while the PDF is loading
-
 -   `page`:
 
     -   Type: _Number_
@@ -162,6 +156,18 @@ React component prop. types:
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
+
+-   `loader`:
+
+    -   Type: _Node_
+    -   Required: **false**
+    -   Description: A custom loader element that will be shown while the PDF is loading
+
+-   `alert`:
+
+    -   Type: _Node_
+    -   Required: **false**
+    -   Description: A custom alerf element that will be shown on error
 
 -   `protectContent`:
 

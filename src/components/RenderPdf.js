@@ -16,9 +16,12 @@ const RenderPdf = ({
     pageCount,
     protectContent,
     watermark,
+    alert,
 }) => {
     const [error, setError] = useState({ status: false, message: '' })
     const canvasRef = useRef(null)
+
+    const AlertComponent = alert ? alert : Alert
 
     const fetchPDF = async () => {
         // Get PDF file
@@ -103,7 +106,7 @@ const RenderPdf = ({
 
     if (error.status) {
         pageCount(-1)
-        return <Alert message={error.message} />
+        return <AlertComponent message={error.message} />
     } else {
         return (
             <canvas

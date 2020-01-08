@@ -37,13 +37,40 @@ const FromBase64 = () => (
 const ErrorHandling = () => (
     <div className='col-md-auto text-center'>
         <h1 className='text-white bg-info rounded'>
-            Error massage for failures
+            Error message for failures
         </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
                     url: 'https://somewrongurl/tsjydyd.pdf',
                 }}
+            />
+        </div>
+    </div>
+)
+
+const CustomErrorHandling = () => (
+    <div className='col-md-auto text-center'>
+        <h1 className='text-white bg-info rounded'>
+            Custom Error component for failures
+        </h1>
+        <div className='border rounded'>
+            <PDFViewer
+                document={{
+                    url: 'https://somewrongurl/tsjydyd.pdf',
+                }}
+                alert={err => (
+                    <div
+                        style={{
+                            color: '#fa5b35',
+                            backgroundColor: '#0c0c0c',
+                        }}>
+                        <h3 style={{ fontWeight: 'bolder' }}>
+                            Failed To load !!!
+                        </h3>
+                        <h6>{err.message}</h6>
+                    </div>
+                )}
             />
         </div>
     </div>
@@ -238,6 +265,9 @@ function App() {
             </div>
             <div className='row my-5'>
                 <ErrorHandling />
+            </div>
+            <div className='row my-5'>
+                <CustomErrorHandling />
             </div>
             <div className='row my-5'>
                 <WithCustomLoader />
