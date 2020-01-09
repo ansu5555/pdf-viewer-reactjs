@@ -33,16 +33,15 @@ const Navigation = ({
     return (
         <div
             className={
-                css.navbarWrapper
-                    ? css.navbarWrapper
-                    : 'container rounded bg-dark text-white'
+                css.navbarWrapper ||
+                'container box has-height-50 is-marginless has-padding-top-10 has-text-white has-background-black'
             }>
-            <div className='row'>
-                <div className='col-sm-4'>
+            <div className='columns is-gapless'>
+                <div className='column is-4'>
                     {hideZoom ? (
                         undefined
                     ) : (
-                        <div className='btn-group' role='group'>
+                        <div className='buttons are-small'>
                             <ZoomOut
                                 scale={scale}
                                 minScale={minScale}
@@ -64,8 +63,8 @@ const Navigation = ({
                         </div>
                     )}
                 </div>
-                <div className='col-sm-4'>
-                    <div className='btn-group' role='group'>
+                <div className='column is-4'>
+                    <div className='buttons are-small'>
                         <PreviousPageButton
                             css={css.previousPageBtn}
                             page={page}
@@ -85,11 +84,11 @@ const Navigation = ({
                         />
                     </div>
                 </div>
-                <div className='col-sm-4'>
+                <div className='column is-4'>
                     {hideRotation ? (
                         undefined
                     ) : (
-                        <div className='btn-group' role='group'>
+                        <div className='buttons are-small'>
                             <RotateLeft
                                 css={css.rotateLeftBtn}
                                 rotationAngle={rotationAngle}

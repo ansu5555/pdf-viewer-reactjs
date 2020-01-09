@@ -53,11 +53,10 @@
         "rollup-plugin-uglify": "^6.0.4"
     },
     "dependencies": {
-        "bootstrap": "^4.4.1",
-        "jquery": "^3.4.1",
+        "bulma": "^0.8.0",
+        "bulma-helpers": "^0.3.8",
         "material-design-icons": "^3.0.1",
         "pdfjs-dist": "^2.2.228",
-        "popper.js": "^1.16.0",
         "prop-types": "^15.7.2"
     },
     "husky": {

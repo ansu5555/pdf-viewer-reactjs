@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'jquery/dist/jquery.min.js'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bulma/css/bulma.css'
+import 'bulma-helpers/css/bulma-helpers.min.css'
 import 'material-design-icons/iconfont/material-icons.css'
 
 import PDF from './components/RenderPdf'

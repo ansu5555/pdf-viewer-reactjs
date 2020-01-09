@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const PreviousPageButton = ({ css, page, handlePrevClick }) => {
-    const prevClass = `${css || 'btn btn-sm btn-link text-white pr-2'}${
-        page === 1 ? ' disabled' : ''
-    }`
+    const prevClass = css || 'button is-black'
 
     const [state, setState] = useState(false)
 
@@ -16,8 +14,16 @@ const PreviousPageButton = ({ css, page, handlePrevClick }) => {
         }, 200)
     }
 
+    if (state || page === 1) {
+        return (
+            <button className={prevClass} disabled>
+                <i className='material-icons'>keyboard_arrow_left</i>
+            </button>
+        )
+    }
+
     return (
-        <button className={prevClass} onClick={handleClick} disabled={state}>
+        <button className={prevClass} onClick={handleClick}>
             <i className='material-icons'>keyboard_arrow_left</i>
         </button>
     )

@@ -2,16 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const RotateLeft = ({ css, rotationAngle, handleRotateLeft }) => {
-    const rotateLeftClass = `
-    ${css || 'btn btn-sm btn-link text-white pr-2'}
-    ${rotationAngle === -90 ? ' disabled' : ''}
-  `
+    const rotateLeftClass = css || 'button is-black'
+
+    if (rotationAngle === -90) {
+        return (
+            <button className={rotateLeftClass} disabled>
+                <i className='material-icons'>rotate_left</i>
+            </button>
+        )
+    }
 
     return (
-        <button
-            type='button'
-            className={rotateLeftClass}
-            onClick={handleRotateLeft}>
+        <button className={rotateLeftClass} onClick={handleRotateLeft}>
             <i className='material-icons'>rotate_left</i>
         </button>
     )

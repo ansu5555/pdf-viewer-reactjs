@@ -2,16 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ResetRotation = ({ css, rotationAngle, handleResetRotation }) => {
-    const resetRotationClass = `
-    ${css || 'btn btn-sm btn-link text-white px-2'}
-    ${rotationAngle === 0 || rotationAngle === 360 ? ' disabled' : ''}
-  `
+    const resetRotationClass = css || 'button is-black'
+
+    if (rotationAngle === 0) {
+        return (
+            <button className={resetRotationClass} disabled>
+                <i className='material-icons'>refresh</i>
+            </button>
+        )
+    }
 
     return (
-        <button
-            type='button'
-            className={resetRotationClass}
-            onClick={handleResetRotation}>
+        <button className={resetRotationClass} onClick={handleResetRotation}>
             <i className='material-icons'>refresh</i>
         </button>
     )

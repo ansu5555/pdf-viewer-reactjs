@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const NextPageButton = ({ css, page, pages, handleNextClick }) => {
-    const nextClass = `${css || 'btn btn-sm btn-link text-white pl-2'}${
-        page === pages ? ' disabled' : ''
-    }`
+    const nextClass = css || 'button is-black'
 
     const [state, setState] = useState(false)
 
@@ -14,6 +12,14 @@ const NextPageButton = ({ css, page, pages, handleNextClick }) => {
         setTimeout(() => {
             setState(false)
         }, 200)
+    }
+
+    if (state || page === pages) {
+        return (
+            <button className={nextClass} disabled>
+                <i className='material-icons'>keyboard_arrow_right</i>
+            </button>
+        )
     }
 
     return (
