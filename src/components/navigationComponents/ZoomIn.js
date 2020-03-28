@@ -2,19 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ZoomIn = ({ css, scale, maxScale, handleZoomIn }) => {
-    const zoomInClass = css || 'button is-black'
+    const zoomInClass =
+        css ||
+        'button is-black is-marginless has-margin-left-5 has-margin-right-5'
 
     if (scale === maxScale) {
         return (
             <button className={zoomInClass} disabled>
-                <i className='material-icons'>zoom_in</i>
+                <span className='icon is-small'>
+                    <i className='material-icons'>zoom_in</i>
+                </span>
             </button>
         )
     }
 
     return (
         <button className={zoomInClass} onClick={handleZoomIn}>
-            <i className='material-icons'>zoom_in</i>
+            <span className='icon is-small'>
+                <i className='material-icons'>zoom_in</i>
+            </span>
         </button>
     )
 }

@@ -2,19 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ResetZoom = ({ css, scale, defaultScale, handleResetZoom }) => {
-    const resetZoomClass = css || 'button is-black'
+    const resetZoomClass =
+        css ||
+        'button is-black is-marginless has-margin-left-5 has-margin-right-5'
 
     if (scale === defaultScale) {
         return (
             <button className={resetZoomClass} disabled>
-                <i className='material-icons'>refresh</i>
+                <span className='icon is-small'>
+                    <i className='material-icons'>refresh</i>
+                </span>
             </button>
         )
     }
 
     return (
         <button className={resetZoomClass} onClick={handleResetZoom}>
-            <i className='material-icons'>refresh</i>
+            <span className='icon is-small'>
+                <i className='material-icons'>refresh</i>
+            </span>
         </button>
     )
 }

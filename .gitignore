@@ -41,3 +41,6 @@ jspm_packages
 
 # Ignore config
 .vscode
+
+# local history
+.history

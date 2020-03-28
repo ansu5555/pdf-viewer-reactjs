@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const NextPageButton = ({ css, page, pages, handleNextClick }) => {
-    const nextClass = css || 'button is-black'
+    const nextClass = css || 'button is-black is-marginless'
 
     const [state, setState] = useState(false)
 
@@ -17,14 +17,18 @@ const NextPageButton = ({ css, page, pages, handleNextClick }) => {
     if (state || page === pages) {
         return (
             <button className={nextClass} disabled>
-                <i className='material-icons'>keyboard_arrow_right</i>
+                <span className='icon is-small'>
+                    <i className='material-icons'>keyboard_arrow_right</i>
+                </span>
             </button>
         )
     }
 
     return (
         <button className={nextClass} onClick={handleClick} disabled={state}>
-            <i className='material-icons'>keyboard_arrow_right</i>
+            <span className='icon is-small'>
+                <i className='material-icons'>keyboard_arrow_right</i>
+            </span>
         </button>
     )
 }
