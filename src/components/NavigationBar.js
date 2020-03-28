@@ -32,10 +32,8 @@ const Navigation = ({
 }) => {
     return (
         <div
-            className={
-                css.navbarWrapper ||
-                'columns box is-gapless is-mobile has-text-white has-background-black has-margin-top-15 has-margin-bottom-15'
-            }>
+            className={`columns is-gapless ${css.navbarWrapper ||
+                'box is-mobile has-text-white has-background-black has-margin-top-15 has-margin-bottom-15'}`}>
             {hideZoom ? (
                 <div className='column is-3'></div>
             ) : (
