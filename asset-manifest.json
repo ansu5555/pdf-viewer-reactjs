@@ -1,21 +1,26 @@
 {
   "files": {
-    "main.css": "/pdf-viewer-reactjs/static/css/main.1e708267.chunk.css",
-    "main.js": "/pdf-viewer-reactjs/static/js/main.8665bd0d.chunk.js",
-    "runtime-main.js": "/pdf-viewer-reactjs/static/js/runtime-main.8989e2ea.js",
-    "static/css/2.35245dac.chunk.css": "/pdf-viewer-reactjs/static/css/2.35245dac.chunk.css",
-    "static/js/2.4009ebad.chunk.js": "/pdf-viewer-reactjs/static/js/2.4009ebad.chunk.js",
+    "main.css": "/pdf-viewer-reactjs/static/css/main.7175caa2.chunk.css",
+    "main.js": "/pdf-viewer-reactjs/static/js/main.3b9068f0.chunk.js",
+    "main.js.map": "/pdf-viewer-reactjs/static/js/main.3b9068f0.chunk.js.map",
+    "runtime-main.js": "/pdf-viewer-reactjs/static/js/runtime-main.c0a18eb7.js",
+    "runtime-main.js.map": "/pdf-viewer-reactjs/static/js/runtime-main.c0a18eb7.js.map",
+    "static/css/2.58195ba8.chunk.css": "/pdf-viewer-reactjs/static/css/2.58195ba8.chunk.css",
+    "static/js/2.7f827eb7.chunk.js": "/pdf-viewer-reactjs/static/js/2.7f827eb7.chunk.js",
+    "static/js/2.7f827eb7.chunk.js.map": "/pdf-viewer-reactjs/static/js/2.7f827eb7.chunk.js.map",
     "index.html": "/pdf-viewer-reactjs/index.html",
-    "precache-manifest.2e9dc1ab6339e7c28fe1fc404d280982.js": "/pdf-viewer-reactjs/precache-manifest.2e9dc1ab6339e7c28fe1fc404d280982.js",
+    "precache-manifest.10e5384312d857e9f2ff0ee490a74d90.js": "/pdf-viewer-reactjs/precache-manifest.10e5384312d857e9f2ff0ee490a74d90.js",
     "service-worker.js": "/pdf-viewer-reactjs/service-worker.js",
-    "static/js/2.4009ebad.chunk.js.LICENSE": "/pdf-viewer-reactjs/static/js/2.4009ebad.chunk.js.LICENSE",
+    "static/css/2.58195ba8.chunk.css.map": "/pdf-viewer-reactjs/static/css/2.58195ba8.chunk.css.map",
+    "static/css/main.7175caa2.chunk.css.map": "/pdf-viewer-reactjs/static/css/main.7175caa2.chunk.css.map",
+    "static/js/2.7f827eb7.chunk.js.LICENSE.txt": "/pdf-viewer-reactjs/static/js/2.7f827eb7.chunk.js.LICENSE.txt",
     "static/media/material-icons.css": "/pdf-viewer-reactjs/static/media/MaterialIcons-Regular.e79bfd88.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.8989e2ea.js",
-    "static/css/2.35245dac.chunk.css",
-    "static/js/2.4009ebad.chunk.js",
-    "static/css/main.1e708267.chunk.css",
-    "static/js/main.8665bd0d.chunk.js"
+    "static/js/runtime-main.c0a18eb7.js",
+    "static/css/2.58195ba8.chunk.css",
+    "static/js/2.7f827eb7.chunk.js",
+    "static/css/main.7175caa2.chunk.css",
+    "static/js/main.3b9068f0.chunk.js"
   ]
 }
