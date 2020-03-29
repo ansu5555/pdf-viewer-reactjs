@@ -14,7 +14,7 @@
     cursor: pointer;
     display: inline-block;
     margin: 0;
-    width: 48px;
+    width: auto;
     color: #fa5b35;
     background-color: #f3f3f3;
     border-color: #fa5b35;
@@ -26,7 +26,7 @@
     cursor: pointer;
     display: inline-block;
     margin: 0;
-    width: 48px;
+    width: auto;
     color: #fa5b35;
     background-color: #f3f3f3;
     border-color: #333333;
@@ -38,7 +38,7 @@
     cursor: pointer;
     display: inline-block;
     margin: 0;
-    width: 48px;
+    width: auto;
     color: #45fa35;
     background-color: #f3f3f3;
     border-color: #45fa35;
@@ -47,8 +47,8 @@
     border-radius: 6px;
 }
 .customPages {
-    display: inline-block;
-    width: calc(100% - 2 * 50px);
+    font-size: medium;
+    margin: 0.5rem;
 }
 .customWrapper {
     height: 40px;

@@ -32,82 +32,74 @@ const Navigation = ({
 }) => {
     return (
         <div
-            className={
-                css.navbarWrapper ||
-                'container box has-height-50 is-marginless has-padding-top-10 has-text-white has-background-black'
-            }>
-            <div className='columns is-gapless'>
-                <div className='column is-4'>
-                    {hideZoom ? (
-                        undefined
-                    ) : (
-                        <div className='buttons are-small'>
-                            <ZoomOut
-                                scale={scale}
-                                minScale={minScale}
-                                css={css.zoomOutBtn}
-                                handleZoomOut={handleZoomOut}
-                            />
-                            <ResetZoom
-                                scale={scale}
-                                defaultScale={defaultScale}
-                                css={css.resetZoomBtn}
-                                handleResetZoom={handleResetZoom}
-                            />
-                            <ZoomIn
-                                scale={scale}
-                                maxScale={maxScale}
-                                css={css.zoomInBtn}
-                                handleZoomIn={handleZoomIn}
-                            />
-                        </div>
-                    )}
+            className={`columns is-gapless ${css.navbarWrapper ||
+                'box is-mobile has-text-white has-background-black has-margin-top-15 has-margin-bottom-15'}`}>
+            {hideZoom ? (
+                <div className='column is-3'></div>
+            ) : (
+                <div className='column is-3 buttons are-small has-addons'>
+                    <ZoomOut
+                        scale={scale}
+                        minScale={minScale}
+                        css={css.zoomOutBtn}
+                        handleZoomOut={handleZoomOut}
+                    />
+                    <ResetZoom
+                        scale={scale}
+                        defaultScale={defaultScale}
+                        css={css.resetZoomBtn}
+                        handleResetZoom={handleResetZoom}
+                    />
+                    <ZoomIn
+                        scale={scale}
+                        maxScale={maxScale}
+                        css={css.zoomInBtn}
+                        handleZoomIn={handleZoomIn}
+                    />
                 </div>
-                <div className='column is-4'>
-                    <div className='buttons are-small'>
-                        <PreviousPageButton
-                            css={css.previousPageBtn}
-                            page={page}
-                            pages={pages}
-                            handlePrevClick={handlePrevClick}
-                        />
-                        <PagesIndicator
-                            css={css.pageIndicator}
-                            page={page}
-                            pages={pages}
-                        />
-                        <NextPageButton
-                            css={css.nextPageBtn}
-                            page={page}
-                            pages={pages}
-                            handleNextClick={handleNextClick}
-                        />
-                    </div>
-                </div>
-                <div className='column is-4'>
-                    {hideRotation ? (
-                        undefined
-                    ) : (
-                        <div className='buttons are-small'>
-                            <RotateLeft
-                                css={css.rotateLeftBtn}
-                                rotationAngle={rotationAngle}
-                                handleRotateLeft={handleRotateLeft}
-                            />
-                            <ResetRotation
-                                css={css.resetRotationBtn}
-                                rotationAngle={rotationAngle}
-                                handleResetRotation={handleResetRotation}
-                            />
-                            <RotateRight
-                                css={css.rotateRightBtn}
-                                rotationAngle={rotationAngle}
-                                handleRotateRight={handleRotateRight}
-                            />
-                        </div>
-                    )}
-                </div>
+            )}
+            <div className='column is-1'></div>
+            <div className='column is-4 buttons are-small has-addons is-centered'>
+                <PreviousPageButton
+                    css={css.previousPageBtn}
+                    page={page}
+                    pages={pages}
+                    handlePrevClick={handlePrevClick}
+                />
+                <PagesIndicator
+                    css={css.pageIndicator}
+                    page={page}
+                    pages={pages}
+                />
+                <NextPageButton
+                    css={css.nextPageBtn}
+                    page={page}
+                    pages={pages}
+                    handleNextClick={handleNextClick}
+                />
             </div>
+            <div className='column is-1'></div>
+            {hideRotation ? (
+                <div className='column is-3'></div>
+            ) : (
+                <div className='column is-3 buttons are-small has-addons is-right'>
+                    <RotateLeft
+                        css={css.rotateLeftBtn}
+                        rotationAngle={rotationAngle}
+                        handleRotateLeft={handleRotateLeft}
+                    />
+                    <ResetRotation
+                        css={css.resetRotationBtn}
+                        rotationAngle={rotationAngle}
+                        handleResetRotation={handleResetRotation}
+                    />
+                    <RotateRight
+                        css={css.rotateRightBtn}
+                        rotationAngle={rotationAngle}
+                        handleRotateRight={handleRotateRight}
+                    />
+                </div>
+            )}
         </div>
     )
 }
