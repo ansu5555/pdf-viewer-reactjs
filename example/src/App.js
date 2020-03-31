@@ -9,7 +9,7 @@ import sources from './Sources'
 import './App.css'
 
 const FromUrl = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Fetch PDF by URL</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -22,7 +22,7 @@ const FromUrl = () => (
 )
 
 const FromBase64 = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>
             Load PDF from base 64 string
         </h1>
@@ -37,7 +37,7 @@ const FromBase64 = () => (
 )
 
 const ErrorHandling = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>
             Error message for failures
         </h1>
@@ -52,7 +52,7 @@ const ErrorHandling = () => (
 )
 
 const CustomErrorHandling = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>
             Custom Error component for failures
         </h1>
@@ -79,7 +79,7 @@ const CustomErrorHandling = () => (
 )
 
 const WithCustomLoader = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Custom loader element</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -95,7 +95,7 @@ const WithCustomLoader = () => (
 )
 
 const WithCustomStartingPage = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Custom starting page</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -109,7 +109,7 @@ const WithCustomStartingPage = () => (
 )
 
 const WithCustomScale = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Custom scale</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -126,7 +126,7 @@ const WithCustomScale = () => (
 )
 
 const WithCustomNavigationStyles = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Custom css classes</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -155,7 +155,7 @@ const WithCustomNavigationStyles = () => (
 )
 
 const WithCustomNavigation = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Custom navigation</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -170,7 +170,7 @@ const WithCustomNavigation = () => (
 )
 
 const WithOnDocumentClick = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>
             With onDocumentClick, onPrevBtnClick, onNextBtnClick, onZoom and
             onRotation handler
@@ -191,7 +191,7 @@ const WithOnDocumentClick = () => (
 )
 
 const WithoutNavigation = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Without Navigation</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -205,7 +205,7 @@ const WithoutNavigation = () => (
 )
 
 const WithoutZoomRotation = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>
             Without Zoom and Rotation
         </h1>
@@ -222,7 +222,7 @@ const WithoutZoomRotation = () => (
 )
 
 const WithNavbarTop = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Navigation Bar on top</h1>
         <div className='border rounded'>
             <PDFViewer
@@ -236,7 +236,7 @@ const WithNavbarTop = () => (
 )
 
 const WithWatermark = () => (
-    <div className='col-md-auto text-center'>
+    <div className='col-sm-12 text-center'>
         <h1 className='text-white bg-info rounded'>Watermark and Protected</h1>
         <div className='border rounded'>
             <PDFViewer
