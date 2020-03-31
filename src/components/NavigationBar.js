@@ -35,9 +35,9 @@ const Navigation = ({
             className={`columns is-gapless ${css.navbarWrapper ||
                 'box is-mobile has-text-white has-background-black has-margin-top-15 has-margin-bottom-15'}`}>
             {hideZoom ? (
-                <div className='column is-3'></div>
+                <div className='column is-2'></div>
             ) : (
-                <div className='column is-3 buttons are-small has-addons'>
+                <div className='column is-2 buttons are-small has-addons'>
                     <ZoomOut
                         scale={scale}
                         minScale={minScale}
@@ -58,8 +58,8 @@ const Navigation = ({
                     />
                 </div>
             )}
-            <div className='column is-1'></div>
-            <div className='column is-4 buttons are-small has-addons is-centered'>
+            <div className='column'></div>
+            <div className='column is-3 buttons are-small has-addons is-centered'>
                 <PreviousPageButton
                     css={css.previousPageBtn}
                     page={page}
@@ -78,11 +78,11 @@ const Navigation = ({
                     handleNextClick={handleNextClick}
                 />
             </div>
-            <div className='column is-1'></div>
+            <div className='column'></div>
             {hideRotation ? (
-                <div className='column is-3'></div>
+                <div className='column is-2'></div>
             ) : (
-                <div className='column is-3 buttons are-small has-addons is-right'>
+                <div className='column is-2 buttons are-small has-addons is-right'>
                     <RotateLeft
                         css={css.rotateLeftBtn}
                         rotationAngle={rotationAngle}
