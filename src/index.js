@@ -230,7 +230,7 @@ class PDFViewer extends React.Component {
                             canvasCss
                                 ? {}
                                 : {
-                                      height: '90vh',
+                                      height: '1000px',
                                       overflow: 'auto',
                                   }
                         }>
@@ -248,8 +248,6 @@ class PDFViewer extends React.Component {
                                         ? {}
                                         : {
                                               height: '1000px',
-                                              maxHeight: '1000px',
-                                              maxWidth: '1000px',
                                               overflow: 'auto',
                                           }
                                 }
@@ -266,8 +264,6 @@ class PDFViewer extends React.Component {
                                         ? {}
                                         : {
                                               height: '1000px',
-                                              maxHeight: '1000px',
-                                              maxWidth: '1000px',
                                               overflow: 'auto',
                                           }
                                 }
