@@ -114,8 +114,8 @@ const RenderPdf = ({
                     protectContent ? e.preventDefault() : null
                 }
                 ref={canvasRef}
-                width={window.innerWidth}
-                height={window.innerHeight}
+                width={typeof window !== 'undefined' && window.innerWidth}
+                height={typeof window !== 'undefined' && window.innerHeight}
             />
         )
     }
