@@ -1,12 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ZoomOut = ({ css, scale, minScale, handleZoomOut }) => {
+const ZoomOut = ({ css, scale, defaultScale, minScale, handleZoomOut }) => {
     const zoomOutClass =
         css ||
         'button is-black is-marginless has-margin-left-5 has-margin-right-5'
 
-    if (scale === minScale) {
+    let checkScale = minScale
+    if (defaultScale < minScale) {
+        checkScale = defaultScale
+    }
+
+    if (scale.toFixed(2) === checkScale.toFixed(2)) {
         return (
             <button className={zoomOutClass} disabled>
                 <span className='icon is-small'>
@@ -28,6 +33,7 @@ const ZoomOut = ({ css, scale, minScale, handleZoomOut }) => {
 ZoomOut.propTypes = {
     css: PropTypes.string,
     scale: PropTypes.number.isRequired,
+    defaultScale: PropTypes.number.isRequired,
     minScale: PropTypes.number.isRequired,
     handleZoomOut: PropTypes.func.isRequired,
 }

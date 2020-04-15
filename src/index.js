@@ -61,7 +61,12 @@ class PDFViewer extends React.Component {
     }
 
     handleZoomIn() {
-        if (this.state.scale < this.props.maxScale) {
+        let checkScale = this.props.maxScale
+        if (this.state.defaultScale > this.props.maxScale) {
+            checkScale = this.state.defaultScale
+        }
+
+        if (this.state.scale < checkScale) {
             this.setState({
                 scale: this.state.scale + this.props.scaleStep,
             })
@@ -83,7 +88,12 @@ class PDFViewer extends React.Component {
     }
 
     handleZoomOut() {
-        if (this.state.scale > this.props.minScale) {
+        let checkScale = this.props.minScale
+        if (this.state.defaultScale < this.props.minScale) {
+            checkScale = this.state.defaultScale
+        }
+
+        if (this.state.scale > checkScale) {
             this.setState({
                 scale: this.state.scale - this.props.scaleStep,
             })

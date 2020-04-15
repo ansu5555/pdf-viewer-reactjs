@@ -6,7 +6,7 @@ const ResetZoom = ({ css, scale, defaultScale, handleResetZoom }) => {
         css ||
         'button is-black is-marginless has-margin-left-5 has-margin-right-5'
 
-    if (scale === defaultScale) {
+    if (scale.toFixed(2) === defaultScale.toFixed(2)) {
         return (
             <button className={resetZoomClass} disabled>
                 <span className='icon is-small'>

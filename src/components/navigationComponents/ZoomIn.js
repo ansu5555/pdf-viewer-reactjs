@@ -1,12 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ZoomIn = ({ css, scale, maxScale, handleZoomIn }) => {
+const ZoomIn = ({ css, scale, defaultScale, maxScale, handleZoomIn }) => {
     const zoomInClass =
         css ||
         'button is-black is-marginless has-margin-left-5 has-margin-right-5'
 
-    if (scale === maxScale) {
+    let checkScale = maxScale
+    if (defaultScale > maxScale) {
+        checkScale = defaultScale
+    }
+
+    if (scale.toFixed(2) === checkScale.toFixed(2)) {
         return (
             <button className={zoomInClass} disabled>
                 <span className='icon is-small'>
@@ -28,6 +33,7 @@ const ZoomIn = ({ css, scale, maxScale, handleZoomIn }) => {
 ZoomIn.propTypes = {
     css: PropTypes.string,
     scale: PropTypes.number.isRequired,
+    defaultScale: PropTypes.number.isRequired,
     maxScale: PropTypes.number.isRequired,
     handleZoomIn: PropTypes.func.isRequired,
 }

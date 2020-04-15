@@ -41,6 +41,7 @@ const Navigation = ({
                     <ZoomOut
                         scale={scale}
                         minScale={minScale}
+                        defaultScale={defaultScale}
                         css={css.zoomOutBtn}
                         handleZoomOut={handleZoomOut}
                     />
@@ -53,6 +54,7 @@ const Navigation = ({
                     <ZoomIn
                         scale={scale}
                         maxScale={maxScale}
+                        defaultScale={defaultScale}
                         css={css.zoomInBtn}
                         handleZoomIn={handleZoomIn}
                     />
