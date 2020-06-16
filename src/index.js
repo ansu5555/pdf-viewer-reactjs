@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'bulma/css/bulma.css'
-import 'bulma-helpers/css/bulma-helpers.min.css'
-import 'material-design-icons/iconfont/material-icons.css'
+try {
+    require('bulma/css/bulma.css')
+    require('bulma-helpers/css/bulma-helpers.min.css')
+    require('material-design-icons/iconfont/material-icons.css')
+} catch (error) {}
 
 import PDF from './components/RenderPdf'
 import Navigation from './components/NavigationBar'
