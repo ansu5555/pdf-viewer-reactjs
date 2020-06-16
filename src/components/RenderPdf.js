@@ -9,7 +9,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 let pdf = null
 
 const RenderPdf = ({
-    src,
+    document,
+    withCredentials,
+    password,
     pageNum,
     scale,
     rotation,
@@ -26,7 +28,13 @@ const RenderPdf = ({
     const fetchPDF = async () => {
         // Get PDF file
         try {
-            pdf = await pdfjs.getDocument(src).promise
+            let objDocInit = { withCredentials, password }
+            if (document.url == undefined) {
+                objDocInit.data = atob(document.base64)
+            } else {
+                objDocInit.url = document.url
+            }
+            pdf = await pdfjs.getDocument(objDocInit).promise
             try {
                 const page = await pdf.getPage(pageNum)
                 const viewport = page.getViewport({ scale, rotation })
@@ -102,7 +110,7 @@ const RenderPdf = ({
 
     useEffect(() => {
         fetchPDF()
-    }, [src, pageNum, scale, rotation, pageCount])
+    }, [document, password, pageNum, scale, rotation, pageCount])
 
     if (error.status) {
         pageCount(-1)
@@ -122,7 +130,9 @@ const RenderPdf = ({
 }
 
 RenderPdf.propTypes = {
-    src: PropTypes.any.isRequired,
+    document: PropTypes.any.isRequired,
+    withCredentials: PropTypes.bool,
+    password: PropTypes.string,
     pageNum: PropTypes.number.isRequired,
     scale: PropTypes.number.isRequired,
     rotation: PropTypes.number.isRequired,

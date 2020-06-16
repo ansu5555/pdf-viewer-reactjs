@@ -141,15 +141,10 @@ class PDFViewer extends React.Component {
     }
 
     render() {
-        let source
-        for (let [type, src] of Object.entries(this.props.document)) {
-            if (type === 'base64') {
-                source = { data: atob(src) }
-            } else {
-                source = src
-            }
-        }
         const {
+            document,
+            withCredentials,
+            password,
             loader,
             maxScale,
             minScale,
@@ -172,7 +167,9 @@ class PDFViewer extends React.Component {
 
         const pdf = (
             <PDF
-                src={source}
+                document={document}
+                withCredentials={withCredentials}
+                password={password}
                 pageNum={page}
                 scale={scale}
                 rotation={rotationAngle}
@@ -294,7 +291,8 @@ PDFViewer.propTypes = {
         url: PropTypes.string, // File path
         base64: PropTypes.string, // PDF file encoded in base64
     }).isRequired,
-
+    withCredentials: PropTypes.bool,
+    password: PropTypes.string,
     loader: PropTypes.node,
     page: PropTypes.number,
     scale: PropTypes.number,
@@ -345,6 +343,8 @@ PDFViewer.propTypes = {
 
 PDFViewer.defaultProps = {
     page: 1,
+    withCredentials: false,
+    password: '',
     defaultScale: 1,
     scale: 1,
     scaleStep: 1,
