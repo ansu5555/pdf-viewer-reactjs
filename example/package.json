@@ -4,10 +4,16 @@
     "private": true,
     "homepage": "https://ansu5555.github.io/pdf-viewer-reactjs/",
     "dependencies": {
-        "bootstrap": "^4.4.1",
+        "bootstrap": "^4.5.0",
+        "bulma": "^0.9.0",
+        "bulma-helpers": "^0.3.12",
+        "jquery": "^3.5.1",
+        "material-design-icons": "^3.0.1",
         "pdf-viewer-reactjs": "file:..",
+        "popper.js": "^1.16.1",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "typescript": "^3.9.5"
     },
     "devDependencies": {
         "gh-pages": "^2.2.0",
