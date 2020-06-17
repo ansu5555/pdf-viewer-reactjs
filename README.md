@@ -18,6 +18,12 @@ it is originally forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr
 npm install pdf-viewer-reactjs
 ```
 
+# Note:
+
+> ## Due to causing [broken css issue](https://github.com/ansu5555/pdf-viewer-reactjs/issues/27) **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** are removed from dependencies and added as peerDependencies
+>
+> ## Please install **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** from npm by yourself or provide custom css as per your requirement
+
 # How to use
 
 ```js
@@ -54,6 +60,18 @@ React component prop. types:
 
     -   Required: **true**
     -   Description: Provides a way to fetch the PDF document
+
+-   `password`:
+
+    -   Type: _String_
+    -   Required: **false**
+    -   Description: For decrypting password-protected PDFs
+
+-   `withCredentials`:
+
+    -   Type: _Boolean_
+    -   Required: **false**
+    -   Description: Indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies or authorization headers. The default is false
 
 -   `page`:
 

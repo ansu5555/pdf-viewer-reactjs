@@ -13,12 +13,14 @@ export default {
         'jquery',
         'material-design-icons',
         'bootstrap',
-        'react-pdf-js',
+        'bulma',
+        'bulma-helpers',
         'popper.js',
     ],
     plugins: [
         babel({
             exclude: 'node_modules/**',
+            runtimeHelpers: true,
         }),
         uglify(),
     ],
