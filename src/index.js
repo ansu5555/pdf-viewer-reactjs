@@ -61,6 +61,10 @@ class PDFViewer extends React.Component {
             this.props.onNextBtnClick(this.state.page + 1)
         }
     }
+    
+    setPage(page) {
+        this.setState({page})
+    }
 
     handleZoomIn() {
         let checkScale = this.props.maxScale
