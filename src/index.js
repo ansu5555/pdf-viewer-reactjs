@@ -36,6 +36,10 @@ class PDFViewer extends React.Component {
         if (this.state.pages !== pages) {
             this.setState({ pages, isReady: true })
         }
+
+        if(this.props.getMaxPageCount) {
+            this.props.getMaxPageCount(pages);
+        }
     }
 
     handlePrevClick() {
@@ -311,6 +315,7 @@ PDFViewer.propTypes = {
     onDocumentClick: PropTypes.func,
     onPrevBtnClick: PropTypes.func,
     onNextBtnClick: PropTypes.func,
+    getMaxPageCount: PropTypes.func,
     onZoom: PropTypes.func,
     onRotation: PropTypes.func,
     hideNavbar: PropTypes.bool,
