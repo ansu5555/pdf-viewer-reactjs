@@ -20,9 +20,9 @@ npm install pdf-viewer-reactjs
 
 # Note:
 
-> ## Due to causing [broken css issue](https://github.com/ansu5555/pdf-viewer-reactjs/issues/27) **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** are removed from dependencies and added as peerDependencies
+> ### Due to causing [broken css issue](https://github.com/ansu5555/pdf-viewer-reactjs/issues/27) **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** are removed from dependencies and added as peerDependencies
 >
-> ## Please install **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** from npm by yourself or provide custom css as per your requirement
+> ### Please install **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** from npm by yourself or provide custom css as per your requirement
 
 # How to use
 
@@ -139,6 +139,12 @@ React component prop. types:
     -   Required: **false**
     -   Description: A function that will be called on clicking on Rotation controls, rotation angle can be accessed in the function.
 
+-   `getMaxPageCount`:
+
+    -   Type: _Function_
+    -   Required: **false**
+    -   Description: A function that will be called on clicking on document load, total page number can be accessed in the function.
+
 *   `css`:
 
     -   Type: _String_
@@ -201,6 +207,7 @@ React component prop. types:
             text: PropTypes.string, //Watermark text
             diagonal: PropTypes.bool, // Watermark placement true for Diagonal, false for Horizontal
             opacity: PropTypes.string, // Watermark opacity ranges from 0 to 1
+            font: PropTypes.string, // custom font name default is 'Comic Sans MS'
             size: PropTypes.string, // Fontsize of Watermark
             color: PropTypes.string, // Color(hexcode) of the watermark
         })

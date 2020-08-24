@@ -248,6 +248,7 @@ const WithWatermark = () => (
                     text: 'WaterMark Demo !!!',
                     diagonal: true,
                     opacity: '0.5',
+                    font: 'Comfortaa',
                     size: '72',
                     color: '#FF5733',
                 }}

@@ -35,10 +35,9 @@ class PDFViewer extends React.Component {
     getPageCount(pages) {
         if (this.state.pages !== pages) {
             this.setState({ pages, isReady: true })
-        }
-
-        if(this.props.getMaxPageCount) {
-            this.props.getMaxPageCount(pages);
+            if (this.props.getMaxPageCount) {
+                this.props.getMaxPageCount(pages)
+            }
         }
     }
 
@@ -64,10 +63,6 @@ class PDFViewer extends React.Component {
         if (this.props.onNextBtnClick) {
             this.props.onNextBtnClick(this.state.page + 1)
         }
-    }
-    
-    setPage(page) {
-        this.setState({page})
     }
 
     handleZoomIn() {
@@ -315,9 +310,9 @@ PDFViewer.propTypes = {
     onDocumentClick: PropTypes.func,
     onPrevBtnClick: PropTypes.func,
     onNextBtnClick: PropTypes.func,
-    getMaxPageCount: PropTypes.func,
     onZoom: PropTypes.func,
     onRotation: PropTypes.func,
+    getMaxPageCount: PropTypes.func,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
@@ -327,6 +322,7 @@ PDFViewer.propTypes = {
         text: PropTypes.string,
         diagonal: PropTypes.bool,
         opacity: PropTypes.string,
+        font: PropTypes.string,
         size: PropTypes.string,
         color: PropTypes.string,
     }),

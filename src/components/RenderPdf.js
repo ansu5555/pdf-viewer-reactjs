@@ -59,12 +59,15 @@ const RenderPdf = ({
                             text,
                             diagonal,
                             opacity,
+                            font,
                             size,
                             color,
                         } = watermark
                         // setup watermark text for filling
                         canvasContext.globalAlpha = opacity
-                        canvasContext.font = `${size * scale}px Comic Sans MS`
+                        canvasContext.font = `${size * scale}px ${
+                            font !== '' ? font : 'Comic Sans MS'
+                        }`
                         canvasContext.fillStyle = color
 
                         // get the metrics with font settings
