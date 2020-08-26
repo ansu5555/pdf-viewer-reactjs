@@ -22,11 +22,11 @@ const RenderPdf = ({
 }) => {
     const [error, setError] = useState({ status: false, message: '' })
     const canvasRef = useRef(null)
+    const isInitialMount = useRef(true)
 
     const AlertComponent = alert ? alert : Alert
 
     const fetchPDF = async () => {
-        // Get PDF file
         try {
             let objDocInit = { withCredentials, password }
             if (document.url == undefined) {
@@ -35,73 +35,7 @@ const RenderPdf = ({
                 objDocInit.url = document.url
             }
             pdf = await pdfjs.getDocument(objDocInit).promise
-            try {
-                const page = await pdf.getPage(pageNum)
-                const viewport = page.getViewport({ scale, rotation })
-
-                // Prepare canvas using PDF page dimensions
-                const canvas = canvasRef.current
-                canvas.height = viewport.height
-                canvas.width = viewport.width
-
-                // Render PDF page into canvas context
-                let canvasContext = canvas.getContext('2d')
-                const renderContext = {
-                    canvasContext,
-                    viewport,
-                }
-                const renderTask = page.render(renderContext)
-                try {
-                    await renderTask.promise
-                    if (Object.entries(watermark).length !== 0) {
-                        //watermark config
-                        const {
-                            text,
-                            diagonal,
-                            opacity,
-                            font,
-                            size,
-                            color,
-                        } = watermark
-                        // setup watermark text for filling
-                        canvasContext.globalAlpha = opacity
-                        canvasContext.font = `${size * scale}px ${
-                            font !== '' ? font : 'Comic Sans MS'
-                        }`
-                        canvasContext.fillStyle = color
-
-                        // get the metrics with font settings
-                        var metrics = canvasContext.measureText(text)
-                        var width = metrics.width
-                        var height = size * scale // height is font size
-                        canvasContext.translate(
-                            viewport.width / 2,
-                            viewport.height / 2
-                        )
-
-                        // rotate the context and center the text
-                        if (diagonal) {
-                            canvasContext.rotate(-0.785)
-                        }
-                        canvasContext.fillText(text, -width / 2, height / 2)
-                    }
-
-                    // call pageCountfunction
-                    pageCount(pdf.numPages)
-                } catch (error) {
-                    console.warn('Error occured while rendering !\n', error)
-                    setError({
-                        status: true,
-                        message: 'Error occured while rendering !',
-                    })
-                }
-            } catch (error) {
-                console.warn('Error while reading the pages !\n', error)
-                setError({
-                    status: true,
-                    message: 'Error while reading the pages !',
-                })
-            }
+            await displayPage()
         } catch (error) {
             console.warn('Error while opening the document !\n', error)
             setError({
@@ -111,9 +45,88 @@ const RenderPdf = ({
         }
     }
 
+    const displayPage = async () => {
+        // Get PDF file
+        try {
+            const page = await pdf.getPage(pageNum)
+            const viewport = page.getViewport({ scale, rotation })
+
+            // Prepare canvas using PDF page dimensions
+            const canvas = canvasRef.current
+            canvas.height = viewport.height
+            canvas.width = viewport.width
+
+            // Render PDF page into canvas context
+            let canvasContext = canvas.getContext('2d')
+            const renderContext = {
+                canvasContext,
+                viewport,
+            }
+            const renderTask = page.render(renderContext)
+            try {
+                await renderTask.promise
+                if (Object.entries(watermark).length !== 0) {
+                    //watermark config
+                    const {
+                        text,
+                        diagonal,
+                        opacity,
+                        font,
+                        size,
+                        color,
+                    } = watermark
+                    // setup watermark text for filling
+                    canvasContext.globalAlpha = opacity
+                    canvasContext.font = `${size * scale}px ${
+                        font !== '' ? font : 'Comic Sans MS'
+                    }`
+                    canvasContext.fillStyle = color
+
+                    // get the metrics with font settings
+                    var metrics = canvasContext.measureText(text)
+                    var width = metrics.width
+                    var height = size * scale // height is font size
+                    canvasContext.translate(
+                        viewport.width / 2,
+                        viewport.height / 2
+                    )
+
+                    // rotate the context and center the text
+                    if (diagonal) {
+                        canvasContext.rotate(-0.785)
+                    }
+                    canvasContext.fillText(text, -width / 2, height / 2)
+                }
+
+                // call pageCountfunction
+                pageCount(pdf.numPages)
+            } catch (error) {
+                console.warn('Error occured while rendering !\n', error)
+                setError({
+                    status: true,
+                    message: 'Error occured while rendering !',
+                })
+            }
+        } catch (error) {
+            console.warn('Error while reading the pages !\n', error)
+            setError({
+                status: true,
+                message: 'Error while reading the pages !',
+            })
+        }
+    }
+
     useEffect(() => {
         fetchPDF()
-    }, [document, password, pageNum, scale, rotation, pageCount])
+    }, [document, password])
+
+    useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false
+        } else {
+            displayPage()
+        }
+    }, [pageNum, scale, rotation, pageCount])
 
     if (error.status) {
         pageCount(-1)
