@@ -44,6 +44,7 @@
         "@babel/preset-env": "^7.11.0",
         "@babel/preset-react": "^7.10.4",
         "@babel/runtime": "^7.11.2",
+        "@rollup/plugin-babel": "^5.2.0",
         "eslint": "^6.8.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-import": "^2.22.0",
@@ -53,9 +54,8 @@
         "eslint-plugin-react-hooks": "^1.7.0",
         "husky": "^3.1.0",
         "prettier": "^1.19.1",
-        "rollup": "^1.32.1",
-        "rollup-plugin-babel": "^4.4.0",
-        "rollup-plugin-uglify": "^6.0.4"
+        "rollup": "^2.26.9",
+        "rollup-plugin-terser": "^7.0.1"
     },
     "dependencies": {
         "pdfjs-dist": "^2.4.456",
@@ -63,7 +63,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run lint && npm run build && git add -A"
+            "pre-commit": "npm run lint && npm run build && git add dist"
         }
     }
 }
