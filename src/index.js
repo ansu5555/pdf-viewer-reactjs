@@ -182,6 +182,7 @@ class PDFViewer extends React.Component {
                 protectContent={protectContent}
                 watermark={watermark}
                 alert={alert}
+                canvasCss={canvasCss}
             />
         )
 
@@ -254,15 +255,15 @@ class PDFViewer extends React.Component {
                         <div>
                             <div>{nav}</div>
                             <div
-                                className={canvasCss ? canvasCss : ''}
-                                style={
-                                    canvasCss
-                                        ? {}
-                                        : {
-                                              height: '1000px',
-                                              overflow: 'auto',
-                                          }
-                                }
+                                // className={canvasCss ? canvasCss : ''}
+                                // style={
+                                //     canvasCss
+                                //         ? {}
+                                //         : {
+                                //               height: '1000px',
+                                //               overflow: 'auto',
+                                //           }
+                                // }>
                                 onClick={onDocumentClick}>
                                 {pdf}
                             </div>
@@ -270,15 +271,15 @@ class PDFViewer extends React.Component {
                     ) : (
                         <div>
                             <div
-                                className={canvasCss ? canvasCss : ''}
-                                style={
-                                    canvasCss
-                                        ? {}
-                                        : {
-                                              height: '1000px',
-                                              overflow: 'auto',
-                                          }
-                                }
+                                // className={canvasCss ? canvasCss : ''}
+                                // style={
+                                //     canvasCss
+                                //         ? {}
+                                //         : {
+                                //               height: '1000px',
+                                //               overflow: 'auto',
+                                //           }
+                                // }
                                 onClick={onDocumentClick}>
                                 {pdf}
                             </div>
@@ -362,6 +363,7 @@ PDFViewer.defaultProps = {
     hideZoom: false,
     hideRotation: false,
     navbarOnTop: false,
+    canvasCss: '',
 }
 
 export default PDFViewer
