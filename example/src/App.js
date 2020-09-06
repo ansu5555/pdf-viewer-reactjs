@@ -16,6 +16,7 @@ const FromUrl = () => (
                 document={{
                     url: sources.url,
                 }}
+                showThumbnail={{ scale: 3 }}
             />
         </div>
     </div>

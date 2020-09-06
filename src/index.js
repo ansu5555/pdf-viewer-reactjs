@@ -22,6 +22,7 @@ class PDFViewer extends React.Component {
             isReady: false,
         }
         this.getPageCount = this.getPageCount.bind(this)
+        this.handleThumbnailClick = this.handleThumbnailClick.bind(this)
         this.handlePrevClick = this.handlePrevClick.bind(this)
         this.handleNextClick = this.handleNextClick.bind(this)
         this.handleZoomIn = this.handleZoomIn.bind(this)
@@ -38,6 +39,12 @@ class PDFViewer extends React.Component {
             if (this.props.getMaxPageCount) {
                 this.props.getMaxPageCount(pages)
             }
+        }
+    }
+
+    handleThumbnailClick(page) {
+        if (this.state.page !== page) {
+            this.setState({ page })
         }
     }
 
@@ -161,6 +168,7 @@ class PDFViewer extends React.Component {
             css,
             canvasCss,
             onDocumentClick,
+            showThumbnail,
             protectContent,
             watermark,
             alert,
@@ -178,7 +186,9 @@ class PDFViewer extends React.Component {
                 pageNum={page}
                 scale={scale}
                 rotation={rotationAngle}
+                changePage={idx => this.handleThumbnailClick(idx)}
                 pageCount={num => this.getPageCount(num)}
+                showThumbnail={showThumbnail}
                 protectContent={protectContent}
                 watermark={watermark}
                 alert={alert}
@@ -254,35 +264,11 @@ class PDFViewer extends React.Component {
                     {navbarOnTop ? (
                         <div>
                             <div>{nav}</div>
-                            <div
-                                // className={canvasCss ? canvasCss : ''}
-                                // style={
-                                //     canvasCss
-                                //         ? {}
-                                //         : {
-                                //               height: '1000px',
-                                //               overflow: 'auto',
-                                //           }
-                                // }>
-                                onClick={onDocumentClick}>
-                                {pdf}
-                            </div>
+                            <div onClick={onDocumentClick}>{pdf}</div>
                         </div>
                     ) : (
                         <div>
-                            <div
-                                // className={canvasCss ? canvasCss : ''}
-                                // style={
-                                //     canvasCss
-                                //         ? {}
-                                //         : {
-                                //               height: '1000px',
-                                //               overflow: 'auto',
-                                //           }
-                                // }
-                                onClick={onDocumentClick}>
-                                {pdf}
-                            </div>
+                            <div onClick={onDocumentClick}>{pdf}</div>
                             <div>{nav}</div>
                         </div>
                     )}
@@ -318,6 +304,10 @@ PDFViewer.propTypes = {
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
     hideRotation: PropTypes.bool,
+    showThumbnail: PropTypes.shape({
+        scale: PropTypes.number,
+        rotationAngle: PropTypes.number,
+    }),
     protectContent: PropTypes.bool,
     watermark: PropTypes.shape({
         text: PropTypes.string,

@@ -145,37 +145,37 @@ React component prop. types:
     -   Required: **false**
     -   Description: A function that will be called on clicking on document load, total page number can be accessed in the function.
 
-*   `css`:
+-   `css`:
 
     -   Type: _String_
     -   Required: **false**
     -   Description: CSS classes that will be setted for the component wrapper
 
-*   `canvasCss`:
+-   `canvasCss`:
 
     -   Type: _String_
     -   Required: **false**
     -   Description: CSS classes that will be setted for the PDF page
 
-*   `hideNavbar`:
+-   `hideNavbar`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default navbar is displayed, but can be hidden by passing this prop
 
-*   `navbarOnTop`:
+-   `navbarOnTop`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
 
-*   `hideZoom`:
+-   `hideZoom`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default zoom buttons are displayed, but can be hidden by passing this prop
 
-*   `hideRotation`:
+-   `hideRotation`:
 
     -   Type: _Boolean_
     -   Required: **false**
@@ -193,20 +193,30 @@ React component prop. types:
     -   Required: **false**
     -   Description: A custom alerf element that will be shown on error
 
+-   `showThumbnail`:
+
+    -   Type:
+        ```js
+        PropTypes.shape({
+            scale: PropTypes.number, // Thumbnail scale, ranges from 1 to 5
+            rotationAngle: PropTypes.number, // Thumbnail rotation angle, values can be -90, 0 or 90. Default is 0
+        })
+        ```
+
 -   `protectContent`:
 
     -   Type: _Boolean_
     -   Required: **false**
     -   Description: By default Right Click and Context Menu are enabled, but can be disabled by passing this prop
 
-*   `watermark`:
+-   `watermark`:
 
     -   Type:
         ```js
         PropTypes.shape({
-            text: PropTypes.string, //Watermark text
+            text: PropTypes.string, // Watermark text
             diagonal: PropTypes.bool, // Watermark placement true for Diagonal, false for Horizontal
-            opacity: PropTypes.string, // Watermark opacity ranges from 0 to 1
+            opacity: PropTypes.string, // Watermark opacity, ranges from 0 to 1
             font: PropTypes.string, // custom font name default is 'Comic Sans MS'
             size: PropTypes.string, // Fontsize of Watermark
             color: PropTypes.string, // Color(hexcode) of the watermark
