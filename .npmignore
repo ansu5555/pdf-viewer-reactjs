@@ -1,6 +1,8 @@
-src
+.history
 example
+src
 .babelrc
-rollup.config.js
-.prettierrc.js
 .eslintrc.js
+.eslintignore
+.prettierrc.js
+rollup.config.js
