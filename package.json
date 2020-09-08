@@ -17,13 +17,17 @@
     },
     "keywords": [
         "pdf",
+        "document",
+        "pages",
         "pdf viewer",
+        "pdf-viewer",
         "rotate",
         "rotate pdf",
         "zoom",
         "zoom pdf",
         "react",
-        "reactjs"
+        "reactjs",
+        "react-pdf"
     ],
     "author": "ansu5555",
     "license": "MIT",

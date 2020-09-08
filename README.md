@@ -101,7 +101,7 @@ React component prop. types:
 
     -   Type: _Number_
     -   Required: **false**
-    -   Description: Minimum scale factor for zoom-in
+    -   Description: Minimum scale factor for zoom-out
 
 -   `rotationAngle`:
 
@@ -143,7 +143,7 @@ React component prop. types:
 
     -   Type: _Function_
     -   Required: **false**
-    -   Description: A function that will be called on clicking on document load, total page number can be accessed in the function.
+    -   Description: A function that will be called on clicking on document load, total page count can be accessed in the function.
 
 -   `css`:
 
@@ -202,6 +202,8 @@ React component prop. types:
             rotationAngle: PropTypes.number, // Thumbnail rotation angle, values can be -90, 0 or 90. Default is 0
         })
         ```
+    -   Required: **false**
+    -   Description: Details of the thumbnails, not shown if not provided
 
 -   `protectContent`:
 
@@ -223,7 +225,7 @@ React component prop. types:
         })
         ```
     -   Required: **false**
-    -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
+    -   Description: Details of the watermark, not shown if not provided
 
 -   `navigation`:
 
@@ -252,39 +254,3 @@ React component prop. types:
 
     -   Required: **false**
     -   Description: Defines the navigation bar styles and/or elements.
-
----
-
-The `navigation` element should accept following properties:
-
--   `page` for current page number
-
--   `pages` for total number of pages
-
--   `scale` for zoom
-
--   `maxScale` for maximum zoom
-
--   `minScale` for minimum zoom
-
--   `rotationAngle` for rotation
-
--   `hideZoom` for hiding zoom
-
--   `hideRotation` for hiding rotation
-
--   `handleNextClick` for next button click
-
--   `handlePrevClick` for previous button click
-
--   `handleZoomIn` for zoom-in button click
-
--   `handleResetZoom` for reset zoom button click
-
--   `handleZoomOut` for zoom-out button click
-
--   `handleRotateLeft` for left rotation
-
--   `handleResetRotation` for reset rotation
-
--   `handleRotateRight` for right rotation
