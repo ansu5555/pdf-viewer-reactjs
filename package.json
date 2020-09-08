@@ -27,7 +27,8 @@
         "zoom pdf",
         "react",
         "reactjs",
-        "react-pdf"
+        "react-pdf",
+        "react-pdf-viewer"
     ],
     "author": "ansu5555",
     "license": "MIT",
