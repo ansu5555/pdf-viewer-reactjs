@@ -56,9 +56,9 @@ export default ExamplePDFViewer
 
 React component prop. types:
 
--   `document`:
+**`document`:**
 
-*   Type:
+-   Type:
 
 ```js
 PropTypes.shape({
@@ -72,7 +72,7 @@ PropTypes.shape({
 
 -   Description: Provides a way to fetch the PDF document
 
-*   `password`:
+**`password`:**
 
 -   Type: _String_
 
@@ -80,7 +80,7 @@ PropTypes.shape({
 
 -   Description: For decrypting password-protected PDFs
 
-*   `withCredentials`:
+**`withCredentials`:**
 
 -   Type: _Boolean_
 
@@ -88,7 +88,7 @@ PropTypes.shape({
 
 -   Description: Indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies or authorization headers. The default is false
 
-*   `page`:
+**`page`:**
 
 -   Type: _Number_
 
@@ -96,7 +96,7 @@ PropTypes.shape({
 
 -   Description: The page that will be shown first on document load
 
-*   `scale`:
+**`scale`:**
 
 -   Type: _Number_
 
@@ -104,7 +104,7 @@ PropTypes.shape({
 
 -   Description: Scale factor relative to the component parent element
 
-*   `scaleStep`:
+**`scaleStep`:**
 
 -   Type: _Number_
 
@@ -112,7 +112,7 @@ PropTypes.shape({
 
 -   Description: Scale factor to be increased or decreased on Zoom-in or zoom-out
 
-*   `maxScale`:
+**`maxScale`:**
 
 -   Type: _Number_
 
@@ -120,7 +120,7 @@ PropTypes.shape({
 
 -   Description: Maximun scale factor for zoom-in
 
-*   `minScale`:
+**`minScale`:**
 
 -   Type: _Number_
 
@@ -128,7 +128,7 @@ PropTypes.shape({
 
 -   Description: Minimum scale factor for zoom-out
 
-*   `rotationAngle`:
+**`rotationAngle`:**
 
 -   Type: _Number_
 
@@ -136,7 +136,7 @@ PropTypes.shape({
 
 -   Description: Initial rotation of the document, values can be -90, 0 or 90
 
-*   `onDocumentClick`:
+**`onDocumentClick`:**
 
 -   Type: _Function_
 
@@ -144,7 +144,7 @@ PropTypes.shape({
 
 -   Description: A function that will be called only on clicking the PDF page itself, NOT on the navbar
 
-*   `onPrevBtnClick`:
+**`onPrevBtnClick`:**
 
 -   Type: _Function_
 
@@ -152,7 +152,7 @@ PropTypes.shape({
 
 -   Description: A function that will be called on clicking on the previous page button, page number can be accessed in the function.
 
-*   `onNextBtnClick`:
+**`onNextBtnClick`:**
 
 -   Type: _Function_
 
@@ -160,7 +160,7 @@ PropTypes.shape({
 
 -   Description: A function that will be called on clicking on the next page button, page number can be accessed in the function.
 
-*   `onZoom`:
+**`onZoom`:**
 
 -   Type: _Function_
 
@@ -168,7 +168,7 @@ PropTypes.shape({
 
 -   Description: A function that will be called on clicking on Zoom controls, zoom scale can be accessed in the function.
 
-*   `onRotation`:
+**`onRotation`:**
 
 -   Type: _Function_
 
@@ -176,7 +176,7 @@ PropTypes.shape({
 
 -   Description: A function that will be called on clicking on Rotation controls, rotation angle can be accessed in the function.
 
-*   `getMaxPageCount`:
+**`getMaxPageCount`:**
 
 -   Type: _Function_
 
@@ -184,7 +184,7 @@ PropTypes.shape({
 
 -   Description: A function that will be called on clicking on document load, total page count can be accessed in the function.
 
-*   `css`:
+**`css`:**
 
 -   Type: _String_
 
@@ -192,7 +192,7 @@ PropTypes.shape({
 
 -   Description: CSS classes that will be setted for the component wrapper
 
-*   `canvasCss`:
+**`canvasCss`:**
 
 -   Type: _String_
 
@@ -200,7 +200,7 @@ PropTypes.shape({
 
 -   Description: CSS classes that will be setted for the PDF page
 
-*   `hideNavbar`:
+**`hideNavbar`:**
 
 -   Type: _Boolean_
 
@@ -208,7 +208,7 @@ PropTypes.shape({
 
 -   Description: By default navbar is displayed, but can be hidden by passing this prop
 
-*   `navbarOnTop`:
+**`navbarOnTop`:**
 
 -   Type: _Boolean_
 
@@ -216,7 +216,7 @@ PropTypes.shape({
 
 -   Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
 
-*   `hideZoom`:
+**`hideZoom`:**
 
 -   Type: _Boolean_
 
@@ -224,7 +224,7 @@ PropTypes.shape({
 
 -   Description: By default zoom buttons are displayed, but can be hidden by passing this prop
 
-*   `hideRotation`:
+**`hideRotation`:**
 
 -   Type: _Boolean_
 
@@ -232,7 +232,7 @@ PropTypes.shape({
 
 -   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
 
-*   `loader`:
+**`loader`:**
 
 -   Type: _Node_
 
@@ -240,7 +240,7 @@ PropTypes.shape({
 
 -   Description: A custom loader element that will be shown while the PDF is loading
 
-*   `alert`:
+**`alert`:**
 
 -   Type: _Node_
 
@@ -248,7 +248,7 @@ PropTypes.shape({
 
 -   Description: A custom alerf element that will be shown on error
 
-*   `showThumbnail`:
+**`showThumbnail`:**
 
 -   Type:
 
@@ -264,7 +264,7 @@ PropTypes.shape({
 
 -   Description: Details of the thumbnails, not shown if not provided
 
-*   `protectContent`:
+**`protectContent`:**
 
 -   Type: _Boolean_
 
@@ -272,7 +272,7 @@ PropTypes.shape({
 
 -   Description: By default Right Click and Context Menu are enabled, but can be disabled by passing this prop
 
-*   `watermark`:
+**`watermark`:**
 
 -   Type:
 
@@ -296,7 +296,7 @@ PropTypes.shape({
 
 -   Description: Details of the watermark, not shown if not provided
 
-*   `navigation`:
+**`navigation`:**
 
 -   Type:
 
