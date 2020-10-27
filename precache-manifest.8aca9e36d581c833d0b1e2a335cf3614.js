@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "60dbe268c80f9e2411577371affec266",
+    "revision": "601cbead018e1c70acb21c608686bd8b",
     "url": "/pdf-viewer-reactjs/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pdf-viewer-reactjs/static/css/2.807b3d0d.chunk.css"
   },
   {
-    "revision": "6bbcf4b8fc2d514b8c66",
+    "revision": "c8dd9bbc040ca2da098a",
     "url": "/pdf-viewer-reactjs/static/css/main.7175caa2.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pdf-viewer-reactjs/static/js/2.2a374337.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6bbcf4b8fc2d514b8c66",
-    "url": "/pdf-viewer-reactjs/static/js/main.104b7f71.chunk.js"
+    "revision": "c8dd9bbc040ca2da098a",
+    "url": "/pdf-viewer-reactjs/static/js/main.a0aa793d.chunk.js"
   },
   {
     "revision": "41f74f712c47291110b7",
