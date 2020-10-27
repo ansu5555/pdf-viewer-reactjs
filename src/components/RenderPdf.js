@@ -196,7 +196,11 @@ const RenderPdf = ({
                 }
 
                 // create image from canvas and push into array
-                imgList.push(canvas.toDataURL('image/png'))
+                imgList.push({
+                    image: canvas.toDataURL('image/png'),
+                    height: viewport.height,
+                    width: viewport.width,
+                })
             }
             setImages(imgList)
         }
@@ -208,11 +212,16 @@ const RenderPdf = ({
             const thumbnailList = []
 
             for (let pageNo = 1; pageNo <= images.length; pageNo++) {
+                let image = images[pageNo - 1].image
+                let height = images[pageNo - 1].height
+                let width = images[pageNo - 1].width
                 thumbnailList.push(
                     <img
                         style={
                             pageNum === pageNo
                                 ? {
+                                      height,
+                                      width,
                                       display: 'flex',
                                       cursor: 'pointer',
                                       margin: '10px 20px',
@@ -221,6 +230,8 @@ const RenderPdf = ({
                                           'rgba(0, 0, 0, 0.6) 0 4px 8px 0, rgba(0, 0, 0, 0.58) 0 6px 20px 0',
                                   }
                                 : {
+                                      height,
+                                      width,
                                       display: 'flex',
                                       cursor: 'pointer',
                                       margin: '15px 25px',
@@ -232,7 +243,7 @@ const RenderPdf = ({
                         ref={pageNum === pageNo ? selectedRef : null}
                         key={pageNo}
                         alt={`thumbnail of page ${pageNo}`}
-                        src={images[pageNo - 1]}
+                        src={image}
                     />
                 )
             }
