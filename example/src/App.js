@@ -9,8 +9,12 @@ import sources from './Sources'
 import './App.css'
 
 const FromUrl = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Fetch PDF by URL</h1>
+    <div className='col-sm-12 text-center' id='url'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#url' className='text-reset text-decoration-none'>
+                Fetch PDF by URL
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -23,9 +27,11 @@ const FromUrl = () => (
 )
 
 const FromBase64 = () => (
-    <div className='col-sm-12 text-center'>
+    <div className='col-sm-12 text-center' id='base64'>
         <h1 className='text-white bg-info rounded'>
-            Load PDF from base 64 string
+            <a href='#base64' className='text-reset text-decoration-none'>
+                Load PDF from base 64 string
+            </a>
         </h1>
         <div className='border rounded'>
             <PDFViewer
@@ -38,9 +44,11 @@ const FromBase64 = () => (
 )
 
 const ErrorHandling = () => (
-    <div className='col-sm-12 text-center'>
+    <div className='col-sm-12 text-center' id='eh'>
         <h1 className='text-white bg-info rounded'>
-            Error message for failures
+            <a href='#eh' className='text-reset text-decoration-none'>
+                Error message for failures
+            </a>
         </h1>
         <div className='border rounded'>
             <PDFViewer
@@ -53,9 +61,11 @@ const ErrorHandling = () => (
 )
 
 const CustomErrorHandling = () => (
-    <div className='col-sm-12 text-center'>
+    <div className='col-sm-12 text-center' id='ceh'>
         <h1 className='text-white bg-info rounded'>
-            Custom Error component for failures
+            <a href='#ceh' className='text-reset text-decoration-none'>
+                Custom Error component for failures
+            </a>
         </h1>
         <div className='border rounded'>
             <PDFViewer
@@ -80,8 +90,13 @@ const CustomErrorHandling = () => (
 )
 
 const WithCustomLoader = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Custom loader element</h1>
+    <div className='col-sm-12 text-center' id='cl'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#cl' className='text-reset text-decoration-none'>
+                Custom loader element
+            </a>
+        </h1>
+
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -96,8 +111,12 @@ const WithCustomLoader = () => (
 )
 
 const WithCustomStartingPage = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Custom starting page</h1>
+    <div className='col-sm-12 text-center' id='csp'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#csp' className='text-reset text-decoration-none'>
+                Custom starting page
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -110,8 +129,12 @@ const WithCustomStartingPage = () => (
 )
 
 const WithCustomScale = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Custom scale</h1>
+    <div className='col-sm-12 text-center' id='cs'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#cs' className='text-reset text-decoration-none'>
+                Custom scale
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -127,8 +150,12 @@ const WithCustomScale = () => (
 )
 
 const WithCustomNavigationStyles = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Custom css classes</h1>
+    <div className='col-sm-12 text-center' id='cns'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#cns' className='text-reset text-decoration-none'>
+                Custom css classes
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -156,8 +183,12 @@ const WithCustomNavigationStyles = () => (
 )
 
 const WithCustomNavigation = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Custom navigation</h1>
+    <div className='col-sm-12 text-center' id='cn'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#cn' className='text-reset text-decoration-none'>
+                Custom navigation
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -171,10 +202,12 @@ const WithCustomNavigation = () => (
 )
 
 const WithOnDocumentClick = () => (
-    <div className='col-sm-12 text-center'>
+    <div className='col-sm-12 text-center' id='odc'>
         <h1 className='text-white bg-info rounded'>
-            With onDocumentClick, onPrevBtnClick, onNextBtnClick, onZoom and
-            onRotation handler
+            <a href='#odc' className='text-reset text-decoration-none'>
+                With onDocumentClick, onPrevBtnClick, onNextBtnClick, onZoom and
+                onRotation handler
+            </a>
         </h1>
         <div className='border rounded'>
             <PDFViewer
@@ -192,8 +225,12 @@ const WithOnDocumentClick = () => (
 )
 
 const WithoutNavigation = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Without Navigation</h1>
+    <div className='col-sm-12 text-center' id='wn'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#wn' className='text-reset text-decoration-none'>
+                Without Navigation
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -206,9 +243,11 @@ const WithoutNavigation = () => (
 )
 
 const WithoutZoomRotation = () => (
-    <div className='col-sm-12 text-center'>
+    <div className='col-sm-12 text-center' id='wzr'>
         <h1 className='text-white bg-info rounded'>
-            Without Zoom and Rotation
+            <a href='#wzr' className='text-reset text-decoration-none'>
+                Without Zoom and Rotation
+            </a>
         </h1>
         <div className='border rounded'>
             <PDFViewer
@@ -223,8 +262,12 @@ const WithoutZoomRotation = () => (
 )
 
 const WithNavbarTop = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Navigation Bar on top</h1>
+    <div className='col-sm-12 text-center' id='nt'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#nt' className='text-reset text-decoration-none'>
+                Navigation Bar on top
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
@@ -237,8 +280,12 @@ const WithNavbarTop = () => (
 )
 
 const WithWatermark = () => (
-    <div className='col-sm-12 text-center'>
-        <h1 className='text-white bg-info rounded'>Watermark and Protected</h1>
+    <div className='col-sm-12 text-center' id='wp'>
+        <h1 className='text-white bg-info rounded'>
+            <a href='#wp' className='text-reset text-decoration-none'>
+                Watermark and Protected
+            </a>
+        </h1>
         <div className='border rounded'>
             <PDFViewer
                 document={{
