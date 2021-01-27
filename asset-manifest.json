@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/pdf-viewer-reactjs/static/css/main.7175caa2.chunk.css",
-    "main.js": "/pdf-viewer-reactjs/static/js/main.a0aa793d.chunk.js",
-    "main.js.map": "/pdf-viewer-reactjs/static/js/main.a0aa793d.chunk.js.map",
+    "main.js": "/pdf-viewer-reactjs/static/js/main.b7363f57.chunk.js",
+    "main.js.map": "/pdf-viewer-reactjs/static/js/main.b7363f57.chunk.js.map",
     "runtime-main.js": "/pdf-viewer-reactjs/static/js/runtime-main.e783c589.js",
     "runtime-main.js.map": "/pdf-viewer-reactjs/static/js/runtime-main.e783c589.js.map",
-    "static/css/2.807b3d0d.chunk.css": "/pdf-viewer-reactjs/static/css/2.807b3d0d.chunk.css",
-    "static/js/2.2a374337.chunk.js": "/pdf-viewer-reactjs/static/js/2.2a374337.chunk.js",
-    "static/js/2.2a374337.chunk.js.map": "/pdf-viewer-reactjs/static/js/2.2a374337.chunk.js.map",
+    "static/css/2.06d84f74.chunk.css": "/pdf-viewer-reactjs/static/css/2.06d84f74.chunk.css",
+    "static/js/2.6b73dafd.chunk.js": "/pdf-viewer-reactjs/static/js/2.6b73dafd.chunk.js",
+    "static/js/2.6b73dafd.chunk.js.map": "/pdf-viewer-reactjs/static/js/2.6b73dafd.chunk.js.map",
     "index.html": "/pdf-viewer-reactjs/index.html",
-    "precache-manifest.8aca9e36d581c833d0b1e2a335cf3614.js": "/pdf-viewer-reactjs/precache-manifest.8aca9e36d581c833d0b1e2a335cf3614.js",
+    "precache-manifest.2891eae50222f1b877781ca81f235393.js": "/pdf-viewer-reactjs/precache-manifest.2891eae50222f1b877781ca81f235393.js",
     "service-worker.js": "/pdf-viewer-reactjs/service-worker.js",
-    "static/css/2.807b3d0d.chunk.css.map": "/pdf-viewer-reactjs/static/css/2.807b3d0d.chunk.css.map",
+    "static/css/2.06d84f74.chunk.css.map": "/pdf-viewer-reactjs/static/css/2.06d84f74.chunk.css.map",
     "static/css/main.7175caa2.chunk.css.map": "/pdf-viewer-reactjs/static/css/main.7175caa2.chunk.css.map",
-    "static/js/2.2a374337.chunk.js.LICENSE.txt": "/pdf-viewer-reactjs/static/js/2.2a374337.chunk.js.LICENSE.txt",
+    "static/js/2.6b73dafd.chunk.js.LICENSE.txt": "/pdf-viewer-reactjs/static/js/2.6b73dafd.chunk.js.LICENSE.txt",
     "static/media/material-icons.css": "/pdf-viewer-reactjs/static/media/MaterialIcons-Regular.e79bfd88.eot"
   },
   "entrypoints": [
     "static/js/runtime-main.e783c589.js",
-    "static/css/2.807b3d0d.chunk.css",
-    "static/js/2.2a374337.chunk.js",
+    "static/css/2.06d84f74.chunk.css",
+    "static/js/2.6b73dafd.chunk.js",
     "static/css/main.7175caa2.chunk.css",
-    "static/js/main.a0aa793d.chunk.js"
+    "static/js/main.b7363f57.chunk.js"
   ]
 }
