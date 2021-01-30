@@ -468,8 +468,7 @@ const WithExternalControl = () => {
                                 className='btn btn-primary'
                                 onClick={() => {
                                     setDoc({
-                                        url:
-                                            'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+                                        url: sources.url,
                                     })
                                     setPageNo(1)
                                     setScale(0.5)

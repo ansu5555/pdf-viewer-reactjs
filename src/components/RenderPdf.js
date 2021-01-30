@@ -7,6 +7,7 @@ import Alert from './Alert'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 let pdf = null
+let thumbnailImages = null
 
 function usePrevious(value) {
     const ref = useRef()
@@ -37,7 +38,6 @@ const RenderPdf = ({
     const selectedRef = useRef(null)
 
     const [thumbnails, setThumbnails] = useState([])
-    const [images, setImages] = useState([])
 
     const prevDocument = usePrevious(document)
     const prevPassword = usePrevious(password)
@@ -63,11 +63,12 @@ const RenderPdf = ({
                     objDocInit.url = document.url
                 }
                 pdf = await pdfjs.getDocument(objDocInit).promise
+
+                thumbnailImages = await createImages()
+                displayThumbnails(thumbnailImages)
             }
 
             await displayPage()
-            await createImages()
-            displayThumbnails()
 
             // call pageCountfunction to update page count
             pageCount(pdf.numPages)
@@ -151,10 +152,10 @@ const RenderPdf = ({
     }
 
     const createImages = async () => {
-        if (Object.entries(showThumbnail).length !== 0) {
-            // create images for all pages
-            const imgList = []
+        // create images for all pages
+        const imgList = []
 
+        if (Object.entries(showThumbnail).length !== 0) {
             let scale = 0.1
             let rotation = 0
             if (1 <= showThumbnail.scale && showThumbnail.scale <= 5) {
@@ -226,12 +227,12 @@ const RenderPdf = ({
                     width: viewport.width,
                 })
             }
-            setImages(imgList)
         }
+        return imgList
     }
 
-    const displayThumbnails = () => {
-        if (Object.entries(showThumbnail).length !== 0) {
+    const displayThumbnails = images => {
+        if (Object.entries(showThumbnail).length !== 0 && images !== null) {
             // display thumbnails for all pages
             const thumbnailList = []
 
@@ -275,7 +276,6 @@ const RenderPdf = ({
             thumbnailList.push(
                 <div key={0} style={{ padding: '0px 10px' }}></div>
             )
-
             setThumbnails(thumbnailList)
         }
     }
@@ -299,8 +299,9 @@ const RenderPdf = ({
     }, [document, password, pageNum, scale, rotation])
 
     useEffect(() => {
+        displayThumbnails(thumbnailImages)
         scrollThumbnail()
-    })
+    }, [pageNum])
 
     if (Object.entries(showThumbnail).length !== 0) {
         return (
