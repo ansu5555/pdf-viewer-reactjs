@@ -88,13 +88,21 @@ PropTypes.shape({
 
 -   Description: Indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies or authorization headers. The default is false
 
+**`externalInput`:**
+
+-   Type: _Boolean_
+
+-   Required: **false**
+
+-   Description: By default page number, scale and rotation angle can be set initially using the props but cannot be changed dynamically, to make these props dynamic pass this prop (after passing this prop navbar will become hidden)
+
 **`page`:**
 
 -   Type: _Number_
 
 -   Required: **false**
 
--   Description: The page that will be shown first on document load
+-   Description: The page that will be shown first on document load, also can be used to change the page number dynamically after passing `externalInput` prop
 
 **`scale`:**
 
@@ -102,7 +110,15 @@ PropTypes.shape({
 
 -   Required: **false**
 
--   Description: Scale factor relative to the component parent element
+-   Description: Scale factor relative to the component parent element, also can be used to change the scale dynamically after passing `externalInput` prop
+
+**`rotationAngle`:**
+
+-   Type: _Number_
+
+-   Required: **false**
+
+-   Description: Initial rotation of the document, values can be -90, 0 or 90, also can be used to change the rotation angle dynamically after passing `externalInput` prop
 
 **`scaleStep`:**
 
@@ -127,14 +143,6 @@ PropTypes.shape({
 -   Required: **false**
 
 -   Description: Minimum scale factor for zoom-out
-
-**`rotationAngle`:**
-
--   Type: _Number_
-
--   Required: **false**
-
--   Description: Initial rotation of the document, values can be -90, 0 or 90
 
 **`onDocumentClick`:**
 
@@ -182,7 +190,7 @@ PropTypes.shape({
 
 -   Required: **false**
 
--   Description: A function that will be called on clicking on document load, total page count can be accessed in the function.
+-   Description: A function that will be called on document load, total page count can be accessed in the function.
 
 **`css`:**
 
@@ -200,14 +208,6 @@ PropTypes.shape({
 
 -   Description: CSS classes that will be setted for the PDF page
 
-**`hideNavbar`:**
-
--   Type: _Boolean_
-
--   Required: **false**
-
--   Description: By default navbar is displayed, but can be hidden by passing this prop
-
 **`navbarOnTop`:**
 
 -   Type: _Boolean_
@@ -215,6 +215,14 @@ PropTypes.shape({
 -   Required: **false**
 
 -   Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
+
+**`hideNavbar`:**
+
+-   Type: _Boolean_
+
+-   Required: **false**
+
+-   Description: By default navbar is displayed, but can be hidden by passing this prop
 
 **`hideZoom`:**
 

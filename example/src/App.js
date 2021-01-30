@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PDFViewer from 'pdf-viewer-reactjs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
@@ -7,6 +7,10 @@ import CustomNavigation from './Navigation'
 import sources from './Sources'
 
 import './App.css'
+
+let maxPage = 0
+let minScale = 0.5
+let maxScale = 3
 
 const FromUrl = () => (
     <div className='col-sm-12 text-center' id='url'>
@@ -305,6 +309,197 @@ const WithWatermark = () => (
     </div>
 )
 
+const WithExternalControl = () => {
+    let [doc, setDoc] = useState({
+        url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+    })
+    let [pageNo, setPageNo] = useState(1)
+    let [scale, setScale] = useState(0.5)
+    let [rotation, setRotation] = useState(0)
+
+    return (
+        <div className='col-sm-12 text-center' id='ec'>
+            <h1 className='text-white bg-info rounded'>
+                <a href='#ec' className='text-reset text-decoration-none'>
+                    External Controls
+                </a>
+            </h1>
+            <div className='border rounded'>
+                <div className='container'>
+                    <PDFViewer
+                        document={doc}
+                        canvasCss='customCanvasCss'
+                        externalInput
+                        scale={scale}
+                        page={pageNo}
+                        rotationAngle={rotation}
+                        getMaxPageCount={pageCount => (maxPage = pageCount)}
+                    />
+                    <div className='row mt-5'>
+                        <div className='col-md-4'>
+                            <div
+                                className='btn-toolbar mb-3'
+                                role='toolbar'
+                                aria-label='Toolbar with button groups'>
+                                <div
+                                    className='btn-group mr-2'
+                                    role='group'
+                                    aria-label='First group'>
+                                    <button
+                                        type='button'
+                                        className='btn btn-secondary'
+                                        onClick={() => {
+                                            if (pageNo > 1) {
+                                                setPageNo(pageNo - 1)
+                                            }
+                                        }}>
+                                        &lt;&lt;
+                                    </button>
+                                    <div className='input-group'>
+                                        <div className='input-group-prepend'>
+                                            <div
+                                                className='input-group-text text-info'
+                                                id='btnGroupAddon'>
+                                                Page Number is {pageNo}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        type='button'
+                                        className='btn btn-secondary'
+                                        onClick={() => {
+                                            if (pageNo < maxPage) {
+                                                setPageNo(pageNo + 1)
+                                            }
+                                        }}>
+                                        &gt;&gt;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-md-4'>
+                            <div
+                                className='btn-toolbar mb-3'
+                                role='toolbar'
+                                aria-label='Toolbar with button groups'>
+                                <div
+                                    className='btn-group mr-2'
+                                    role='group'
+                                    aria-label='First group'>
+                                    <button
+                                        type='button'
+                                        className='btn btn-secondary'
+                                        onClick={() => {
+                                            if (scale < maxScale) {
+                                                setScale(scale + 0.5)
+                                            }
+                                        }}>
+                                        +
+                                    </button>
+                                    <div className='input-group'>
+                                        <div className='input-group-prepend'>
+                                            <div
+                                                className='input-group-text text-info'
+                                                id='btnGroupAddon'>
+                                                Scale is {scale}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        type='button'
+                                        className='btn btn-secondary'
+                                        onClick={() => {
+                                            if (scale > minScale) {
+                                                setScale(scale - 0.5)
+                                            }
+                                        }}>
+                                        -
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-md-4'>
+                            <div
+                                className='btn-toolbar mb-3'
+                                role='toolbar'
+                                aria-label='Toolbar with button groups'>
+                                <div
+                                    className='btn-group mr-2'
+                                    role='group'
+                                    aria-label='First group'>
+                                    <button
+                                        type='button'
+                                        className='btn btn-secondary'
+                                        onClick={() => {
+                                            if (rotation > -90) {
+                                                setRotation(rotation - 90)
+                                            }
+                                        }}>
+                                        &lt;==
+                                    </button>
+                                    <div className='input-group'>
+                                        <div className='input-group-prepend'>
+                                            <div
+                                                className='input-group-text text-info'
+                                                id='btnGroupAddon'>
+                                                Rotation Angle is {rotation}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        type='button'
+                                        className='btn btn-secondary'
+                                        onClick={() => {
+                                            if (rotation < 90) {
+                                                setRotation(rotation + 90)
+                                            }
+                                        }}>
+                                        ==&gt;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-md-6'>
+                            <button
+                                type='button'
+                                className='btn btn-primary'
+                                onClick={() => {
+                                    setDoc({
+                                        url:
+                                            'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+                                    })
+                                    setPageNo(1)
+                                    setScale(0.5)
+                                    setRotation(0)
+                                }}>
+                                View Document 1
+                            </button>
+                        </div>
+                        <div className='col-md-6'>
+                            <button
+                                type='button'
+                                className='btn btn-primary'
+                                onClick={() => {
+                                    setDoc({
+                                        base64: sources.base64,
+                                    })
+                                    setPageNo(1)
+                                    setScale(0.5)
+                                    setRotation(0)
+                                }}>
+                                View Document 2
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 function App() {
     return (
         <div className='container'>
@@ -349,6 +544,9 @@ function App() {
             </div>
             <div className='row my-5'>
                 <WithWatermark />
+            </div>
+            <div className='row my-5'>
+                <WithExternalControl />
             </div>
         </div>
     )

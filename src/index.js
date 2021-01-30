@@ -15,10 +15,13 @@ class PDFViewer extends React.Component {
         super(props)
         this.state = {
             page: this.props.page,
-            pages: 0,
+            prevPropPage: this.props.page,
             scale: this.props.scale,
-            defaultScale: this.props.scale,
+            prevPropScale: this.props.scale,
             rotationAngle: this.props.rotationAngle,
+            prevPropRotationAngle: this.props.rotationAngle,
+            pages: 0,
+            defaultScale: this.props.scale,
             isReady: false,
         }
         this.getPageCount = this.getPageCount.bind(this)
@@ -152,6 +155,36 @@ class PDFViewer extends React.Component {
         }
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if (!props.externalInput) {
+            return null
+        }
+
+        if (props.page !== state.prevPropPage) {
+            if (1 <= props.page <= state.pages) {
+                return { page: props.page, prevPropPage: props.page }
+            }
+        }
+        if (props.scale !== state.prevPropScale) {
+            if (props.minScale <= props.scale <= props.maxScale) {
+                return { scale: props.scale, prevPropScale: props.scale }
+            }
+        }
+        if (props.rotationAngle !== state.prevPropRotationAngle) {
+            if (
+                props.rotationAngle === 90 ||
+                props.rotationAngle === 0 ||
+                props.rotationAngle === -90
+            ) {
+                return {
+                    rotationAngle: props.rotationAngle,
+                    prevPropRotationAngle: props.rotationAngle,
+                }
+            }
+        }
+        return null
+    }
+
     render() {
         const {
             document,
@@ -160,6 +193,7 @@ class PDFViewer extends React.Component {
             loader,
             maxScale,
             minScale,
+            externalInput,
             hideNavbar,
             hideZoom,
             hideRotation,
@@ -197,7 +231,11 @@ class PDFViewer extends React.Component {
         )
 
         let nav = null
-        if (!hideNavbar && pages > 0) {
+        let hideNavbarDisplay = hideNavbar
+        if (externalInput) {
+            hideNavbarDisplay = true
+        }
+        if (!hideNavbarDisplay && pages > 0) {
             nav =
                 !navigation ||
                 (navigation && typeof navigation === 'object') ? (
@@ -286,6 +324,7 @@ PDFViewer.propTypes = {
     withCredentials: PropTypes.bool,
     password: PropTypes.string,
     loader: PropTypes.node,
+    externalInput: PropTypes.bool,
     page: PropTypes.number,
     scale: PropTypes.number,
     scaleStep: PropTypes.number,
@@ -300,6 +339,7 @@ PDFViewer.propTypes = {
     onZoom: PropTypes.func,
     onRotation: PropTypes.func,
     getMaxPageCount: PropTypes.func,
+    externalInput: PropTypes.bool,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
@@ -349,6 +389,7 @@ PDFViewer.defaultProps = {
     maxScale: 3,
     minScale: 1,
     rotationAngle: 0,
+    externalInput: false,
     hideNavbar: false,
     hideZoom: false,
     hideRotation: false,

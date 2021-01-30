@@ -8,6 +8,14 @@ import Alert from './Alert'
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
 let pdf = null
 
+function usePrevious(value) {
+    const ref = useRef()
+    useEffect(() => {
+        ref.current = value
+    })
+    return ref.current
+}
+
 const RenderPdf = ({
     document,
     withCredentials,
@@ -27,29 +35,41 @@ const RenderPdf = ({
     const canvasRef = useRef(null)
     const thumbnailRef = useRef(null)
     const selectedRef = useRef(null)
-    const isInitialMount = useRef(true)
 
     const [thumbnails, setThumbnails] = useState([])
     const [images, setImages] = useState([])
 
+    const prevDocument = usePrevious(document)
+    const prevPassword = usePrevious(password)
+
     const AlertComponent = alert ? alert : Alert
 
     const fetchPDF = async () => {
+        // set error to false for new document load
+        if (error.status) {
+            setError({ status: false, message: '' })
+        }
+
         // Get PDF file
         try {
-            let objDocInit = { withCredentials, password }
-            if (document.url == undefined) {
-                objDocInit.data = atob(document.base64)
-            } else {
-                objDocInit.url = document.url
+            if (
+                JSON.stringify(prevDocument) !== JSON.stringify(document) ||
+                prevPassword.base64 !== password.url
+            ) {
+                let objDocInit = { withCredentials, password }
+                if (document.url == undefined) {
+                    objDocInit.data = atob(document.base64)
+                } else {
+                    objDocInit.url = document.url
+                }
+                pdf = await pdfjs.getDocument(objDocInit).promise
             }
-            pdf = await pdfjs.getDocument(objDocInit).promise
 
             await displayPage()
             await createImages()
             displayThumbnails()
 
-            // call pageCountfunction
+            // call pageCountfunction to update page count
             pageCount(pdf.numPages)
         } catch (error) {
             console.warn('Error while opening the document !\n', error)
@@ -73,6 +93,8 @@ const RenderPdf = ({
 
             // Render PDF page into canvas context
             let canvasContext = canvas.getContext('2d')
+            canvasContext.clearRect(0, 0, canvas.width, canvas.height)
+            canvasContext.beginPath()
             const renderContext = {
                 canvasContext,
                 viewport,
@@ -156,6 +178,8 @@ const RenderPdf = ({
 
                 // Render PDF page into canvas context
                 let canvasContext = canvas.getContext('2d')
+                canvasContext.clearRect(0, 0, canvas.width, canvas.height)
+                canvasContext.beginPath()
                 const renderContext = {
                     canvasContext,
                     viewport,
@@ -272,109 +296,96 @@ const RenderPdf = ({
 
     useEffect(() => {
         fetchPDF()
-    }, [document, password])
-
-    useEffect(() => {
-        if (isInitialMount.current) {
-            isInitialMount.current = false
-        } else {
-            displayPage()
-            displayThumbnails()
-        }
-    }, [pageNum, scale, rotation, pageCount])
+    }, [document, password, pageNum, scale, rotation])
 
     useEffect(() => {
         scrollThumbnail()
     })
 
-    if (error.status) {
-        pageCount(-1)
+    if (Object.entries(showThumbnail).length !== 0) {
         return (
-            <div
-                className={canvasCss ? canvasCss : ''}
-                style={
-                    canvasCss
-                        ? {}
-                        : {
-                              height: '1000px',
-                              overflow: 'auto',
-                          }
-                }>
-                <AlertComponent message={error.message} />
-            </div>
+            <>
+                <div
+                    className={canvasCss ? canvasCss : ''}
+                    style={
+                        canvasCss
+                            ? {}
+                            : {
+                                  height: '1000px',
+                                  overflow: 'auto',
+                              }
+                    }>
+                    <div
+                        style={
+                            error.status
+                                ? { display: 'block' }
+                                : { display: 'none' }
+                        }>
+                        <AlertComponent message={error.message} />
+                    </div>
+                    <canvas
+                        style={error.status ? { display: 'none' } : null}
+                        onContextMenu={e =>
+                            protectContent ? e.preventDefault() : null
+                        }
+                        ref={canvasRef}
+                        width={
+                            typeof window !== 'undefined' && window.innerWidth
+                        }
+                        height={
+                            typeof window !== 'undefined' && window.innerHeight
+                        }
+                    />
+                </div>
+                <div
+                    style={{
+                        backgroundColor: '#EAE6DA',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        overflowX: 'auto',
+                    }}>
+                    {thumbnails}
+                </div>
+                <canvas ref={thumbnailRef} style={{ display: 'none' }} />
+            </>
         )
     } else {
-        if (Object.entries(showThumbnail).length !== 0) {
-            return (
-                <>
+        return (
+            <div>
+                <div
+                    className={canvasCss ? canvasCss : ''}
+                    style={
+                        canvasCss
+                            ? {}
+                            : {
+                                  height: '1000px',
+                                  overflow: 'auto',
+                              }
+                    }>
                     <div
-                        className={canvasCss ? canvasCss : ''}
                         style={
-                            canvasCss
-                                ? {}
-                                : {
-                                      height: '1000px',
-                                      overflow: 'auto',
-                                  }
+                            error.status
+                                ? { display: 'block' }
+                                : { display: 'none' }
                         }>
-                        <canvas
-                            onContextMenu={e =>
-                                protectContent ? e.preventDefault() : null
-                            }
-                            ref={canvasRef}
-                            width={
-                                typeof window !== 'undefined' &&
-                                window.innerWidth
-                            }
-                            height={
-                                typeof window !== 'undefined' &&
-                                window.innerHeight
-                            }
-                        />
+                        <AlertComponent message={error.message} />
                     </div>
-                    <div
-                        style={{
-                            backgroundColor: '#EAE6DA',
-                            display: 'flex',
-                            flexDirection: 'row',
-                            overflowX: 'auto',
-                        }}>
-                        {thumbnails}
-                    </div>
-                    <canvas ref={thumbnailRef} style={{ display: 'None' }} />
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <div
-                        className={canvasCss ? canvasCss : ''}
-                        style={
-                            canvasCss
-                                ? {}
-                                : {
-                                      height: '1000px',
-                                      overflow: 'auto',
-                                  }
-                        }>
-                        <canvas
-                            onContextMenu={e =>
-                                protectContent ? e.preventDefault() : null
-                            }
-                            ref={canvasRef}
-                            width={
-                                typeof window !== 'undefined' &&
-                                window.innerWidth
-                            }
-                            height={
-                                typeof window !== 'undefined' &&
-                                window.innerHeight
-                            }
-                        />
-                    </div>
-                </>
-            )
-        }
+                    <canvas
+                        style={error.status ? { display: 'none' } : null}
+                        onContextMenu={e =>
+                            protectContent ? e.preventDefault() : null
+                        }
+                        ref={canvasRef}
+                        width={
+                            typeof window !== 'undefined' && window.innerWidth
+                        }
+                        height={
+                            typeof window !== 'undefined' && window.innerHeight
+                        }
+                    />
+                </div>
+            </div>
+        )
     }
 }
 
