@@ -134,7 +134,7 @@ PropTypes.shape({
 
 -   Required: **false**
 
--   Description: Maximun scale factor for zoom-in
+-   Description: Maximum scale factor for zoom-in
 
 **`minScale`:**
 
@@ -254,7 +254,7 @@ PropTypes.shape({
 
 -   Required: **false**
 
--   Description: A custom alerf element that will be shown on error
+-   Description: A custom alert element that will be shown on error
 
 **`showThumbnail`:**
 
@@ -266,7 +266,7 @@ PropTypes.shape({
 
     rotationAngle: PropTypes.number, // Thumbnail rotation angle, values can be -90, 0 or 90. Default is 0
 
-    onTop: PropTypes.bool, // Thumbnail position, if set to true thumnail will be placed on top
+    onTop: PropTypes.bool, // Thumbnail position, if set to true thumbnail will be placed on top
 
     backgroundColor: PropTypes.string, // Color(hex or rgb) of the thumbnail container
 
@@ -302,7 +302,7 @@ PropTypes.shape({
 
     font: PropTypes.string, // custom font name default is 'Comic Sans MS'
 
-    size: PropTypes.string, // Fontsize of Watermark
+    size: PropTypes.string, // Font Size of Watermark
 
     color: PropTypes.string, // Color(hex or rgb) of the watermark
 })
@@ -334,11 +334,11 @@ resetZoomBtn:  String, // CSS Class for the Reset Zoom Button
 
 zoomInBtn:  String, // CSS Class for the ZoomIn Button
 
-previousPageBtn:  String, // CSS Class for the PreviousPage button
+previousPageBtn:  String, // CSS Class for the Previous Page button
 
 pageIndicator:  String, // CSS Class for the Page Indicator
 
-nextPageBtn:  String, // CSS Class for the NextPage button
+nextPageBtn:  String, // CSS Class for the Next Page button
 
 rotateLeftBtn:  String, // CSS Class for the RotateLeft button
 
