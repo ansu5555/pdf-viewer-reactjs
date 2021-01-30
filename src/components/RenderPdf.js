@@ -240,30 +240,36 @@ const RenderPdf = ({
                 let image = images[pageNo - 1].image
                 let height = images[pageNo - 1].height
                 let width = images[pageNo - 1].width
+                let thumbnailCss = ''
+                let thumbnailStyle = {
+                    height,
+                    width,
+                    display: 'flex',
+                    cursor: 'pointer',
+                }
+                if (showThumbnail.thumbCss && showThumbnail.selectedThumbCss) {
+                    if (pageNum === pageNo) {
+                        thumbnailCss = showThumbnail.selectedThumbCss
+                    } else {
+                        thumbnailCss = showThumbnail.thumbCss
+                    }
+                } else {
+                    if (pageNum === pageNo) {
+                        thumbnailStyle.margin = '10px 20px'
+                        thumbnailStyle.border = '5px solid rgba(58, 58, 64, 1)'
+                        thumbnailStyle.boxShadow =
+                            'rgba(0, 0, 0, 0.6) 0 4px 8px 0, rgba(0, 0, 0, 0.58) 0 6px 20px 0'
+                    } else {
+                        thumbnailStyle.margin = '15px 25px'
+                        thumbnailStyle.boxShadow =
+                            'rgba(0, 0, 0, 0.6) 0px 2px 2px 0px'
+                    }
+                }
+
                 thumbnailList.push(
                     <img
-                        style={
-                            pageNum === pageNo
-                                ? {
-                                      height,
-                                      width,
-                                      display: 'flex',
-                                      cursor: 'pointer',
-                                      margin: '10px 20px',
-                                      border: '5px solid rgba(58, 58, 64, 1)',
-                                      boxShadow:
-                                          'rgba(0, 0, 0, 0.6) 0 4px 8px 0, rgba(0, 0, 0, 0.58) 0 6px 20px 0',
-                                  }
-                                : {
-                                      height,
-                                      width,
-                                      display: 'flex',
-                                      cursor: 'pointer',
-                                      margin: '15px 25px',
-                                      boxShadow:
-                                          'rgba(0, 0, 0, 0.6) 0px 2px 2px 0px',
-                                  }
-                        }
+                        style={thumbnailStyle}
+                        className={thumbnailCss}
                         onClick={() => changePage(pageNo)}
                         ref={pageNum === pageNo ? selectedRef : null}
                         key={pageNo}
@@ -304,52 +310,99 @@ const RenderPdf = ({
     }, [pageNum])
 
     if (Object.entries(showThumbnail).length !== 0) {
-        return (
-            <>
-                <div
-                    className={canvasCss ? canvasCss : ''}
-                    style={
-                        canvasCss
-                            ? {}
-                            : {
-                                  height: '1000px',
-                                  overflow: 'auto',
-                              }
-                    }>
+        let thumbContainerStyle = {
+            backgroundColor: showThumbnail.backgroundColor
+                ? showThumbnail.backgroundColor
+                : '#EAE6DA',
+            display: 'flex',
+            flexDirection: 'row',
+            overflowX: 'auto',
+        }
+
+        if (showThumbnail.onTop) {
+            return (
+                <>
                     <div
+                        className={canvasCss ? canvasCss : ''}
                         style={
-                            error.status
-                                ? { display: 'block' }
-                                : { display: 'none' }
+                            canvasCss
+                                ? {}
+                                : {
+                                      height: '1000px',
+                                      overflow: 'auto',
+                                  }
                         }>
-                        <AlertComponent message={error.message} />
+                        <div
+                            style={
+                                error.status
+                                    ? { display: 'block' }
+                                    : { display: 'none' }
+                            }>
+                            <AlertComponent message={error.message} />
+                        </div>
+                        <div style={thumbContainerStyle}>{thumbnails}</div>
+                        <canvas
+                            style={error.status ? { display: 'none' } : null}
+                            onContextMenu={e =>
+                                protectContent ? e.preventDefault() : null
+                            }
+                            ref={canvasRef}
+                            width={
+                                typeof window !== 'undefined' &&
+                                window.innerWidth
+                            }
+                            height={
+                                typeof window !== 'undefined' &&
+                                window.innerHeight
+                            }
+                        />
                     </div>
-                    <canvas
-                        style={error.status ? { display: 'none' } : null}
-                        onContextMenu={e =>
-                            protectContent ? e.preventDefault() : null
-                        }
-                        ref={canvasRef}
-                        width={
-                            typeof window !== 'undefined' && window.innerWidth
-                        }
-                        height={
-                            typeof window !== 'undefined' && window.innerHeight
-                        }
-                    />
-                </div>
-                <div
-                    style={{
-                        backgroundColor: '#EAE6DA',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        overflowX: 'auto',
-                    }}>
-                    {thumbnails}
-                </div>
-                <canvas ref={thumbnailRef} style={{ display: 'none' }} />
-            </>
-        )
+
+                    <canvas ref={thumbnailRef} style={{ display: 'none' }} />
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <div
+                        className={canvasCss ? canvasCss : ''}
+                        style={
+                            canvasCss
+                                ? {}
+                                : {
+                                      height: '1000px',
+                                      overflow: 'auto',
+                                  }
+                        }>
+                        <div
+                            style={
+                                error.status
+                                    ? { display: 'block' }
+                                    : { display: 'none' }
+                            }>
+                            <AlertComponent message={error.message} />
+                        </div>
+                        <canvas
+                            style={error.status ? { display: 'none' } : null}
+                            onContextMenu={e =>
+                                protectContent ? e.preventDefault() : null
+                            }
+                            ref={canvasRef}
+                            width={
+                                typeof window !== 'undefined' &&
+                                window.innerWidth
+                            }
+                            height={
+                                typeof window !== 'undefined' &&
+                                window.innerHeight
+                            }
+                        />
+                    </div>
+                    <div style={thumbContainerStyle}>{thumbnails}</div>
+                    <canvas ref={thumbnailRef} style={{ display: 'none' }} />
+                </>
+            )
+        }
     } else {
         return (
             <div>
@@ -402,6 +455,10 @@ RenderPdf.propTypes = {
     showThumbnail: PropTypes.shape({
         scale: PropTypes.number,
         rotationAngle: PropTypes.number,
+        onTop: PropTypes.bool,
+        backgroundColor: PropTypes.string,
+        thumbCss: PropTypes.string,
+        selectedThumbCss: PropTypes.string,
     }),
     protectContent: PropTypes.bool,
     watermark: PropTypes.shape({

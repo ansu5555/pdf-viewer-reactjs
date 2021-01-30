@@ -265,6 +265,14 @@ PropTypes.shape({
     scale: PropTypes.number, // Thumbnail scale, ranges from 1 to 5
 
     rotationAngle: PropTypes.number, // Thumbnail rotation angle, values can be -90, 0 or 90. Default is 0
+
+    onTop: PropTypes.bool, // Thumbnail position, if set to true thumnail will be placed on top
+
+    backgroundColor: PropTypes.string, // Color(hex or rgb) of the thumbnail container
+
+    thumbCss: PropTypes.string, // Custom css class for thumbnails
+
+    selectedThumbCss: PropTypes.string, // Custom css class for selected thumbnail
 })
 ```
 
@@ -296,7 +304,7 @@ PropTypes.shape({
 
     size: PropTypes.string, // Fontsize of Watermark
 
-    color: PropTypes.string, // Color(hexcode) of the watermark
+    color: PropTypes.string, // Color(hex or rgb) of the watermark
 })
 ```
 
