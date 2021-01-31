@@ -339,7 +339,6 @@ PDFViewer.propTypes = {
     onZoom: PropTypes.func,
     onRotation: PropTypes.func,
     getMaxPageCount: PropTypes.func,
-    externalInput: PropTypes.bool,
     hideNavbar: PropTypes.bool,
     navbarOnTop: PropTypes.bool,
     hideZoom: PropTypes.bool,
@@ -347,6 +346,10 @@ PDFViewer.propTypes = {
     showThumbnail: PropTypes.shape({
         scale: PropTypes.number,
         rotationAngle: PropTypes.number,
+        onTop: PropTypes.bool,
+        backgroundColor: PropTypes.string,
+        thumbCss: PropTypes.string,
+        selectedThumbCss: PropTypes.string,
     }),
     protectContent: PropTypes.bool,
     watermark: PropTypes.shape({
@@ -383,7 +386,6 @@ PDFViewer.defaultProps = {
     page: 1,
     withCredentials: false,
     password: '',
-    defaultScale: 1,
     scale: 1,
     scaleStep: 1,
     maxScale: 3,
