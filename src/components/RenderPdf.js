@@ -45,11 +45,6 @@ const RenderPdf = ({
     const AlertComponent = alert ? alert : Alert
 
     const fetchPDF = async () => {
-        // set error to false for new document load
-        if (error.status) {
-            setError({ status: false, message: '' })
-        }
-
         // Get PDF file
         try {
             if (
@@ -64,16 +59,17 @@ const RenderPdf = ({
                 }
                 pdf = await pdfjs.getDocument(objDocInit).promise
 
+                // call pageCountfunction to update page count
+                pageCount(pdf.numPages)
+
                 thumbnailImages = await createImages()
                 displayThumbnails(thumbnailImages)
             }
 
             await displayPage()
-
-            // call pageCountfunction to update page count
-            pageCount(pdf.numPages)
         } catch (error) {
             console.warn('Error while opening the document !\n', error)
+            pageCount(-1) // set page count to -1 on error
             setError({
                 status: true,
                 message: 'Error while opening the document !',
@@ -137,6 +133,7 @@ const RenderPdf = ({
                 }
             } catch (error) {
                 console.warn('Error occured while rendering !\n', error)
+                pageCount(-1) // set page count to -1 on error
                 setError({
                     status: true,
                     message: 'Error occured while rendering !',
@@ -144,6 +141,7 @@ const RenderPdf = ({
             }
         } catch (error) {
             console.warn('Error while reading the pages !\n', error)
+            pageCount(-1) // set page count to -1 on error
             setError({
                 status: true,
                 message: 'Error while reading the pages !',
