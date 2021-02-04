@@ -54,9 +54,9 @@ class PDFViewer extends React.Component {
     handlePrevClick() {
         if (this.state.page === 1) return
 
-        this.setState({
-            page: this.state.page - 1,
-        })
+        this.setState(state => ({
+            page: state.page - 1,
+        }))
 
         if (this.props.onPrevBtnClick) {
             this.props.onPrevBtnClick(this.state.page - 1)
@@ -66,9 +66,9 @@ class PDFViewer extends React.Component {
     handleNextClick() {
         if (this.state.page === this.pages) return
 
-        this.setState({
-            page: this.state.page + 1,
-        })
+        this.setState(state => ({
+            page: state.page + 1,
+        }))
 
         if (this.props.onNextBtnClick) {
             this.props.onNextBtnClick(this.state.page + 1)
@@ -82,9 +82,9 @@ class PDFViewer extends React.Component {
         }
 
         if (this.state.scale < checkScale) {
-            this.setState({
-                scale: this.state.scale + this.props.scaleStep,
-            })
+            this.setState((state, props) => ({
+                scale: state.scale + props.scaleStep,
+            }))
         }
 
         if (this.props.onZoom) {
@@ -93,9 +93,9 @@ class PDFViewer extends React.Component {
     }
 
     handleResetZoom() {
-        this.setState({
-            scale: this.state.defaultScale,
-        })
+        this.setState(state => ({
+            scale: state.defaultScale,
+        }))
 
         if (this.props.onZoom) {
             this.props.onZoom(this.state.defaultScale)
@@ -109,9 +109,9 @@ class PDFViewer extends React.Component {
         }
 
         if (this.state.scale > checkScale) {
-            this.setState({
-                scale: this.state.scale - this.props.scaleStep,
-            })
+            this.setState((state, props) => ({
+                scale: state.scale - props.scaleStep,
+            }))
         }
 
         if (this.props.onZoom) {
@@ -161,12 +161,15 @@ class PDFViewer extends React.Component {
         }
 
         if (props.page !== state.prevPropPage) {
-            if (1 <= props.page <= state.pages) {
+            if (1 <= props.page && props.page <= state.pages) {
                 return { page: props.page, prevPropPage: props.page }
             }
         }
         if (props.scale !== state.prevPropScale) {
-            if (props.minScale <= props.scale <= props.maxScale) {
+            if (
+                props.minScale <= props.scale &&
+                props.scale <= props.maxScale
+            ) {
                 return { scale: props.scale, prevPropScale: props.scale }
             }
         }
@@ -237,8 +240,7 @@ class PDFViewer extends React.Component {
         }
         if (!hideNavbarDisplay && pages > 0) {
             nav =
-                !navigation ||
-                (navigation && typeof navigation === 'object') ? (
+                !navigation || typeof navigation === 'object' ? (
                     <Navigation
                         page={page}
                         pages={pages}

@@ -331,6 +331,8 @@ const WithExternalControl = () => {
                         canvasCss='customCanvasCss'
                         externalInput
                         scale={scale}
+                        minScale={minScale}
+                        maxScale={maxScale}
                         page={pageNo}
                         rotationAngle={rotation}
                         getMaxPageCount={pageCount => (maxPage = pageCount)}

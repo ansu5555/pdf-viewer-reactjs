@@ -128,14 +128,6 @@ PropTypes.shape({
 
 -   Description: Scale factor to be increased or decreased on Zoom-in or zoom-out
 
-**`maxScale`:**
-
--   Type: _Number_
-
--   Required: **false**
-
--   Description: Maximum scale factor for zoom-in
-
 **`minScale`:**
 
 -   Type: _Number_
@@ -143,6 +135,14 @@ PropTypes.shape({
 -   Required: **false**
 
 -   Description: Minimum scale factor for zoom-out
+
+**`maxScale`:**
+
+-   Type: _Number_
+
+-   Required: **false**
+
+-   Description: Maximum scale factor for zoom-in
 
 **`onDocumentClick`:**
 
