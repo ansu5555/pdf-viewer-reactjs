@@ -5,9 +5,7 @@
 Simple react PDF Viewer component with controls like
 
 -   Page navigation
-
 -   Zoom
-
 -   Rotation
 
 Every element can be styled upon your preferences using default classes your own and also custom react element can be passed.
@@ -18,7 +16,7 @@ it is originally forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr
 
 # How to install
 
-```
+```js
 
 npm install pdf-viewer-reactjs
 
