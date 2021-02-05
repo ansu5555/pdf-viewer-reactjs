@@ -1,6 +1,6 @@
 # pdf-viewer-reactjs
 
-![npm](https://img.shields.io/npm/v/pdf-viewer-reactjs) ![npm](https://img.shields.io/npm/dw/pdf-viewer-reactjs) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/pdf-viewer-reactjs) ![NPM](https://img.shields.io/npm/l/pdf-viewer-reactjs)
+![npm](https://img.shields.io/npm/v/pdf-viewer-reactjs) ![npm](https://img.shields.io/npm/dw/pdf-viewer-reactjs) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/pdf-viewer-reactjs) ![NPM](https://img.shields.io/npm/l/pdf-viewer-reactjs) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/171e095d2873453b8f2f8cea3b5f7be9)](https://www.codacy.com/gh/ansu5555/pdf-viewer-reactjs/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ansu5555/pdf-viewer-reactjs&utm_campaign=Badge_Grade)
 
 Simple react PDF Viewer component with controls like
 
@@ -10,7 +10,7 @@ Simple react PDF Viewer component with controls like
 
 Every element can be styled upon your preferences using default classes your own and also custom react element can be passed.
 
-it is originally forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr-pdf-viewer-react)
+Initially it was forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr-pdf-viewer-react)
 
 ### Example: Live demo is available [here](https://ansu5555.github.io/pdf-viewer-reactjs/)
 
