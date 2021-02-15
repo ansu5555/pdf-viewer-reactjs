@@ -6,8 +6,6 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
 import Alert from './Alert'
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker
-let pdf = null
-let thumbnailImages = null
 
 function usePrevious(value) {
     const ref = useRef()
@@ -32,6 +30,8 @@ const RenderPdf = ({
     alert,
     canvasCss,
 }) => {
+    const [pdf, setPDF] = useState(null)
+    const [thumbnailImages, setThumbnailImages] = useState(null)
     const [error, setError] = useState({ status: false, message: '' })
     const canvasRef = useRef(null)
     const thumbnailRef = useRef(null)
@@ -46,6 +46,8 @@ const RenderPdf = ({
 
     const fetchPDF = async () => {
         // Get PDF file
+        let pdfDoc = null
+        let thumbImages = null
         try {
             if (
                 JSON.stringify(prevDocument) !== JSON.stringify(document) ||
@@ -57,16 +59,17 @@ const RenderPdf = ({
                 } else {
                     objDocInit.url = document.url
                 }
-                pdf = await pdfjs.getDocument(objDocInit).promise
+                pdfDoc = await pdfjs.getDocument(objDocInit).promise
+                thumbImages = await createImages(pdfDoc)
 
                 // call pageCountfunction to update page count
-                pageCount(pdf.numPages)
+                pageCount(pdfDoc.numPages)
+                displayThumbnails(thumbImages)
 
-                thumbnailImages = await createImages()
-                displayThumbnails(thumbnailImages)
+                setPDF(pdfDoc)
+                setThumbnailImages(thumbImages)
             }
-
-            await displayPage()
+            await displayPage(pdfDoc)
         } catch (error) {
             console.warn('Error while opening the document !\n', error)
             pageCount(-1) // set page count to -1 on error
@@ -77,10 +80,13 @@ const RenderPdf = ({
         }
     }
 
-    const displayPage = async () => {
+    const displayPage = async (pdfDoc = null) => {
         // display pdf page
+        if (pdfDoc == null) {
+            pdfDoc = pdf
+        }
         try {
-            const page = await pdf.getPage(pageNum)
+            const page = await pdfDoc.getPage(pageNum)
             const viewport = page.getViewport({ scale, rotation })
 
             // Prepare canvas using PDF page dimensions
@@ -149,7 +155,7 @@ const RenderPdf = ({
         }
     }
 
-    const createImages = async () => {
+    const createImages = async pdf => {
         // create images for all pages
         const imgList = []
 
