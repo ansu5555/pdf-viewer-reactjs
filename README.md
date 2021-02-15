@@ -12,6 +12,8 @@ Every element can be styled upon your preferences using default classes your own
 
 Initially it was forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr-pdf-viewer-react)
 
+### Hit the :star: in gihub if you like it
+
 ### Example: Live demo is available [here](https://ansu5555.github.io/pdf-viewer-reactjs/)
 
 # How to install

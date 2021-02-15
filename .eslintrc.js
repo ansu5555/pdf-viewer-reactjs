@@ -19,10 +19,11 @@ module.exports = {
     plugins: ['react', 'prettier'],
     rules: {
         'prettier/prettier': 'error',
+        'arrow-parens': [2, 'as-needed'],
     },
     settings: {
         react: {
-            version: 'detect',
+            version: '>=16.8.6',
         },
     },
 }
