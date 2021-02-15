@@ -32,6 +32,7 @@ const RenderPdf = ({
 }) => {
     const [pdf, setPDF] = useState(null)
     const [thumbnailImages, setThumbnailImages] = useState(null)
+    const [prevRenderTask, setPrevRenderTask] = useState(null)
     const [error, setError] = useState({ status: false, message: '' })
     const canvasRef = useRef(null)
     const thumbnailRef = useRef(null)
@@ -103,6 +104,10 @@ const RenderPdf = ({
                 viewport,
             }
             const renderTask = page.render(renderContext)
+            // cancel previous render task
+            if (prevRenderTask != null) {
+                prevRenderTask._internalRenderTask.cancel()
+            }
             try {
                 await renderTask.promise
                 if (Object.entries(watermark).length !== 0) {
@@ -145,6 +150,7 @@ const RenderPdf = ({
                     message: 'Error occured while rendering !',
                 })
             }
+            setPrevRenderTask(renderTask)
         } catch (error) {
             console.warn('Error while reading the pages !\n', error)
             pageCount(-1) // set page count to -1 on error
