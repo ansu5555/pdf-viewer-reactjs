@@ -1,6 +1,17 @@
+@import url('bulma/css/bulma.css');
+@import url('material-design-icons/iconfont/material-icons.css');
+
+html {
+  background-color: #ffffcc;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #fafafa;
+}
+
+a,
+u {
+  text-decoration: none;
 }

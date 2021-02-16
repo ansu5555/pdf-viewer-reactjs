@@ -1,3 +1,9 @@
+.bordered {
+  border-color: #383838;
+  border-width: 3px;
+  border-style: solid;
+}
+
 .customViewer {
   border-color: #fa5b35;
   border-width: 1px;
