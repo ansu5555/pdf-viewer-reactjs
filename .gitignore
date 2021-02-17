@@ -39,8 +39,5 @@ jspm_packages
 # Ignore MacOS config file
 .DS_Store
 
-# Ignore config
-.vscode
-
 # local history
 .history
