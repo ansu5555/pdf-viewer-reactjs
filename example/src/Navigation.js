@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const CustomPrevButton = props => {
+export const CustomPrevButton = (props) => {
   const { page, handlePrevClick } = props
   if (page === 1) return <div />
 
@@ -24,7 +24,7 @@ CustomPrevButton.propTypes = {
   handlePrevClick: PropTypes.func.isRequired,
 }
 
-export const CustomNextButton = props => {
+export const CustomNextButton = (props) => {
   const { page, pages, handleNextClick } = props
   if (page === pages) return <div />
 
@@ -47,7 +47,7 @@ CustomNextButton.propTypes = {
   handleNextClick: PropTypes.func.isRequired,
 }
 
-export const CustomPages = props => {
+export const CustomPages = (props) => {
   const { page, pages } = props
   return (
     <h3 style={{ display: 'inline-block', marginTop: 0 }}>
@@ -60,7 +60,7 @@ CustomPages.propTypes = {
   pages: PropTypes.number.isRequired,
 }
 
-const CustomNavigation = props => {
+const CustomNavigation = (props) => {
   const { page, pages } = props
 
   const { handlePrevClick, handleNextClick } = props

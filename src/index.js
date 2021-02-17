@@ -48,7 +48,7 @@ class PDFViewer extends React.Component {
   handlePrevClick() {
     if (this.state.page === 1) return
 
-    this.setState(state => ({
+    this.setState((state) => ({
       page: state.page - 1,
     }))
 
@@ -60,7 +60,7 @@ class PDFViewer extends React.Component {
   handleNextClick() {
     if (this.state.page === this.pages) return
 
-    this.setState(state => ({
+    this.setState((state) => ({
       page: state.page + 1,
     }))
 
@@ -87,7 +87,7 @@ class PDFViewer extends React.Component {
   }
 
   handleResetZoom() {
-    this.setState(state => ({
+    this.setState((state) => ({
       scale: state.defaultScale,
     }))
 
@@ -214,8 +214,8 @@ class PDFViewer extends React.Component {
         pageNum={page}
         scale={scale}
         rotation={rotationAngle}
-        changePage={idx => this.handleThumbnailClick(idx)}
-        pageCount={num => this.getPageCount(num)}
+        changePage={(idx) => this.handleThumbnailClick(idx)}
+        pageCount={(num) => this.getPageCount(num)}
         showThumbnail={showThumbnail}
         protectContent={protectContent}
         watermark={watermark}

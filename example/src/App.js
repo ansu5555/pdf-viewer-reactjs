@@ -59,7 +59,7 @@ const CustomErrorHandling = () => (
       document={{
         url: 'https://somewrongurl/tsjydyd.pdf',
       }}
-      alert={err => (
+      alert={(err) => (
         <div
           style={{
             color: '#fa5b35',
@@ -175,10 +175,10 @@ const WithOnDocumentClick = () => (
         url: sources.url,
       }}
       onDocumentClick={() => alert('Document was clicked')}
-      onPrevBtnClick={page => alert(`Page ${page} selected`)}
-      onNextBtnClick={page => alert(`Page ${page} selected`)}
-      onZoom={scale => alert(`Zoom scale is ${scale}`)}
-      onRotation={angle => alert(`Page angle is ${angle}`)}
+      onPrevBtnClick={(page) => alert(`Page ${page} selected`)}
+      onNextBtnClick={(page) => alert(`Page ${page} selected`)}
+      onZoom={(scale) => alert(`Zoom scale is ${scale}`)}
+      onRotation={(angle) => alert(`Page angle is ${angle}`)}
     />
   </div>
 )
@@ -271,7 +271,7 @@ const WithExternalControl = () => {
           maxScale={maxScale}
           page={pageNo}
           rotationAngle={rotation}
-          getMaxPageCount={pageCount => (maxPage = pageCount)}
+          getMaxPageCount={(pageCount) => (maxPage = pageCount)}
         />
         <div className='columns mt-5'>
           <div className='column is-one-third'>

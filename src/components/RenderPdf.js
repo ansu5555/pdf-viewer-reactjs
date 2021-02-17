@@ -151,7 +151,7 @@ const RenderPdf = ({
     }
   }
 
-  const createImages = async pdf => {
+  const createImages = async (pdf) => {
     // create images for all pages
     const imgList = []
 
@@ -221,7 +221,7 @@ const RenderPdf = ({
     return imgList
   }
 
-  const displayThumbnails = images => {
+  const displayThumbnails = (images) => {
     if (Object.entries(showThumbnail).length !== 0 && images !== null) {
       // display thumbnails for all pages
       const thumbnailList = []
@@ -326,7 +326,9 @@ const RenderPdf = ({
             <div style={thumbContainerStyle}>{thumbnails}</div>
             <canvas
               style={error.status ? { display: 'none' } : null}
-              onContextMenu={e => (protectContent ? e.preventDefault() : null)}
+              onContextMenu={(e) =>
+                protectContent ? e.preventDefault() : null
+              }
               ref={canvasRef}
               width={typeof window !== 'undefined' && window.innerWidth}
               height={typeof window !== 'undefined' && window.innerHeight}
@@ -355,7 +357,9 @@ const RenderPdf = ({
             </div>
             <canvas
               style={error.status ? { display: 'none' } : null}
-              onContextMenu={e => (protectContent ? e.preventDefault() : null)}
+              onContextMenu={(e) =>
+                protectContent ? e.preventDefault() : null
+              }
               ref={canvasRef}
               width={typeof window !== 'undefined' && window.innerWidth}
               height={typeof window !== 'undefined' && window.innerHeight}
@@ -385,7 +389,7 @@ const RenderPdf = ({
           </div>
           <canvas
             style={error.status ? { display: 'none' } : null}
-            onContextMenu={e => (protectContent ? e.preventDefault() : null)}
+            onContextMenu={(e) => (protectContent ? e.preventDefault() : null)}
             ref={canvasRef}
             width={typeof window !== 'undefined' && window.innerWidth}
             height={typeof window !== 'undefined' && window.innerHeight}
