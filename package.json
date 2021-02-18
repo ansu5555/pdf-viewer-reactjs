@@ -6,8 +6,8 @@
   "main": "dist/pdf-viewer-reactjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" ",
-    "lintJS": "node_modules/.bin/eslint --fix ./*.js ./src/*.js ./src/**/*.js ./example/src/*.js ./example/src/**/*.js",
-    "lintCSS": "node_modules/.bin/stylelint --fix ./example/src/*.css ./example/src/**/*.css",
+    "lintJS": "node_modules/.bin/eslint --fix './*js' 'src/**/*.js' 'example/src/**/*.js'",
+    "lintCSS": "node_modules/.bin/stylelint --fix 'example/src/**/*.css'",
     "lint": "npm run lintJS && npm run lintCSS",
     "prebuild": "npm run lint",
     "build": "rollup -c",

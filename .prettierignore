@@ -1,2 +1,5 @@
-/dist/pdf-viewer-reactjs.js
-/example/src/Sources.js
+.history
+node_modules
+example/node_modules
+example/src/Sources.js
+dist/pdf-viewer-reactjs.js
