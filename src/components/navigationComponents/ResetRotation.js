@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ResetRotation = ({ css, rotationAngle, handleResetRotation }) => {
-  const resetRotationClass =
-    css || 'button is-black is-marginless has-margin-left-5 has-margin-right-5'
+  const resetRotationClass = css || 'button is-black my-0 mx-3'
 
   if (rotationAngle === 0) {
     return (

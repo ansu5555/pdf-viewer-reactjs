@@ -4,9 +4,9 @@
 
 Simple react PDF Viewer component with controls like
 
--   Page navigation
--   Zoom
--   Rotation
+- Page navigation
+- Zoom
+- Rotation
 
 Every element can be styled upon your preferences using default classes your own and also custom react element can be passed.
 
@@ -20,17 +20,28 @@ Initially it was forked from [mgr-pdf-viewer-react](https://github.com/MGrin/mgr
 
 ```js
 
-npm install pdf-viewer-reactjs
+npm i pdf-viewer-reactjs
 
 ```
 
 # Note:
 
-> ### Due to causing [broken css issue](https://github.com/ansu5555/pdf-viewer-reactjs/issues/27) **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** are removed from dependencies and added as peerDependencies
-
+> ### Due to causing [broken CSS issue](https://github.com/ansu5555/pdf-viewer-reactjs/issues/27) **_bulma_** & **_material-design-icons_** are removed from dependencies and code as well and added as peerDependencies.
 >
-
-> ### Please install **_bulma_**, **_bulma-helpers_** & **_material-design-icons_** from npm by yourself or provide custom css as per your requirement
+> ### Please install **_bulma_** & **_material-design-icons_** from npm by yourself
+>
+> ```js
+> npm i bulma material-design-icons
+> ```
+>
+> ### then import them in your CSS as below
+>
+> ```css
+> @import url('bulma/css/bulma.css');
+> @import url('material-design-icons/iconfont/material-icons.css');
+> ```
+>
+> ### Else provide custom CSS styles as per your requirement
 
 # How to use
 
@@ -40,13 +51,13 @@ import React from 'react'
 import PDFViewer from 'pdf-viewer-reactjs'
 
 const ExamplePDFViewer = () => {
-    return (
-        <PDFViewer
-            document={{
-                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
-            }}
-        />
-    )
+  return (
+    <PDFViewer
+      document={{
+        url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+      }}
+    />
+  )
 }
 
 export default ExamplePDFViewer
@@ -58,263 +69,263 @@ React component prop. types:
 
 **`document`:**
 
--   Type:
+- Type:
 
 ```js
 PropTypes.shape({
-    url: String, // URL to the pdf
+  url: String, // URL to the pdf
 
-    base64: String, // PDF file encoded in base64
+  base64: String, // PDF file encoded in base64
 })
 ```
 
--   Required: **true**
+- Required: **true**
 
--   Description: Provides a way to fetch the PDF document
+- Description: Provides a way to fetch the PDF document
 
 **`password`:**
 
--   Type: _String_
+- Type: _String_
 
--   Required: **false**
+- Required: **false**
 
--   Description: For decrypting password-protected PDFs
+- Description: For decrypting password-protected PDFs
 
 **`withCredentials`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: Indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies or authorization headers. The default is false
+- Description: Indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies or authorization headers. The default is false
 
 **`externalInput`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: By default page number, scale and rotation angle can be set initially using the props but cannot be changed dynamically, to make these props dynamic pass this prop (after passing this prop navbar will become hidden)
+- Description: By default page number, scale and rotation angle can be set initially using the props but cannot be changed dynamically, to make these props dynamic pass this prop (after passing this prop navbar will become hidden)
 
 **`page`:**
 
--   Type: _Number_
+- Type: _Number_
 
--   Required: **false**
+- Required: **false**
 
--   Description: The page that will be shown first on document load, also can be used to change the page number dynamically after passing `externalInput` prop
+- Description: The page that will be shown first on document load, also can be used to change the page number dynamically after passing `externalInput` prop
 
 **`scale`:**
 
--   Type: _Number_
+- Type: _Number_
 
--   Required: **false**
+- Required: **false**
 
--   Description: Scale factor relative to the component parent element, also can be used to change the scale dynamically after passing `externalInput` prop
+- Description: Scale factor relative to the component parent element, also can be used to change the scale dynamically after passing `externalInput` prop
 
 **`rotationAngle`:**
 
--   Type: _Number_
+- Type: _Number_
 
--   Required: **false**
+- Required: **false**
 
--   Description: Initial rotation of the document, values can be -90, 0 or 90, also can be used to change the rotation angle dynamically after passing `externalInput` prop
+- Description: Initial rotation of the document, values can be -90, 0 or 90, also can be used to change the rotation angle dynamically after passing `externalInput` prop
 
 **`scaleStep`:**
 
--   Type: _Number_
+- Type: _Number_
 
--   Required: **false**
+- Required: **false**
 
--   Description: Scale factor to be increased or decreased on Zoom-in or zoom-out
+- Description: Scale factor to be increased or decreased on Zoom-in or zoom-out
 
 **`minScale`:**
 
--   Type: _Number_
+- Type: _Number_
 
--   Required: **false**
+- Required: **false**
 
--   Description: Minimum scale factor for zoom-out
+- Description: Minimum scale factor for zoom-out
 
 **`maxScale`:**
 
--   Type: _Number_
+- Type: _Number_
 
--   Required: **false**
+- Required: **false**
 
--   Description: Maximum scale factor for zoom-in
+- Description: Maximum scale factor for zoom-in
 
 **`onDocumentClick`:**
 
--   Type: _Function_
+- Type: _Function_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A function that will be called only on clicking the PDF page itself, NOT on the navbar
+- Description: A function that will be called only on clicking the PDF page itself, NOT on the navbar
 
 **`onPrevBtnClick`:**
 
--   Type: _Function_
+- Type: _Function_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A function that will be called on clicking on the previous page button, page number can be accessed in the function.
+- Description: A function that will be called on clicking on the previous page button, page number can be accessed in the function.
 
 **`onNextBtnClick`:**
 
--   Type: _Function_
+- Type: _Function_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A function that will be called on clicking on the next page button, page number can be accessed in the function.
+- Description: A function that will be called on clicking on the next page button, page number can be accessed in the function.
 
 **`onZoom`:**
 
--   Type: _Function_
+- Type: _Function_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A function that will be called on clicking on Zoom controls, zoom scale can be accessed in the function.
+- Description: A function that will be called on clicking on Zoom controls, zoom scale can be accessed in the function.
 
 **`onRotation`:**
 
--   Type: _Function_
+- Type: _Function_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A function that will be called on clicking on Rotation controls, rotation angle can be accessed in the function.
+- Description: A function that will be called on clicking on Rotation controls, rotation angle can be accessed in the function.
 
 **`getMaxPageCount`:**
 
--   Type: _Function_
+- Type: _Function_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A function that will be called on document load, total page count can be accessed in the function.
+- Description: A function that will be called on document load, total page count can be accessed in the function.
 
 **`css`:**
 
--   Type: _String_
+- Type: _String_
 
--   Required: **false**
+- Required: **false**
 
--   Description: CSS classes that will be setted for the component wrapper
+- Description: CSS classes that will be setted for the component wrapper
 
 **`canvasCss`:**
 
--   Type: _String_
+- Type: _String_
 
--   Required: **false**
+- Required: **false**
 
--   Description: CSS classes that will be setted for the PDF page
+- Description: CSS classes that will be setted for the PDF page
 
 **`navbarOnTop`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
+- Description: By default navbar is displayed on bottom, but can be placed on top by passing this prop
 
 **`hideNavbar`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: By default navbar is displayed, but can be hidden by passing this prop
+- Description: By default navbar is displayed, but can be hidden by passing this prop
 
 **`hideZoom`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: By default zoom buttons are displayed, but can be hidden by passing this prop
+- Description: By default zoom buttons are displayed, but can be hidden by passing this prop
 
 **`hideRotation`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: By default rotation buttons are displayed, but can be hidden by passing this prop
+- Description: By default rotation buttons are displayed, but can be hidden by passing this prop
 
 **`loader`:**
 
--   Type: _Node_
+- Type: _Node_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A custom loader element that will be shown while the PDF is loading
+- Description: A custom loader element that will be shown while the PDF is loading
 
 **`alert`:**
 
--   Type: _Node_
+- Type: _Node_
 
--   Required: **false**
+- Required: **false**
 
--   Description: A custom alert element that will be shown on error
+- Description: A custom alert element that will be shown on error
 
 **`showThumbnail`:**
 
--   Type:
+- Type:
 
 ```js
 PropTypes.shape({
-    scale: PropTypes.number, // Thumbnail scale, ranges from 1 to 5
+  scale: PropTypes.number, // Thumbnail scale, ranges from 1 to 5
 
-    rotationAngle: PropTypes.number, // Thumbnail rotation angle, values can be -90, 0 or 90. Default is 0
+  rotationAngle: PropTypes.number, // Thumbnail rotation angle, values can be -90, 0 or 90. Default is 0
 
-    onTop: PropTypes.bool, // Thumbnail position, if set to true thumbnail will be placed on top
+  onTop: PropTypes.bool, // Thumbnail position, if set to true thumbnail will be placed on top
 
-    backgroundColor: PropTypes.string, // Color(hex or rgb) of the thumbnail container
+  backgroundColor: PropTypes.string, // Color(hex or rgb) of the thumbnail container
 
-    thumbCss: PropTypes.string, // Custom css class for thumbnails
+  thumbCss: PropTypes.string, // Custom css class for thumbnails
 
-    selectedThumbCss: PropTypes.string, // Custom css class for selected thumbnail
+  selectedThumbCss: PropTypes.string, // Custom css class for selected thumbnail
 })
 ```
 
--   Required: **false**
+- Required: **false**
 
--   Description: Details of the thumbnails, not shown if not provided
+- Description: Details of the thumbnails, not shown if not provided
 
 **`protectContent`:**
 
--   Type: _Boolean_
+- Type: _Boolean_
 
--   Required: **false**
+- Required: **false**
 
--   Description: By default Right Click and Context Menu are enabled, but can be disabled by passing this prop
+- Description: By default Right Click and Context Menu are enabled, but can be disabled by passing this prop
 
 **`watermark`:**
 
--   Type:
+- Type:
 
 ```js
 PropTypes.shape({
-    text: PropTypes.string, // Watermark text
+  text: PropTypes.string, // Watermark text
 
-    diagonal: PropTypes.bool, // Watermark placement true for Diagonal, false for Horizontal
+  diagonal: PropTypes.bool, // Watermark placement true for Diagonal, false for Horizontal
 
-    opacity: PropTypes.string, // Watermark opacity, ranges from 0 to 1
+  opacity: PropTypes.string, // Watermark opacity, ranges from 0 to 1
 
-    font: PropTypes.string, // custom font name default is 'Comic Sans MS'
+  font: PropTypes.string, // custom font name default is 'Comic Sans MS'
 
-    size: PropTypes.string, // Font Size of Watermark
+  size: PropTypes.string, // Font Size of Watermark
 
-    color: PropTypes.string, // Color(hex or rgb) of the watermark
+  color: PropTypes.string, // Color(hex or rgb) of the watermark
 })
 ```
 
--   Required: **false**
+- Required: **false**
 
--   Description: Details of the watermark, not shown if not provided
+- Description: Details of the watermark, not shown if not provided
 
 **`navigation`:**
 
--   Type:
+- Type:
 
 ```js
 
@@ -356,9 +367,9 @@ PropTypes.any  // Full navigation React element
 
 ```
 
--   Required: **false**
+- Required: **false**
 
--   Description: Defines the navigation bar styles and/or elements.
+- Description: Defines the navigation bar styles and/or elements.
 
 # Author
 

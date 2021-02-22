@@ -7,16 +7,7 @@ export default {
     file: 'dist/pdf-viewer-reactjs.js',
     format: 'cjs',
   },
-  external: [
-    'react',
-    'prop-types',
-    'jquery',
-    'material-design-icons',
-    'bootstrap',
-    'bulma',
-    'bulma-helpers',
-    'popper.js',
-  ],
+  external: ['react', 'prop-types', 'material-design-icons', 'bulma'],
   plugins: [
     babel({
       babelHelpers: 'runtime',

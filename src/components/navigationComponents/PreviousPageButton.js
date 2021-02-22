@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const PreviousPageButton = ({ css, page, handlePrevClick }) => {
-  const prevClass = css || 'button is-black is-marginless'
+  const prevClass = css || 'button is-black my-0 mx-3'
 
   if (page === 1) {
     return (

@@ -5,35 +5,21 @@ const loader = {
   verticalAlign: 'text-bottom',
   backgroundColor: 'currentColor',
   borderRadius: '50%',
-  opacity: 0,
   width: '0.5rem',
   height: '0.5rem',
-  animationDuration: '0.75s',
-  animationTimingFunction: 'linear',
-  animationIterationCount: 'infinite',
-  animationDirection: 'normal',
-  animationFillMode: 'none',
-  animationPlayState: 'running',
-  animationName: 'spinner-grow',
 }
 
-const loader1 = { ...loader, animationDelay: '0s' }
-
-const loader2 = { ...loader, animationDelay: '0.25s' }
-
-const loader3 = { ...loader, animationDelay: '0.5s' }
-
 const Loader = () => (
-  <div className='flex-row has-margin-10 justify-center align-items-flex-end'>
-    <p className='is-size-3 flex-column is-marginless'>Loading</p>
-    <div className='flex-column has-padding-10'>
-      <div style={loader1} />
+  <div className='m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center'>
+    <p className='is-size-3 is-marginless'>Loading</p>
+    <div className='p-3'>
+      <div style={loader} />
     </div>
-    <div className='flex-column has-padding-10'>
-      <div style={loader2} />
+    <div className='p-3'>
+      <div style={loader} />
     </div>
-    <div className='flex-column has-padding-10'>
-      <div style={loader3} />
+    <div className='p-3'>
+      <div style={loader} />
     </div>
   </div>
 )

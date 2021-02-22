@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const NextPageButton = ({ css, page, pages, handleNextClick }) => {
-  const nextClass = css || 'button is-black is-marginless'
+  const nextClass = css || 'button is-black my-0 mx-3'
 
   if (page === pages) {
     return (

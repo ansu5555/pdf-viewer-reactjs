@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ZoomOut = ({ css, scale, defaultScale, minScale, handleZoomOut }) => {
-  const zoomOutClass =
-    css || 'button is-black is-marginless has-margin-left-5 has-margin-right-5'
+  const zoomOutClass = css || 'button is-black my-0 mx-3'
 
   let checkScale = minScale
   if (defaultScale < minScale) {

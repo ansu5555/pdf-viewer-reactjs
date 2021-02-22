@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ZoomIn = ({ css, scale, defaultScale, maxScale, handleZoomIn }) => {
-  const zoomInClass =
-    css || 'button is-black is-marginless has-margin-left-5 has-margin-right-5'
+  const zoomInClass = css || 'button is-black my-0 mx-3'
 
   let checkScale = maxScale
   if (defaultScale > maxScale) {

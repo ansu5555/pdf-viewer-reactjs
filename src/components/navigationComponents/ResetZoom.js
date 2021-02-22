@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ResetZoom = ({ css, scale, defaultScale, handleResetZoom }) => {
-  const resetZoomClass =
-    css || 'button is-black is-marginless has-margin-left-5 has-margin-right-5'
+  const resetZoomClass = css || 'button is-black my-0 mx-3'
 
   if (scale.toFixed(2) === defaultScale.toFixed(2)) {
     return (

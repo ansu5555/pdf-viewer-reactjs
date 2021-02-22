@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const RotateLeft = ({ css, rotationAngle, handleRotateLeft }) => {
-  const rotateLeftClass =
-    css || 'button is-black is-marginless has-margin-left-5 has-margin-right-5'
+  const rotateLeftClass = css || 'button is-black my-0 mx-3'
 
   if (rotationAngle === -90) {
     return (
