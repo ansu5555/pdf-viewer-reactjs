@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Bar Should render correctly 1`] = `
+<div
+  className="columns is-gapless box is-mobile has-text-white has-background-black py-4"
+>
+  <div
+    className="column is-flex is-flex-direction-row is-4 buttons are-small has-addons"
+  >
+    <button
+      className="button is-black my-0 mx-3"
+      disabled={true}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          zoom_out
+        </i>
+      </span>
+    </button>
+    <button
+      className="button is-black my-0 mx-3"
+      disabled={true}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          refresh
+        </i>
+      </span>
+    </button>
+    <button
+      className="button is-black my-0 mx-3"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          zoom_in
+        </i>
+      </span>
+    </button>
+  </div>
+  <div
+    className="column is-flex is-flex-direction-row is-4 buttons are-small has-addons is-centered"
+  >
+    <button
+      className="button is-black my-0 mx-3"
+      disabled={true}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          keyboard_arrow_left
+        </i>
+      </span>
+    </button>
+    <span
+      className="is-size-7 has-text-centered my-0 mx-3"
+    >
+      Page 1 / 10
+    </span>
+    <button
+      className="button is-black my-0 mx-3"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          keyboard_arrow_right
+        </i>
+      </span>
+    </button>
+  </div>
+  <div
+    className="column is-flex is-flex-direction-row is-4 buttons are-small has-addons is-right"
+  >
+    <button
+      className="button is-black my-0 mx-3"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          rotate_left
+        </i>
+      </span>
+    </button>
+    <button
+      className="button is-black my-0 mx-3"
+      disabled={true}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          refresh
+        </i>
+      </span>
+    </button>
+    <button
+      className="button is-black my-0 mx-3"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="icon is-small"
+      >
+        <i
+          className="material-icons"
+        >
+          rotate_right
+        </i>
+      </span>
+    </button>
+  </div>
+</div>
+`;

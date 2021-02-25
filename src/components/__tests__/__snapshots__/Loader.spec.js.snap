@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader Should render correctly 1`] = `
+<div
+  className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+>
+  <p
+    className="is-size-3 is-marginless"
+  >
+    Loading
+  </p>
+  <div
+    className="p-3"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "currentColor",
+          "borderRadius": "50%",
+          "display": "inline-block",
+          "height": "0.5rem",
+          "verticalAlign": "text-bottom",
+          "width": "0.5rem",
+        }
+      }
+    />
+  </div>
+  <div
+    className="p-3"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "currentColor",
+          "borderRadius": "50%",
+          "display": "inline-block",
+          "height": "0.5rem",
+          "verticalAlign": "text-bottom",
+          "width": "0.5rem",
+        }
+      }
+    />
+  </div>
+  <div
+    className="p-3"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "currentColor",
+          "borderRadius": "50%",
+          "display": "inline-block",
+          "height": "0.5rem",
+          "verticalAlign": "text-bottom",
+          "width": "0.5rem",
+        }
+      }
+    />
+  </div>
+</div>
+`;

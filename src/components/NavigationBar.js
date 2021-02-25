@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import NextPageButton from './navigationComponents/NextPageButton'
-import PagesIndicator from './navigationComponents/PagesIndicator'
+import PageIndicator from './navigationComponents/PageIndicator'
 import PreviousPageButton from './navigationComponents/PreviousPageButton'
 import ZoomIn from './navigationComponents/ZoomIn'
 import ZoomOut from './navigationComponents/ZoomOut'
@@ -69,7 +69,7 @@ const Navigation = ({
           pages={pages}
           handlePrevClick={handlePrevClick}
         />
-        <PagesIndicator css={css.pageIndicator} page={page} pages={pages} />
+        <PageIndicator css={css.pageIndicator} page={page} pages={pages} />
         <NextPageButton
           css={css.nextPageBtn}
           page={page}
