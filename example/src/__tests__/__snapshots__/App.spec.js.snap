@@ -1,0 +1,2476 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Should render correctly 1`] = `
+Array [
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="url"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#url"
+        >
+          Fetch PDF by URL
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div
+                className=""
+                style={
+                  Object {
+                    "height": "1000px",
+                    "overflow": "auto",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                >
+                  <div
+                    className="columns has-text-danger mt-2 is-mobile"
+                  >
+                    <div
+                      className="column is-4 has-text-right p-2"
+                    >
+                      <span
+                        className="icon"
+                      >
+                        <i
+                          className="material-icons"
+                        >
+                          error_outline
+                        </i>
+                      </span>
+                    </div>
+                    <div
+                      className="column is-8 has-text-left p-2"
+                    >
+                      <small>
+                        
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <canvas
+                  height={768}
+                  onContextMenu={[Function]}
+                  style={null}
+                  width={1024}
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "backgroundColor": "#EAE6DA",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "overflowX": "auto",
+                  }
+                }
+              />
+              <canvas
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+              />
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="base64"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#base64"
+        >
+          Load PDF from base 64 string
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="eh"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#eh"
+        >
+          Error message for failures
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="ceh"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#ceh"
+        >
+          Custom Error component for failures
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "backgroundColor": "#0c0c0c",
+                          "color": "#fa5b35",
+                        }
+                      }
+                    >
+                      <h3
+                        style={
+                          Object {
+                            "fontWeight": "bolder",
+                          }
+                        }
+                      >
+                        Failed To load !!!
+                      </h3>
+                      <h6>
+                        
+                      </h6>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="cl"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#cl"
+        >
+          Custom loader element
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <h2
+              style={
+                Object {
+                  "color": "#fa5b35",
+                }
+              }
+            >
+              Custom loader element
+            </h2>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="csp"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#csp"
+        >
+          Custom starting page
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="cs"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#cs"
+        >
+          Custom scale
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="cns"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#cns"
+        >
+          Custom css classes
+        </a>
+      </div>
+      <div
+        className="customViewer"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className="customCanvas"
+            style={Object {}}
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className="customCanvas"
+                  style={Object {}}
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="cn"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#cn"
+        >
+          Custom navigation
+        </a>
+      </div>
+      <div
+        className="customViewer"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="odc"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#odc"
+        >
+          With onDocumentClick, onPrevBtnClick, onNextBtnClick, onZoom and onRotation handler
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div
+              onClick={[Function]}
+            >
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="wn"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#wn"
+        >
+          Without Navigation
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="wzr"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#wzr"
+        >
+          Without Zoom and Rotation
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="nt"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#nt"
+        >
+          Navigation Bar on top
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div />
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="wp"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#wp"
+        >
+          Watermark and Protected
+        </a>
+      </div>
+      <div
+        className="container text-center"
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "height": "1000px",
+                "overflow": "auto",
+              }
+            }
+          >
+            <div
+              className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+            >
+              <p
+                className="is-size-3 is-marginless"
+              >
+                Loading
+              </p>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="p-3"
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "currentColor",
+                      "borderRadius": "50%",
+                      "display": "inline-block",
+                      "height": "0.5rem",
+                      "verticalAlign": "text-bottom",
+                      "width": "0.5rem",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div>
+            <div>
+              <div>
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "height": "1000px",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  >
+                    <div
+                      className="columns has-text-danger mt-2 is-mobile"
+                    >
+                      <div
+                        className="column is-4 has-text-right p-2"
+                      >
+                        <span
+                          className="icon"
+                        >
+                          <i
+                            className="material-icons"
+                          >
+                            error_outline
+                          </i>
+                        </span>
+                      </div>
+                      <div
+                        className="column is-8 has-text-left p-2"
+                      >
+                        <small>
+                          
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    height={768}
+                    onContextMenu={[Function]}
+                    style={null}
+                    width={1024}
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="columns mx-2 my-5"
+  >
+    <div
+      className="column has-text-centered"
+      id="ec"
+    >
+      <div
+        className="box bordered is-size-1"
+      >
+        <a
+          href="#ec"
+        >
+          External Controls
+        </a>
+      </div>
+      <div
+        className="box m-5"
+      >
+        <div
+          className="container text-center"
+        >
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <div
+              className="customCanvasCss"
+              style={Object {}}
+            >
+              <div
+                className="m-4 is-flex is-flex-direction-row is-justify-content-center is-align-content-center"
+              >
+                <p
+                  className="is-size-3 is-marginless"
+                >
+                  Loading
+                </p>
+                <div
+                  className="p-3"
+                >
+                  <div
+                    style={
+                      Object {
+                        "backgroundColor": "currentColor",
+                        "borderRadius": "50%",
+                        "display": "inline-block",
+                        "height": "0.5rem",
+                        "verticalAlign": "text-bottom",
+                        "width": "0.5rem",
+                      }
+                    }
+                  />
+                </div>
+                <div
+                  className="p-3"
+                >
+                  <div
+                    style={
+                      Object {
+                        "backgroundColor": "currentColor",
+                        "borderRadius": "50%",
+                        "display": "inline-block",
+                        "height": "0.5rem",
+                        "verticalAlign": "text-bottom",
+                        "width": "0.5rem",
+                      }
+                    }
+                  />
+                </div>
+                <div
+                  className="p-3"
+                >
+                  <div
+                    style={
+                      Object {
+                        "backgroundColor": "currentColor",
+                        "borderRadius": "50%",
+                        "display": "inline-block",
+                        "height": "0.5rem",
+                        "verticalAlign": "text-bottom",
+                        "width": "0.5rem",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <div>
+              <div>
+                <div>
+                  <div
+                    className="customCanvasCss"
+                    style={Object {}}
+                  >
+                    <div
+                      style={
+                        Object {
+                          "display": "none",
+                        }
+                      }
+                    >
+                      <div
+                        className="columns has-text-danger mt-2 is-mobile"
+                      >
+                        <div
+                          className="column is-4 has-text-right p-2"
+                        >
+                          <span
+                            className="icon"
+                          >
+                            <i
+                              className="material-icons"
+                            >
+                              error_outline
+                            </i>
+                          </span>
+                        </div>
+                        <div
+                          className="column is-8 has-text-left p-2"
+                        >
+                          <small>
+                            
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    <canvas
+                      height={768}
+                      onContextMenu={[Function]}
+                      style={null}
+                      width={1024}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div />
+            </div>
+          </div>
+        </div>
+        <div
+          className="columns mt-5"
+        >
+          <div
+            className="column is-one-third"
+          >
+            <div
+              aria-label="First group"
+              className="buttons is-justify-content-center are-medium mr-2"
+              role="group"
+            >
+              <button
+                className="button is-primary is-rounded m-2"
+                onClick={[Function]}
+                type="button"
+              >
+                &lt;&lt;
+              </button>
+              <div
+                className="block m-2"
+              >
+                Page Number is 
+                1
+              </div>
+              <button
+                className="button is-primary is-rounded m-2"
+                onClick={[Function]}
+                type="button"
+              >
+                &gt;&gt;
+              </button>
+            </div>
+          </div>
+          <div
+            className="column is-one-third"
+          >
+            <div
+              aria-label="First group"
+              className="buttons is-justify-content-center are-medium mr-2"
+              role="group"
+            >
+              <button
+                className="button is-primary is-rounded m-2"
+                onClick={[Function]}
+                type="button"
+              >
+                +
+              </button>
+              <div
+                className="block m-2"
+              >
+                Scale is 
+                0.5
+              </div>
+              <button
+                className="button is-primary is-rounded m-2"
+                onClick={[Function]}
+                type="button"
+              >
+                -
+              </button>
+            </div>
+          </div>
+          <div
+            className="column is-one-third"
+          >
+            <div
+              aria-label="First group"
+              className="buttons is-justify-content-center are-medium mr-2"
+              role="group"
+            >
+              <button
+                className="button is-primary is-rounded m-2"
+                onClick={[Function]}
+                type="button"
+              >
+                &lt;==
+              </button>
+              <div
+                className="block m-2"
+              >
+                Rotation Angle is 
+                0
+              </div>
+              <button
+                className="button is-primary is-rounded m-2"
+                onClick={[Function]}
+                type="button"
+              >
+                ==&gt;
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="columns"
+        >
+          <div
+            className="column is-half"
+          >
+            <button
+              className="button is-large is-dark"
+              onClick={[Function]}
+              type="button"
+            >
+              View Document 1
+            </button>
+          </div>
+          <div
+            className="column is-half"
+          >
+            <button
+              className="button is-large is-dark"
+              onClick={[Function]}
+              type="button"
+            >
+              View Document 2
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
