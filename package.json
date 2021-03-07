@@ -13,7 +13,7 @@
     "lint": "npm run lintJS && npm run lintCSS",
     "prebuild": "npm run lint && npm run test",
     "build": "rollup -c",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -64,9 +64,11 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-wdio": "^7.0.0",
     "husky": "^5.0.9",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
+    "react-scripts": "^4.0.3",
     "react-test-renderer": "^17.0.1",
     "rollup": "^2.39.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",

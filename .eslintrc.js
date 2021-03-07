@@ -3,12 +3,15 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    'jest/globals': true,
+    jest: true,
+    mocha: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
+    'plugin:jest/recommended',
+    'plugin:wdio/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,7 +24,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['jest'],
+  plugins: ['jest', 'wdio'],
   rules: {
     'arrow-parens': [2, 'always'],
     'jest/no-disabled-tests': 'warn',

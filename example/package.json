@@ -10,13 +10,25 @@
     "typescript": "^4.1.5"
   },
   "devDependencies": {
+    "@wdio/cli": "^7.1.0",
+    "@wdio/local-runner": "^7.1.0",
+    "@wdio/mocha-framework": "^7.0.7",
+    "@wdio/spec-reporter": "^7.0.7",
+    "@wdio/sync": "^7.1.0",
+    "chromedriver": "^89.0.0",
     "gh-pages": "^3.1.0",
-    "react-scripts": "^4.0.2"
+    "serve": "^11.3.2",
+    "start-server-and-test": "^1.12.0",
+    "wdio-chromedriver-service": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "PUBLIC_URL=/ react-scripts build && serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --watchAll=false",
+    "unittest": "react-scripts test --env=jsdom --watchAll=false",
+    "e2etest": "wdio run ./wdio.conf.js",
+    "testall": "npm run unittest && npm run e2etest",
+    "test": "start-server-and-test start-server http://localhost:5000 testall",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
