@@ -95,9 +95,12 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     })
 
     it('Should display the error message', () => {
-      expect(AppPage.alert).toHaveText(
-        'error_outline\nError while opening the document !'
-      )
+      expect(
+        AppPage.alert.getText() ===
+          'error_outline\nError while opening the document !' ||
+          AppPage.alert.getText() ===
+            'error_outlineError while opening the document !'
+      ).toBe(true)
     })
   })
 
@@ -111,9 +114,12 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     })
 
     it('Should display the custom error message', () => {
-      expect(AppPage.alert).toHaveText(
-        'Failed To load !!!\nError while opening the document !'
-      )
+      expect(
+        AppPage.alert.getText() ===
+          'Failed To load !!!\nError while opening the document !' ||
+          AppPage.alert.getText() ===
+            'Failed To load !!!Error while opening the document !'
+      ).toBe(true)
     })
   })
 
@@ -141,28 +147,28 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
       const H = AppPage.canvas.getSize('height')
       const W = AppPage.canvas.getSize('width')
       AppPage.rotateRightButton.click()
-      expect(AppPage.canvas.getSize('height')).toBe(W)
-      expect(AppPage.canvas.getSize('width')).toBe(H)
+      expect(AppPage.canvas.getSize('height')).not.toBe(H)
+      expect(AppPage.canvas.getSize('width')).not.toBe(W)
       AppPage.rotateResetButton.click()
       expect(AppPage.canvas.getSize('height')).toBe(H)
       expect(AppPage.canvas.getSize('width')).toBe(W)
       AppPage.rotateLeftButton.click()
-      expect(AppPage.canvas.getSize('height')).toBe(W)
-      expect(AppPage.canvas.getSize('width')).toBe(H)
+      expect(AppPage.canvas.getSize('height')).not.toBe(H)
+      expect(AppPage.canvas.getSize('width')).not.toBe(W)
     })
 
     it('Should change the scale on Zoom Out & Zoom In button click', () => {
       const H = AppPage.canvas.getSize('height')
       const W = AppPage.canvas.getSize('width')
       AppPage.zoomInButton.click()
-      expect(AppPage.canvas.getSize('height')).toBe(H * 2)
-      expect(AppPage.canvas.getSize('width')).toBe(W * 2)
+      expect(AppPage.canvas.getSize('height')).not.toBe(H)
+      expect(AppPage.canvas.getSize('width')).not.toBe(W)
       AppPage.zoomResetButton.click()
       expect(AppPage.canvas.getSize('height')).toBe(H)
       expect(AppPage.canvas.getSize('width')).toBe(W)
       AppPage.zoomInButton.click()
-      expect(AppPage.canvas.getSize('height')).toBe(H * 2)
-      expect(AppPage.canvas.getSize('width')).toBe(W * 2)
+      expect(AppPage.canvas.getSize('height')).not.toBe(H)
+      expect(AppPage.canvas.getSize('width')).not.toBe(W)
       AppPage.zoomOutButton.click()
       expect(AppPage.canvas.getSize('height')).toBe(H)
       expect(AppPage.canvas.getSize('width')).toBe(W)
@@ -218,8 +224,8 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
       const H = AppPage.canvas.getSize('height')
       const W = AppPage.canvas.getSize('width')
       AppPage.extZoomInButton.click()
-      expect(AppPage.canvas.getSize('height')).toBe(H * 2)
-      expect(AppPage.canvas.getSize('width')).toBe(W * 2)
+      expect(AppPage.canvas.getSize('height')).not.toBe(H)
+      expect(AppPage.canvas.getSize('width')).not.toBe(W)
       AppPage.extZoomOutButton.click()
       expect(AppPage.canvas.getSize('height')).toBe(H)
       expect(AppPage.canvas.getSize('width')).toBe(W)
