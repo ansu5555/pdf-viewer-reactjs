@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd example && npm run unittest && cd .. && npm run build && git add dist

@@ -23,12 +23,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "PUBLIC_URL=/ react-scripts build && serve -s build",
+    "start-server": "PUBLIC_URL=/ react-scripts build && serve -s build -l 3000",
     "build": "react-scripts build",
     "unittest": "react-scripts test --env=jsdom --watchAll=false",
     "e2etest": "wdio run ./wdio.conf.js",
     "testall": "npm run unittest && npm run e2etest",
-    "test": "start-server-and-test start-server http://localhost:5000 testall",
+    "test": "start-server-and-test start-server http://localhost:3000 testall",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

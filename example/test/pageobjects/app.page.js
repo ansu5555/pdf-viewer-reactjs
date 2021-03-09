@@ -7,19 +7,79 @@ class AppPage {
     return browser.url('/')
   }
 
-  takeScreenShot(name) {
-    return browser.saveScreenshot(`./test/ss/${name}.png`)
+  /**
+   * @param {string} id
+   */
+  set section(id) {
+    this.selectedSection = `#${id}`
   }
 
-  get loadFromURL() {
-    return $('#url')
-  }
-  get getButtons() {
-    return $('#url').$('button=keyboard_arrow_right')
+  get section() {
+    return $(this.selectedSection)
   }
 
-  get getPageIndicator() {
-    return $('#url').$('span*=Page')
+  get alert() {
+    return this.section.$('.container').$('div*=Error')
+  }
+
+  get loader() {
+    return this.section.$('.container').$$('div')[0]
+  }
+
+  get pdfViewer() {
+    return this.section.$('.container').$$('div')[1]
+  }
+
+  get canvas() {
+    return this.section.$('canvas')
+  }
+
+  get thumbnails() {
+    return this.section.$$('img')
+  }
+
+  get zoomOutButton() {
+    return this.section.$('button=zoom_out')
+  }
+
+  get zoomResetButton() {
+    return this.section.$$('button=refresh')[0]
+  }
+
+  get zoomInButton() {
+    return this.section.$('button=zoom_in')
+  }
+
+  get prevPageButton() {
+    return this.section.$('button=keyboard_arrow_left')
+  }
+
+  get pageIndicator() {
+    return this.section.$('span*=Page')
+  }
+
+  get nextPageButton() {
+    return this.section.$('button=keyboard_arrow_right')
+  }
+
+  get rotateLeftButton() {
+    return this.section.$('button=rotate_left')
+  }
+
+  get rotateResetButton() {
+    return this.section.$$('button=refresh')[1]
+  }
+
+  get rotateRightButton() {
+    return this.section.$('button=rotate_right')
+  }
+
+  get extZoomInButton() {
+    return this.section.$('button=+')
+  }
+
+  get extZoomOutButton() {
+    return this.section.$('button=-')
   }
 }
 

@@ -17,7 +17,7 @@ exports.config = {
   ],
   logLevel: 'warn', // Level of logging verbosity: trace | debug | info | warn | error | silent
   bail: 0,
-  baseUrl: 'http://localhost:5000',
+  baseUrl: 'http://localhost:3000',
   waitforTimeout: 10000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
