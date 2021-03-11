@@ -5,36 +5,41 @@ exports.config = {
   specs: ['./test/specs/**/*.js'],
   exclude: [],
   maxInstances: 10,
-  commonCapabilities: {
-    'bstack:options': {
-      projectName: 'PDF-Viewer-reactjs example test',
-    },
-    browserVersion: 'latest',
-    acceptInsecureCerts: true,
-  },
   capabilities: [
     {
       'bstack:options': {
+        projectName: 'PDF-Viewer-reactjs example test',
         os: 'Windows',
       },
+      browserVersion: 'latest',
+      acceptInsecureCerts: true,
       browserName: 'firefox',
     },
     {
       'bstack:options': {
+        projectName: 'PDF-Viewer-reactjs example test',
         os: 'Windows',
       },
+      browserVersion: 'latest',
+      acceptInsecureCerts: true,
       browserName: 'edge',
     },
     {
       'bstack:options': {
+        projectName: 'PDF-Viewer-reactjs example test',
         os: 'OS X',
       },
+      browserVersion: 'latest',
+      acceptInsecureCerts: true,
       browserName: 'chrome',
     },
     {
       'bstack:options': {
+        projectName: 'PDF-Viewer-reactjs example test',
         os: 'OS X',
       },
+      browserVersion: 'latest',
+      acceptInsecureCerts: true,
       browserName: 'safari',
     },
   ],
