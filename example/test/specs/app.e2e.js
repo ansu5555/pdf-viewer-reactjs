@@ -85,44 +85,6 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     })
   })
 
-  describe('"Error message for failures" section', () => {
-    before(() => {
-      AppPage.section = 'eh'
-    })
-
-    it('Should be displayed', () => {
-      expect(AppPage.section).toBeExisting()
-    })
-
-    it('Should display the error message', () => {
-      expect(
-        AppPage.alert.getText() ===
-          'error_outline\nError while opening the document !' ||
-          AppPage.alert.getText() ===
-            'error_outlineError while opening the document !'
-      ).toBe(true)
-    })
-  })
-
-  describe('"Custom Error component for failures" section', () => {
-    before(() => {
-      AppPage.section = 'ceh'
-    })
-
-    it('Should be displayed', () => {
-      expect(AppPage.section).toBeExisting()
-    })
-
-    it('Should display the custom error message', () => {
-      expect(
-        AppPage.alert.getText() ===
-          'Failed To load !!!\nError while opening the document !' ||
-          AppPage.alert.getText() ===
-            'Failed To load !!!Error while opening the document !'
-      ).toBe(true)
-    })
-  })
-
   describe('"Custom starting page" section', () => {
     before(() => {
       AppPage.section = 'csp'
@@ -229,6 +191,44 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
       AppPage.extZoomOutButton.click()
       expect(AppPage.canvas.getSize('height')).toBe(H)
       expect(AppPage.canvas.getSize('width')).toBe(W)
+    })
+  })
+
+  describe('"Error message for failures" section', () => {
+    before(() => {
+      AppPage.section = 'eh'
+    })
+
+    it('Should be displayed', () => {
+      expect(AppPage.section).toBeExisting()
+    })
+
+    it('Should display the error message', () => {
+      expect(
+        AppPage.alert.getText() ===
+          'error_outline\nError while opening the document !' ||
+          AppPage.alert.getText() ===
+            'error_outlineError while opening the document !'
+      ).toBe(true)
+    })
+  })
+
+  describe('"Custom Error component for failures" section', () => {
+    before(() => {
+      AppPage.section = 'ceh'
+    })
+
+    it('Should be displayed', () => {
+      expect(AppPage.section).toBeExisting()
+    })
+
+    it('Should display the custom error message', () => {
+      expect(
+        AppPage.alert.getText() ===
+          'Failed To load !!!\nError while opening the document !' ||
+          AppPage.alert.getText() ===
+            'Failed To load !!!Error while opening the document !'
+      ).toBe(true)
     })
   })
 })

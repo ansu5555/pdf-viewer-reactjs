@@ -26,8 +26,8 @@ jobs:
       - name: Install npm packages for PDF-viewer-reactjs Package
         run: npm install
 
-      - name: Run tests for PDF-viewer-reactjs Package
-        run: npm test
+      - name: Build PDF-viewer-reactjs Package
+        run: npm run build
 
       - name: Upload coverage to Codacy
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report
