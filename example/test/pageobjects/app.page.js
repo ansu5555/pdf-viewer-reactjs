@@ -4,7 +4,11 @@ class AppPage {
   }
 
   open() {
-    return browser.url('/')
+    browser.url('/')
+  }
+
+  wait(second) {
+    browser.pause(second * 1000)
   }
 
   /**
@@ -26,10 +30,6 @@ class AppPage {
 
   get loader() {
     return this.section.$('.container').$$('div')[0]
-  }
-
-  get pdfViewer() {
-    return this.section.$('.container').$$('div')[1]
   }
 
   get canvas() {

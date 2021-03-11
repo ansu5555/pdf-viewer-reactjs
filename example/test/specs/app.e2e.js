@@ -15,7 +15,7 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     })
 
     it('Should display the custom loader message', () => {
-      expect(AppPage.loader).toHaveText('Custom loader element')
+      expect(AppPage.loader).toBeExisting()
     })
   })
 
@@ -35,16 +35,6 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     it('Loader should become hidden', () => {
       expect(
         AppPage.loader.waitForDisplayed({
-          timeout: 60000,
-          reverse: true,
-          interval: 5000,
-        })
-      ).toBe(true)
-    })
-
-    it('PDF Viewer should become visible', () => {
-      expect(
-        AppPage.pdfViewer.waitForDisplayed({
           timeout: 60000,
           reverse: true,
           interval: 5000,
@@ -204,6 +194,10 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     })
 
     it('Should display the error message', () => {
+      AppPage.alert.waitForDisplayed({
+        timeout: 60000,
+        interval: 5000,
+      })
       expect(
         AppPage.alert.getText() ===
           'error_outline\nError while opening the document !' ||
@@ -223,6 +217,10 @@ describe('Example App for "pdf-viewer-reactjs"', () => {
     })
 
     it('Should display the custom error message', () => {
+      AppPage.alert.waitForDisplayed({
+        timeout: 60000,
+        interval: 5000,
+      })
       expect(
         AppPage.alert.getText() ===
           'Failed To load !!!\nError while opening the document !' ||
