@@ -19,7 +19,9 @@ class AppPage {
   }
 
   get alert() {
-    return this.section.$('.container').$('div*=Error')
+    return this.section
+      .$('.container')
+      .$('div*=Error while opening the document')
   }
 
   get loader() {
