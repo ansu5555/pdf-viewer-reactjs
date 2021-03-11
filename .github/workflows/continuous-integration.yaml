@@ -5,6 +5,11 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -16,10 +21,22 @@ jobs:
           node-version: '14'
 
       - name: Update npm
-        run: npm install -g npm
+        run: npm install -g npm@7.6.2
 
-      - name: Install npm packages
+      - name: Install npm packages for PDF-viewer-reactjs Package
         run: npm install
 
-      - name: Run tests
+      - name: Run tests for PDF-viewer-reactjs Package
         run: npm test
+
+      - name: Upload coverage to Codacy
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report
+
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
+
+      - name: Install npm packages for Example App
+        run: npm install --prefix example/
+
+      - name: Run tests for Example App
+        run: npm test --prefix example/
