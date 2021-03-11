@@ -1,19 +1,19 @@
-name: Codacy Analysis CLI
+name: Codacy Analysis
 
 on: ['push']
 
 jobs:
-    codacy-analysis-cli:
-        name: Codacy Analysis CLI
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@master
+  analyze:
+    runs-on: ubuntu-latest
 
-            - name: Run Codacy Analysis CLI
-              uses: codacy/codacy-analysis-cli-action@master
-              with:
-                  tool: clang-tidy
-                  project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                  upload: true
-                  max-allowed-issues: 2147483647
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
+        with:
+          tool: clang-tidy
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          upload: true
+          max-allowed-issues: 2147483647
