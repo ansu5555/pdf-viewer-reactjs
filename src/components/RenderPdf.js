@@ -63,14 +63,14 @@ const RenderPdf = ({
         pdfDoc = await pdfjs.getDocument(objDocInit).promise
         thumbImages = await createImages(pdfDoc)
 
-        // call pageCountfunction to update page count
-        pageCount(pdfDoc.numPages)
         displayThumbnails(thumbImages)
 
         setPDF(pdfDoc)
         setThumbnailImages(thumbImages)
       }
       await displayPage(pdfDoc)
+      // call pageCountfunction to update page count
+      pageCount(pdfDoc.numPages)
     } catch (error) {
       console.warn('Error while opening the document !\n', error)
       pageCount(-1) // set page count to -1 on error

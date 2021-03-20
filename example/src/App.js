@@ -6,9 +6,8 @@ import sources from './Sources'
 
 import './App.css'
 
-let maxPage = 0
-let minScale = 0.5
-let maxScale = 3
+const minScale = 0.5
+const maxScale = 3
 
 const FromUrl = () => (
   <div className='column has-text-centered' id='url'>
@@ -252,6 +251,7 @@ const WithExternalControl = () => {
   let [doc, setDoc] = useState({
     url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
   })
+  let [pages, setPages] = useState(undefined)
   let [pageNo, setPageNo] = useState(1)
   let [scale, setScale] = useState(0.5)
   let [rotation, setRotation] = useState(0)
@@ -271,7 +271,7 @@ const WithExternalControl = () => {
           maxScale={maxScale}
           page={pageNo}
           rotationAngle={rotation}
-          getMaxPageCount={(pageCount) => (maxPage = pageCount)}
+          getMaxPageCount={(pageCount) => setPages(pageCount)}
         />
         <div className='columns mt-5'>
           <div className='column is-one-third'>
@@ -289,12 +289,14 @@ const WithExternalControl = () => {
                 }}>
                 &lt;&lt;
               </button>
-              <div className='block m-2'>Page Number is {pageNo}</div>
+              <div className='block m-2'>
+                Page Number is {pageNo} / {pages}
+              </div>
               <button
                 type='button'
                 className='button is-primary is-rounded m-2'
                 onClick={() => {
-                  if (pageNo < maxPage) {
+                  if (pageNo < pages) {
                     setPageNo(pageNo + 1)
                   }
                 }}>

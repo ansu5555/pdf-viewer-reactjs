@@ -2372,6 +2372,7 @@ Array [
               >
                 Page Number is 
                 1
+                 / 
               </div>
               <button
                 className="button is-primary is-rounded m-2"
