@@ -77,6 +77,6 @@
   },
   "dependencies": {
     "pdfjs-dist": "^2.6.347",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.8.0"
   }
 }
